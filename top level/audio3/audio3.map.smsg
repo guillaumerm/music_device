@@ -1,0 +1,3 @@
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(73): created implicit net for "VGA_CTRL_CLK"
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(74): created implicit net for "AUD_CTRL_CLK"
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(75): created implicit net for "VGA_CLK"
