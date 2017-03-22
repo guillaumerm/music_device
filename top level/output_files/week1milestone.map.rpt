@@ -1,6 +1,6 @@
 Analysis & Synthesis report for week1milestone
-Thu Mar 16 07:38:53 2017
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Tue Mar 21 21:02:01 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
 ---------------------
@@ -13,24 +13,32 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis DSP Block Usage Summary
-  9. State Machine - |top|audio3:audio|I2C_AV_Config:u3|mSetup_ST
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component
- 16. Parameter Settings for User Entity Instance: audio3:audio|I2C_AV_Config:u3
- 17. Parameter Settings for User Entity Instance: audio3:audio|audio_clock:u4
- 18. Parameter Settings for User Entity Instance: audio3:audio|sine_table:sig1
- 19. altpll Parameter Settings by Entity Instance
- 20. Port Connectivity Checks: "audio3:audio|audio_converter:u5"
- 21. Port Connectivity Checks: "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0"
- 22. Port Connectivity Checks: "audio3:audio|VGA_Audio_PLL:p1"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |top|audio3:audio|I2C_AV_Config:u3|mSetup_ST
+ 12. State Machine - |top|control:comb_3|current_state
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Inverted Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated
+ 19. Parameter Settings for User Entity Instance: datapath:comb_4|memory:main|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component
+ 21. Parameter Settings for User Entity Instance: audio3:audio|I2C_AV_Config:u3
+ 22. Parameter Settings for User Entity Instance: audio3:audio|audio_clock:u4
+ 23. Parameter Settings for User Entity Instance: audio3:audio|sine_table:sig1
+ 24. Parameter Settings for User Entity Instance: audio3:audio|sine_table:sig2
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. altpll Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "audio3:audio|audio_converter:u5"
+ 28. Port Connectivity Checks: "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0"
+ 29. Port Connectivity Checks: "audio3:audio|VGA_Audio_PLL:p1"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -54,27 +62,27 @@ agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Mar 16 07:38:53 2017       ;
-; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
-; Revision Name                   ; week1milestone                              ;
-; Top-level Entity Name           ; top                                         ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 146                                         ;
-; Total pins                      ; 97                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 14                                          ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 1                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Mar 21 21:02:01 2017           ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                   ; week1milestone                                  ;
+; Top-level Entity Name           ; top                                             ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 183                                             ;
+; Total pins                      ; 97                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 96                                              ;
+; Total DSP Blocks                ; 14                                              ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 1                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -165,90 +173,126 @@ agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 6      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; audio3/VGA_Audio_PLL.v           ; yes             ; User Wizard-Generated File   ; H:/School Work 2/csc258/final project/top level/audio3/VGA_Audio_PLL.v   ;         ;
-; audio3/sine_table.v              ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/sine_table.v      ;         ;
-; audio3/reset_delay.v             ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/reset_delay.v     ;         ;
-; audio3/I2C_Controller.v          ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/I2C_Controller.v  ;         ;
-; audio3/I2C_AV_Config.v           ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/I2C_AV_Config.v   ;         ;
-; audio3/audio3.v                  ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/audio3.v          ;         ;
-; audio3/audio_converter.v         ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/audio_converter.v ;         ;
-; audio3/audio_clock.v             ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/audio3/audio_clock.v     ;         ;
-; top.v                            ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/top.v                    ;         ;
-; freq_select.v                    ; yes             ; User Verilog HDL File        ; H:/School Work 2/csc258/final project/top level/freq_select.v            ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/altera_lite/16.0/quartus/libraries/megafunctions/altpll.tdf           ;         ;
-; aglobal160.inc                   ; yes             ; Megafunction                 ; c:/altera_lite/16.0/quartus/libraries/megafunctions/aglobal160.inc       ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/altera_lite/16.0/quartus/libraries/megafunctions/stratix_pll.inc      ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/altera_lite/16.0/quartus/libraries/megafunctions/stratixii_pll.inc    ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/altera_lite/16.0/quartus/libraries/megafunctions/cycloneii_pll.inc    ;         ;
-; db/altpll_jlb2.tdf               ; yes             ; Auto-Generated Megafunction  ; H:/School Work 2/csc258/final project/top level/db/altpll_jlb2.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; audio3/VGA_Audio_PLL.v           ; yes             ; User Wizard-Generated File   ; D:/csc258/music_device/top level/audio3/VGA_Audio_PLL.v              ;         ;
+; audio3/sine_table.v              ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/sine_table.v                 ;         ;
+; audio3/reset_delay.v             ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/reset_delay.v                ;         ;
+; audio3/I2C_Controller.v          ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/I2C_Controller.v             ;         ;
+; audio3/I2C_AV_Config.v           ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/I2C_AV_Config.v              ;         ;
+; audio3/audio3.v                  ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/audio3.v                     ;         ;
+; audio3/audio_converter.v         ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/audio_converter.v            ;         ;
+; audio3/audio_clock.v             ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/audio3/audio_clock.v                ;         ;
+; top.v                            ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/top.v                               ;         ;
+; freq_select.v                    ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/freq_select.v                       ;         ;
+; control.v                        ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/control.v                           ;         ;
+; datapath.v                       ; yes             ; User Verilog HDL File        ; D:/csc258/music_device/top level/datapath.v                          ;         ;
+; memory.v                         ; yes             ; User Wizard-Generated File   ; D:/csc258/music_device/top level/memory.v                            ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal160.inc                   ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/aglobal160.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_r9m1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/csc258/music_device/top level/db/altsyncram_r9m1.tdf              ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/altera/16.0/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/altpll_jlb2.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/csc258/music_device/top level/db/altpll_jlb2.tdf                  ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                               ;
-+---------------------------------------------+---------------------------------------------+
-; Resource                                    ; Usage                                       ;
-+---------------------------------------------+---------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 220                                         ;
-;                                             ;                                             ;
-; Combinational ALUT usage for logic          ; 302                                         ;
-;     -- 7 input functions                    ; 4                                           ;
-;     -- 6 input functions                    ; 131                                         ;
-;     -- 5 input functions                    ; 38                                          ;
-;     -- 4 input functions                    ; 26                                          ;
-;     -- <=3 input functions                  ; 103                                         ;
-;                                             ;                                             ;
-; Dedicated logic registers                   ; 146                                         ;
-;                                             ;                                             ;
-; I/O pins                                    ; 97                                          ;
-;                                             ;                                             ;
-; Total DSP Blocks                            ; 14                                          ;
-;                                             ;                                             ;
-; Total PLLs                                  ; 2                                           ;
-;     -- PLLs                                 ; 2                                           ;
-;                                             ;                                             ;
-; Maximum fan-out node                        ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK ;
-; Maximum fan-out                             ; 60                                          ;
-; Total fan-out                               ; 2058                                        ;
-; Average fan-out                             ; 2.81                                        ;
-+---------------------------------------------+---------------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 269            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 379            ;
+;     -- 7 input functions                    ; 3              ;
+;     -- 6 input functions                    ; 152            ;
+;     -- 5 input functions                    ; 45             ;
+;     -- 4 input functions                    ; 30             ;
+;     -- <=3 input functions                  ; 149            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 183            ;
+;                                             ;                ;
+; I/O pins                                    ; 97             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 96             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 14             ;
+;                                             ;                ;
+; Total PLLs                                  ; 2              ;
+;     -- PLLs                                 ; 2              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 81             ;
+; Total fan-out                               ; 2436           ;
+; Average fan-out                             ; 2.86           ;
++---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                         ;
-+------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------+-----------------+--------------+
-; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                   ; Entity Name     ; Library Name ;
-+------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------+-----------------+--------------+
-; |top                                     ; 302 (0)           ; 146 (0)      ; 0                 ; 14         ; 97   ; 0            ; |top                                                                                  ; top             ; work         ;
-;    |audio3:audio|                        ; 253 (32)          ; 146 (32)     ; 0                 ; 2          ; 0    ; 0            ; |top|audio3:audio                                                                     ; audio3          ; work         ;
-;       |I2C_AV_Config:u3|                 ; 96 (53)           ; 75 (45)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3                                                    ; I2C_AV_Config   ; work         ;
-;          |I2C_Controller:u0|             ; 43 (43)           ; 30 (30)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0                                  ; I2C_Controller  ; work         ;
-;       |Reset_Delay:r0|                   ; 24 (24)           ; 21 (21)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|Reset_Delay:r0                                                      ; Reset_Delay     ; work         ;
-;       |VGA_Audio_PLL:p1|                 ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1                                                    ; VGA_Audio_PLL   ; work         ;
-;          |altpll:altpll_component|       ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component                            ; altpll          ; work         ;
-;             |altpll_jlb2:auto_generated| ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated ; altpll_jlb2     ; work         ;
-;       |audio_clock:u4|                   ; 16 (16)           ; 14 (14)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|audio_clock:u4                                                      ; audio_clock     ; work         ;
-;       |audio_converter:u5|               ; 19 (19)           ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|audio_converter:u5                                                  ; audio_converter ; work         ;
-;       |sine_table:sig1|                  ; 66 (66)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|sine_table:sig1                                                     ; sine_table      ; work         ;
-;    |freq_select:fs|                      ; 49 (49)           ; 0 (0)        ; 0                 ; 12         ; 0    ; 0            ; |top|freq_select:fs                                                                   ; freq_select     ; work         ;
-+------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------+-----------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Entity Name     ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |top                                         ; 379 (0)           ; 183 (0)      ; 96                ; 14         ; 97   ; 0            ; |top                                                                                            ; top             ; work         ;
+;    |audio3:audio|                            ; 253 (32)          ; 146 (32)     ; 0                 ; 2          ; 0    ; 0            ; |top|audio3:audio                                                                               ; audio3          ; work         ;
+;       |I2C_AV_Config:u3|                     ; 96 (53)           ; 75 (45)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3                                                              ; I2C_AV_Config   ; work         ;
+;          |I2C_Controller:u0|                 ; 43 (43)           ; 30 (30)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0                                            ; I2C_Controller  ; work         ;
+;       |Reset_Delay:r0|                       ; 24 (24)           ; 21 (21)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|Reset_Delay:r0                                                                ; Reset_Delay     ; work         ;
+;       |VGA_Audio_PLL:p1|                     ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1                                                              ; VGA_Audio_PLL   ; work         ;
+;          |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component                                      ; altpll          ; work         ;
+;             |altpll_jlb2:auto_generated|     ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated           ; altpll_jlb2     ; work         ;
+;       |audio_clock:u4|                       ; 16 (16)           ; 14 (14)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|audio_clock:u4                                                                ; audio_clock     ; work         ;
+;       |audio_converter:u5|                   ; 19 (19)           ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|audio_converter:u5                                                            ; audio_converter ; work         ;
+;       |sine_table:sig1|                      ; 66 (66)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|sine_table:sig1                                                               ; sine_table      ; work         ;
+;    |control:comb_3|                          ; 60 (11)           ; 32 (7)       ; 0                 ; 0          ; 0    ; 0            ; |top|control:comb_3                                                                             ; control         ; work         ;
+;       |RateDivider2:rd|                      ; 49 (49)           ; 25 (25)      ; 0                 ; 0          ; 0    ; 0            ; |top|control:comb_3|RateDivider2:rd                                                             ; RateDivider2    ; work         ;
+;    |datapath:comb_4|                         ; 66 (6)            ; 5 (5)        ; 96                ; 12         ; 0    ; 0            ; |top|datapath:comb_4                                                                            ; datapath        ; work         ;
+;       |freq_select:fs|                       ; 60 (60)           ; 0 (0)        ; 0                 ; 12         ; 0    ; 0            ; |top|datapath:comb_4|freq_select:fs                                                             ; freq_select     ; work         ;
+;       |memory:main|                          ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:comb_4|memory:main                                                                ; memory          ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:comb_4|memory:main|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
+;             |altsyncram_r9m1:auto_generated| ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated ; altsyncram_r9m1 ; work         ;
++----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                     ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                  ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 6            ; --           ; --           ; 96   ; None ;
++-------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
 
 
 +-----------------------------------------------+
@@ -265,6 +309,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------------+
 
 
++--------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                              ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                  ; IP Include File ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |top|datapath:comb_4|memory:main ; memory.v        ;
++--------+--------------+---------+--------------+--------------+----------------------------------+-----------------+
+
+
 Encoding Type:  One-Hot
 +-------------------------------------------------------------------+
 ; State Machine - |top|audio3:audio|I2C_AV_Config:u3|mSetup_ST      ;
@@ -275,6 +328,18 @@ Encoding Type:  One-Hot
 ; mSetup_ST.0001 ; 1              ; 0              ; 1              ;
 ; mSetup_ST.0010 ; 1              ; 1              ; 0              ;
 +----------------+----------------+----------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------+
+; State Machine - |top|control:comb_3|current_state                                                              ;
++------------------------------+------------------------------+------------------------+-------------------------+
+; Name                         ; current_state.LOAD_NOTE_WAIT ; current_state.PLAYBACK ; current_state.LOAD_NOTE ;
++------------------------------+------------------------------+------------------------+-------------------------+
+; current_state.LOAD_NOTE_WAIT ; 0                            ; 0                      ; 0                       ;
+; current_state.LOAD_NOTE      ; 1                            ; 0                      ; 1                       ;
+; current_state.PLAYBACK       ; 1                            ; 1                      ; 0                       ;
++------------------------------+------------------------------+------------------------+-------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------+
@@ -314,12 +379,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 146   ;
-; Number of registers using Synchronous Clear  ; 25    ;
+; Total registers                              ; 183   ;
+; Number of registers using Synchronous Clear  ; 36    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 89    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 59    ;
+; Number of registers using Clock Enable       ; 63    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -338,7 +403,24 @@ Encoding Type:  One-Hot
 ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[0] ; 26      ;
 ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|END           ; 5       ;
 ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SDO           ; 2       ;
-; Total number of inverted registers = 9                        ;         ;
+; control:comb_3|RateDivider2:rd|counter[18]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[19]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[20]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[21]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[22]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[24]                    ; 3       ;
+; control:comb_3|RateDivider2:rd|counter[5]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[4]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[3]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[2]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[1]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[0]                     ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[11]                    ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[12]                    ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[13]                    ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[14]                    ; 2       ;
+; control:comb_3|RateDivider2:rd|counter[16]                    ; 2       ;
+; Total number of inverted registers = 26                       ;         ;
 +---------------------------------------------------------------+---------+
 
 
@@ -347,9 +429,81 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4] ;
-; 16:1               ; 11 bits   ; 110 LEs       ; 88 LEs               ; 22 LEs                 ; No         ; |top|freq_select:fs|Mux2                                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top|control:comb_3|note_counter[2]                                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|datapath:comb_4|notes_recorded[3]                             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[0] ;
+; 16:1               ; 11 bits   ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; No         ; |top|datapath:comb_4|freq_select:fs|Mux10                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Source assignments for datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                  ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                   ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:comb_4|memory:main|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                         ;
++------------------------------------+----------------------+----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                      ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                      ;
+; WIDTH_A                            ; 6                    ; Signed Integer                               ;
+; WIDTHAD_A                          ; 4                    ; Signed Integer                               ;
+; NUMWORDS_A                         ; 16                   ; Signed Integer                               ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                      ;
+; WIDTH_B                            ; 1                    ; Untyped                                      ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                      ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                      ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                               ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                      ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                      ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                      ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                      ;
+; CBXI_PARAMETER                     ; altsyncram_r9m1      ; Untyped                                      ;
++------------------------------------+----------------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------------------------+
@@ -773,6 +927,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: audio3:audio|sine_table:sig2 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; PERIOD         ; 256   ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                        ;
++-------------------------------------------+-------------------------------------------------------------+
+; Name                                      ; Value                                                       ;
++-------------------------------------------+-------------------------------------------------------------+
+; Number of entity instances                ; 1                                                           ;
+; Entity Instance                           ; datapath:comb_4|memory:main|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                 ;
+;     -- WIDTH_A                            ; 6                                                           ;
+;     -- NUMWORDS_A                         ; 16                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                ;
+;     -- WIDTH_B                            ; 1                                                           ;
+;     -- NUMWORDS_B                         ; 1                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                   ;
++-------------------------------------------+-------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                                          ;
 +-------------------------------+-------------------------------------------------------+
@@ -790,15 +974,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "audio3:audio|audio_converter:u5"                                                        ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; AUD_outL ; Input  ; Info     ; Stuck at GND                                                                        ;
-; AUD_inL  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; AUD_inR  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "audio3:audio|audio_converter:u5"                                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; AUD_inL ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; AUD_inR ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -827,33 +1010,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 146                         ;
+; arriav_ff             ; 183                         ;
 ;     CLR               ; 60                          ;
 ;     CLR SCLR          ; 25                          ;
-;     ENA               ; 55                          ;
+;     ENA               ; 59                          ;
 ;     ENA CLR           ; 4                           ;
-;     plain             ; 2                           ;
+;     SCLR              ; 11                          ;
+;     plain             ; 24                          ;
 ; arriav_io_obuf        ; 74                          ;
-; arriav_lcell_comb     ; 303                         ;
-;     arith             ; 76                          ;
-;         1 data inputs ; 43                          ;
+; arriav_lcell_comb     ; 380                         ;
+;     arith             ; 101                         ;
+;         1 data inputs ; 68                          ;
 ;         2 data inputs ; 33                          ;
-;     extend            ; 4                           ;
-;         7 data inputs ; 4                           ;
-;     normal            ; 223                         ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 276                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 26                          ;
-;         5 data inputs ; 38                          ;
-;         6 data inputs ; 131                         ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 30                          ;
+;         5 data inputs ; 45                          ;
+;         6 data inputs ; 152                         ;
 ; arriav_mac            ; 14                          ;
 ; boundary_port         ; 97                          ;
 ; generic_pll           ; 2                           ;
+; stratixv_ram_block    ; 6                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.15                        ;
+; Average LUT depth     ; 2.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -862,7 +1047,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -871,44 +1056,83 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Thu Mar 16 07:38:29 2017
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Tue Mar 21 21:01:50 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off week1milestone -c week1milestone
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/vga_audio_pll.v
-    Info (12023): Found entity 1: VGA_Audio_PLL File: H:/School Work 2/csc258/final project/top level/audio3/VGA_Audio_PLL.v Line: 36
+    Info (12023): Found entity 1: VGA_Audio_PLL File: D:/csc258/music_device/top level/audio3/VGA_Audio_PLL.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/sine_table.v
-    Info (12023): Found entity 1: sine_table File: H:/School Work 2/csc258/final project/top level/audio3/sine_table.v Line: 4
+    Info (12023): Found entity 1: sine_table File: D:/csc258/music_device/top level/audio3/sine_table.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/reset_delay.v
-    Info (12023): Found entity 1: Reset_Delay File: H:/School Work 2/csc258/final project/top level/audio3/reset_delay.v Line: 1
+    Info (12023): Found entity 1: Reset_Delay File: D:/csc258/music_device/top level/audio3/reset_delay.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/i2c_controller.v
-    Info (12023): Found entity 1: I2C_Controller File: H:/School Work 2/csc258/final project/top level/audio3/I2C_Controller.v Line: 42
+    Info (12023): Found entity 1: I2C_Controller File: D:/csc258/music_device/top level/audio3/I2C_Controller.v Line: 42
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/i2c_av_config.v
-    Info (12023): Found entity 1: I2C_AV_Config File: H:/School Work 2/csc258/final project/top level/audio3/I2C_AV_Config.v Line: 1
+    Info (12023): Found entity 1: I2C_AV_Config File: D:/csc258/music_device/top level/audio3/I2C_AV_Config.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/hex_7seg.v
-    Info (12023): Found entity 1: hex_7seg File: H:/School Work 2/csc258/final project/top level/audio3/hex_7seg.v Line: 1
+    Info (12023): Found entity 1: hex_7seg File: D:/csc258/music_device/top level/audio3/hex_7seg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/audio3.v
-    Info (12023): Found entity 1: audio3 File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 1
+    Info (12023): Found entity 1: audio3 File: D:/csc258/music_device/top level/audio3/audio3.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/audio_converter.v
-    Info (12023): Found entity 1: audio_converter File: H:/School Work 2/csc258/final project/top level/audio3/audio_converter.v Line: 1
+    Info (12023): Found entity 1: audio_converter File: D:/csc258/music_device/top level/audio3/audio_converter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file audio3/audio_clock.v
-    Info (12023): Found entity 1: audio_clock File: H:/School Work 2/csc258/final project/top level/audio3/audio_clock.v Line: 1
+    Info (12023): Found entity 1: audio_clock File: D:/csc258/music_device/top level/audio3/audio_clock.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
-    Info (12023): Found entity 1: top File: H:/School Work 2/csc258/final project/top level/top.v Line: 1
+    Info (12023): Found entity 1: top File: D:/csc258/music_device/top level/top.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file freq_select.v
-    Info (12023): Found entity 1: freq_select File: H:/School Work 2/csc258/final project/top level/freq_select.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at audio3.v(45): created implicit net for "VGA_CTRL_CLK" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 45
-Warning (10236): Verilog HDL Implicit Net warning at audio3.v(46): created implicit net for "AUD_CTRL_CLK" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 46
-Warning (10236): Verilog HDL Implicit Net warning at audio3.v(47): created implicit net for "VGA_CLK" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 47
+    Info (12023): Found entity 1: freq_select File: D:/csc258/music_device/top level/freq_select.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file control.v
+    Info (12023): Found entity 1: control File: D:/csc258/music_device/top level/control.v Line: 1
+    Info (12023): Found entity 2: RateDivider2 File: D:/csc258/music_device/top level/control.v Line: 111
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+    Info (12023): Found entity 1: datapath File: D:/csc258/music_device/top level/datapath.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memory.v
+    Info (12023): Found entity 1: memory File: D:/csc258/music_device/top level/memory.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(45): created implicit net for "VGA_CTRL_CLK" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 45
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(46): created implicit net for "AUD_CTRL_CLK" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 46
+Warning (10236): Verilog HDL Implicit Net warning at audio3.v(47): created implicit net for "VGA_CLK" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 47
+Critical Warning (10846): Verilog HDL Instantiation warning at top.v(37): instance has no name File: D:/csc258/music_device/top level/top.v Line: 37
+Critical Warning (10846): Verilog HDL Instantiation warning at top.v(47): instance has no name File: D:/csc258/music_device/top level/top.v Line: 47
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "freq_select" for hierarchy "freq_select:fs" File: H:/School Work 2/csc258/final project/top level/top.v Line: 30
-Info (12128): Elaborating entity "audio3" for hierarchy "audio3:audio" File: H:/School Work 2/csc258/final project/top level/top.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at audio3.v(31): object "RST" assigned a value but never read File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 31
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "audio3:audio|Reset_Delay:r0" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 36
-Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "audio3:audio|VGA_Audio_PLL:p1" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 48
-Info (12128): Elaborating entity "altpll" for hierarchy "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" File: H:/School Work 2/csc258/final project/top level/audio3/VGA_Audio_PLL.v Line: 85
-Info (12130): Elaborated megafunction instantiation "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" File: H:/School Work 2/csc258/final project/top level/audio3/VGA_Audio_PLL.v Line: 85
-Info (12133): Instantiated megafunction "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" with the following parameter: File: H:/School Work 2/csc258/final project/top level/audio3/VGA_Audio_PLL.v Line: 85
+Info (12128): Elaborating entity "control" for hierarchy "control:comb_3" File: D:/csc258/music_device/top level/top.v Line: 37
+Warning (10230): Verilog HDL assignment warning at control.v(60): truncated value with size 32 to match size of target (4) File: D:/csc258/music_device/top level/control.v Line: 60
+Info (12128): Elaborating entity "RateDivider2" for hierarchy "control:comb_3|RateDivider2:rd" File: D:/csc258/music_device/top level/control.v Line: 15
+Warning (10230): Verilog HDL assignment warning at control.v(116): truncated value with size 32 to match size of target (25) File: D:/csc258/music_device/top level/control.v Line: 116
+Warning (10230): Verilog HDL assignment warning at control.v(120): truncated value with size 32 to match size of target (25) File: D:/csc258/music_device/top level/control.v Line: 120
+Warning (10230): Verilog HDL assignment warning at control.v(122): truncated value with size 32 to match size of target (25) File: D:/csc258/music_device/top level/control.v Line: 122
+Warning (10230): Verilog HDL assignment warning at control.v(124): truncated value with size 32 to match size of target (1) File: D:/csc258/music_device/top level/control.v Line: 124
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:comb_4" File: D:/csc258/music_device/top level/top.v Line: 47
+Warning (10230): Verilog HDL assignment warning at datapath.v(43): truncated value with size 32 to match size of target (4) File: D:/csc258/music_device/top level/datapath.v Line: 43
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:comb_4|memory:main" File: D:/csc258/music_device/top level/datapath.v Line: 23
+Info (12128): Elaborating entity "altsyncram" for hierarchy "datapath:comb_4|memory:main|altsyncram:altsyncram_component" File: D:/csc258/music_device/top level/memory.v Line: 86
+Info (12130): Elaborated megafunction instantiation "datapath:comb_4|memory:main|altsyncram:altsyncram_component" File: D:/csc258/music_device/top level/memory.v Line: 86
+Info (12133): Instantiated megafunction "datapath:comb_4|memory:main|altsyncram:altsyncram_component" with the following parameter: File: D:/csc258/music_device/top level/memory.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "16"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "4"
+    Info (12134): Parameter "width_a" = "6"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r9m1.tdf
+    Info (12023): Found entity 1: altsyncram_r9m1 File: D:/csc258/music_device/top level/db/altsyncram_r9m1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_r9m1" for hierarchy "datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "freq_select" for hierarchy "datapath:comb_4|freq_select:fs" File: D:/csc258/music_device/top level/datapath.v Line: 55
+Info (12128): Elaborating entity "audio3" for hierarchy "audio3:audio" File: D:/csc258/music_device/top level/top.v Line: 66
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "audio3:audio|Reset_Delay:r0" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 36
+Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "audio3:audio|VGA_Audio_PLL:p1" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 48
+Info (12128): Elaborating entity "altpll" for hierarchy "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" File: D:/csc258/music_device/top level/audio3/VGA_Audio_PLL.v Line: 85
+Info (12130): Elaborated megafunction instantiation "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" File: D:/csc258/music_device/top level/audio3/VGA_Audio_PLL.v Line: 85
+Info (12133): Instantiated megafunction "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" with the following parameter: File: D:/csc258/music_device/top level/audio3/VGA_Audio_PLL.v Line: 85
     Info (12134): Parameter "clk0_divide_by" = "15"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
     Info (12134): Parameter "clk0_multiply_by" = "14"
@@ -971,27 +1195,27 @@ Info (12133): Instantiated megafunction "audio3:audio|VGA_Audio_PLL:p1|altpll:al
     Info (12134): Parameter "port_sclkout0" = "PORT_UNUSED"
     Info (12134): Parameter "port_sclkout1" = "PORT_UNUSED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_jlb2.tdf
-    Info (12023): Found entity 1: altpll_jlb2 File: H:/School Work 2/csc258/final project/top level/db/altpll_jlb2.tdf Line: 26
-Info (12128): Elaborating entity "altpll_jlb2" for hierarchy "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated" File: c:/altera_lite/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "I2C_AV_Config" for hierarchy "audio3:audio|I2C_AV_Config:u3" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 57
-Info (12128): Elaborating entity "I2C_Controller" for hierarchy "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0" File: H:/School Work 2/csc258/final project/top level/audio3/I2C_AV_Config.v Line: 71
-Info (12128): Elaborating entity "audio_clock" for hierarchy "audio3:audio|audio_clock:u4" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 69
-Info (12128): Elaborating entity "audio_converter" for hierarchy "audio3:audio|audio_converter:u5" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 83
-Info (12128): Elaborating entity "sine_table" for hierarchy "audio3:audio|sine_table:sig1" File: H:/School Work 2/csc258/final project/top level/audio3/audio3.v Line: 109
+    Info (12023): Found entity 1: altpll_jlb2 File: D:/csc258/music_device/top level/db/altpll_jlb2.tdf Line: 26
+Info (12128): Elaborating entity "altpll_jlb2" for hierarchy "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "I2C_AV_Config" for hierarchy "audio3:audio|I2C_AV_Config:u3" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 57
+Info (12128): Elaborating entity "I2C_Controller" for hierarchy "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0" File: D:/csc258/music_device/top level/audio3/I2C_AV_Config.v Line: 71
+Info (12128): Elaborating entity "audio_clock" for hierarchy "audio3:audio|audio_clock:u4" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 69
+Info (12128): Elaborating entity "audio_converter" for hierarchy "audio3:audio|audio_converter:u5" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 83
+Info (12128): Elaborating entity "sine_table" for hierarchy "audio3:audio|sine_table:sig1" File: D:/csc258/music_device/top level/audio3/audio3.v Line: 109
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
-        Warning (14320): Synthesized away node "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated|clk[2]" File: H:/School Work 2/csc258/final project/top level/db/altpll_jlb2.tdf Line: 49
+        Warning (14320): Synthesized away node "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated|clk[2]" File: D:/csc258/music_device/top level/db/altpll_jlb2.tdf Line: 49
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "audio3:audio|I2C_AV_Config:u3|Ram0" is uninferred due to inappropriate RAM size File: H:/School Work 2/csc258/final project/top level/audio3/I2C_AV_Config.v Line: 117
+    Info (276004): RAM logic "audio3:audio|I2C_AV_Config:u3|Ram0" is uninferred due to inappropriate RAM size File: D:/csc258/music_device/top level/audio3/I2C_AV_Config.v Line: 117
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver. File: H:/School Work 2/csc258/final project/top level/top.v Line: 19
+    Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver. File: D:/csc258/music_device/top level/top.v Line: 19
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
-    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_BCLK" is moved to its source File: H:/School Work 2/csc258/final project/top level/top.v Line: 19
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "AUD_BCLK" is moved to its source File: D:/csc258/music_device/top level/top.v Line: 19
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "AUD_BCLK~synth" File: H:/School Work 2/csc258/final project/top level/top.v Line: 19
+    Warning (13010): Node "AUD_BCLK~synth" File: D:/csc258/music_device/top level/top.v Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "TD_RESET" is stuck at VCC File: H:/School Work 2/csc258/final project/top level/top.v Line: 10
+    Warning (13410): Pin "TD_RESET" is stuck at VCC File: D:/csc258/music_device/top level/top.v Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -1380,30 +1604,36 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
+Info (144001): Generated suppressed messages file D:/csc258/music_device/top level/output_files/week1milestone.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 6 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
-Warning: OUTCLK port on the PLL is not properly connected on instance audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated|generic_pll1. The output clock port on the PLL must be connected. File: H:/School Work 2/csc258/final project/top level/db/altpll_jlb2.tdf Line: 35
+Warning: OUTCLK port on the PLL is not properly connected on instance audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated|generic_pll1. The output clock port on the PLL must be connected. File: D:/csc258/music_device/top level/db/altpll_jlb2.tdf Line: 35
     Info: Must be connected
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 6
-    Warning (15610): No output dependent on input pin "KEY[2]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 6
-    Warning (15610): No output dependent on input pin "KEY[3]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 6
-    Warning (15610): No output dependent on input pin "SW[4]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 8
-    Warning (15610): No output dependent on input pin "SW[5]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 8
-    Warning (15610): No output dependent on input pin "SW[6]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 8
-    Warning (15610): No output dependent on input pin "SW[7]" File: H:/School Work 2/csc258/final project/top level/top.v Line: 8
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: H:/School Work 2/csc258/final project/top level/top.v Line: 16
-Info (21057): Implemented 435 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/csc258/music_device/top level/top.v Line: 6
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/csc258/music_device/top level/top.v Line: 8
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/csc258/music_device/top level/top.v Line: 8
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/csc258/music_device/top level/top.v Line: 8
+    Warning (15610): No output dependent on input pin "SW[7]" File: D:/csc258/music_device/top level/top.v Line: 8
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: D:/csc258/music_device/top level/top.v Line: 16
+Info (21057): Implemented 519 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 6 output pins
     Info (21060): Implemented 74 bidirectional pins
-    Info (21061): Implemented 322 logic cells
+    Info (21061): Implemented 400 logic cells
+    Info (21064): Implemented 6 RAM segments
     Info (21065): Implemented 2 PLLs
     Info (21062): Implemented 14 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 411 warnings
-    Info: Peak virtual memory: 890 megabytes
-    Info: Processing ended: Thu Mar 16 07:38:53 2017
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:53
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 416 warnings
+    Info: Peak virtual memory: 930 megabytes
+    Info: Processing ended: Tue Mar 21 21:02:02 2017
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/csc258/music_device/top level/output_files/week1milestone.map.smsg.
 
 

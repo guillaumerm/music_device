@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for week1milestone
-Thu Mar 16 07:41:38 2017
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Tue Mar 21 21:03:21 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
 ---------------------
@@ -80,29 +80,37 @@ agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; TimeQuest Timing Analyzer Summary                                           ;
-+-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
-; Timing Analyzer       ; TimeQuest                                           ;
-; Revision Name         ; week1milestone                                      ;
-; Device Family         ; Cyclone V                                           ;
-; Device Name           ; 5CSEMA5F31C6                                        ;
-; Timing Models         ; Final                                               ;
-; Delay Model           ; Combined                                            ;
-; Rise/Fall Delays      ; Enabled                                             ;
-+-----------------------+-----------------------------------------------------+
++---------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                               ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Timing Analyzer       ; TimeQuest                                               ;
+; Revision Name         ; week1milestone                                          ;
+; Device Family         ; Cyclone V                                               ;
+; Device Name           ; 5CSEMA5F31C6                                            ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Enabled                                                 ;
++-----------------------+---------------------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 6      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.10        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   3.5%      ;
+;     Processor 3            ;   3.4%      ;
+;     Processor 4            ;   3.4%      ;
++----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -125,11 +133,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+-----------------+---------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                      ; Note ;
 +------------+-----------------+---------------------------------------------------------------------------------+------+
-; 172.89 MHz ; 172.89 MHz      ; CLOCK_50                                                                        ;      ;
-; 177.78 MHz ; 177.78 MHz      ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 237.19 MHz ; 237.19 MHz      ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ;      ;
-; 321.34 MHz ; 321.34 MHz      ; audio3:audio|audio_clock:u4|LRCK_1X                                             ;      ;
-; 412.03 MHz ; 412.03 MHz      ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ;      ;
+; 158.23 MHz ; 158.23 MHz      ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 163.8 MHz  ; 163.8 MHz       ; CLOCK_50                                                                        ;      ;
+; 305.44 MHz ; 305.44 MHz      ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ;      ;
+; 327.12 MHz ; 327.12 MHz      ; audio3:audio|audio_clock:u4|LRCK_1X                                             ;      ;
+; 434.59 MHz ; 434.59 MHz      ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ;      ;
 +------------+-----------------+---------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -140,17 +148,17 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 HTML report is unavailable in plain text report export.
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Slow 1100mV 85C Model Setup Summary                                                                      ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; Clock                                                                           ; Slack  ; End Point TNS ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.685 ; -11.252       ;
-; CLOCK_50                                                                        ; -4.784 ; -107.434      ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -3.216 ; -136.534      ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.112 ; -51.475       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.427 ; -7.540        ;
-+---------------------------------------------------------------------------------+--------+---------------+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 85C Model Setup Summary                                                                       ;
++---------------------------------------------------------------------------------+---------+---------------+
+; Clock                                                                           ; Slack   ; End Point TNS ;
++---------------------------------------------------------------------------------+---------+---------------+
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -21.360 ; -620.217      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.701  ; -11.357       ;
+; CLOCK_50                                                                        ; -5.105  ; -178.544      ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -2.274  ; -129.293      ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.301  ; -7.210        ;
++---------------------------------------------------------------------------------+---------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -158,11 +166,11 @@ HTML report is unavailable in plain text report export.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.236 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.269 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.362 ; 0.000         ;
-; CLOCK_50                                                                        ; 0.370 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.449 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.282 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.285 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.339 ; 0.000         ;
+; CLOCK_50                                                                        ; 0.364 ; 0.000         ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.376 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -171,9 +179,9 @@ HTML report is unavailable in plain text report export.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -4.729 ; -137.131      ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -4.006 ; -24.024       ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.843 ; -57.213       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -4.955 ; -34.675       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -4.825 ; -133.846      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.865 ; -64.933       ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -182,9 +190,9 @@ HTML report is unavailable in plain text report export.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.447 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 3.330 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 3.375 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.455 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 3.172 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 4.292 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -193,10 +201,10 @@ HTML report is unavailable in plain text report export.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                        ; -0.431 ; -29.783       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -0.394 ; -36.699       ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.394 ; -18.178       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.394 ; -3.144        ;
+; CLOCK_50                                                                        ; -2.174 ; -83.365       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -0.394 ; -39.465       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.394 ; -17.818       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.394 ; -3.634        ;
 ; audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.633  ; 0.000         ;
 ; CLOCK_27                                                                        ; 18.419 ; 0.000         ;
 ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.081 ; 0.000         ;
@@ -214,26 +222,26 @@ No synchronizer chains to report.
 +------------+-----------------+---------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                      ; Note ;
 +------------+-----------------+---------------------------------------------------------------------------------+------+
-; 168.52 MHz ; 168.52 MHz      ; CLOCK_50                                                                        ;      ;
-; 183.55 MHz ; 183.55 MHz      ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ;      ;
-; 241.14 MHz ; 241.14 MHz      ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ;      ;
-; 315.16 MHz ; 315.16 MHz      ; audio3:audio|audio_clock:u4|LRCK_1X                                             ;      ;
-; 416.84 MHz ; 416.84 MHz      ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ;      ;
+; 162.1 MHz  ; 162.1 MHz       ; CLOCK_50                                                                        ;      ;
+; 163.43 MHz ; 163.43 MHz      ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 304.32 MHz ; 304.32 MHz      ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ;      ;
+; 326.48 MHz ; 326.48 MHz      ; audio3:audio|audio_clock:u4|LRCK_1X                                             ;      ;
+; 441.31 MHz ; 441.31 MHz      ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ;      ;
 +------------+-----------------+---------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Slow 1100mV 0C Model Setup Summary                                                                       ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; Clock                                                                           ; Slack  ; End Point TNS ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.344 ; -10.551       ;
-; CLOCK_50                                                                        ; -4.934 ; -105.420      ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -3.147 ; -131.300      ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.173 ; -52.974       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.399 ; -7.337        ;
-+---------------------------------------------------------------------------------+--------+---------------+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1100mV 0C Model Setup Summary                                                                        ;
++---------------------------------------------------------------------------------+---------+---------------+
+; Clock                                                                           ; Slack   ; End Point TNS ;
++---------------------------------------------------------------------------------+---------+---------------+
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -21.586 ; -626.611      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.441  ; -10.776       ;
+; CLOCK_50                                                                        ; -5.169  ; -174.439      ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -2.286  ; -126.884      ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.266  ; -6.832        ;
++---------------------------------------------------------------------------------+---------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -241,11 +249,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.221 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.327 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.344 ; 0.000         ;
-; CLOCK_50                                                                        ; 0.372 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.461 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.293 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.316 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.330 ; 0.000         ;
+; CLOCK_50                                                                        ; 0.370 ; 0.000         ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.385 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -254,9 +262,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -4.718 ; -137.466      ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -4.020 ; -24.108       ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.774 ; -56.193       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -4.999 ; -34.969       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -4.783 ; -133.838      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.801 ; -63.869       ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -265,9 +273,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.466 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 3.410 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 3.460 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.476 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 3.234 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 4.398 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -276,13 +284,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                        ; -0.411 ; -31.618       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -0.394 ; -36.049       ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.394 ; -16.902       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.394 ; -3.182        ;
+; CLOCK_50                                                                        ; -2.174 ; -86.878       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -0.394 ; -38.043       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.394 ; -16.309       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.394 ; -4.028        ;
 ; audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.633  ; 0.000         ;
 ; CLOCK_27                                                                        ; 18.445 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.041 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.037 ; 0.000         ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -292,17 +300,17 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Fast 1100mV 85C Model Setup Summary                                                                      ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; Clock                                                                           ; Slack  ; End Point TNS ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -4.156 ; -8.299        ;
-; CLOCK_50                                                                        ; -2.928 ; -34.063       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -1.769 ; -59.950       ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.834 ; -16.546       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.487 ; -2.290        ;
-+---------------------------------------------------------------------------------+--------+---------------+
++-----------------------------------------------------------------------------------------------------------+
+; Fast 1100mV 85C Model Setup Summary                                                                       ;
++---------------------------------------------------------------------------------+---------+---------------+
+; Clock                                                                           ; Slack   ; End Point TNS ;
++---------------------------------------------------------------------------------+---------+---------------+
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -12.043 ; -349.903      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -4.232  ; -8.372        ;
+; CLOCK_50                                                                        ; -2.951  ; -66.014       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -1.101  ; -55.882       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.396  ; -1.718        ;
++---------------------------------------------------------------------------------+---------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -310,11 +318,11 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.075 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.116 ; 0.000         ;
-; CLOCK_50                                                                        ; 0.186 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.201 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.281 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.118 ; 0.000         ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.136 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.155 ; 0.000         ;
+; CLOCK_50                                                                        ; 0.177 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.189 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -323,9 +331,9 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.642 ; -74.131       ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -2.283 ; -34.134       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -2.111 ; -12.660       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -2.802 ; -19.610       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.707 ; -71.421       ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -2.326 ; -39.015       ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -334,9 +342,9 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.251 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 1.853 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 1.908 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.264 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 1.806 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 2.541 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -345,13 +353,13 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                        ; -0.409 ; -5.310        ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.032  ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.087  ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.131  ; 0.000         ;
+; CLOCK_50                                                                        ; -2.174 ; -45.017       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.002  ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.117  ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.151  ; 0.000         ;
 ; audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.633  ; 0.000         ;
 ; CLOCK_27                                                                        ; 18.162 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.332 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.331 ; 0.000         ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -361,17 +369,17 @@ No synchronizer chains to report.
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Fast 1100mV 0C Model Setup Summary                                                                       ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; Clock                                                                           ; Slack  ; End Point TNS ;
-+---------------------------------------------------------------------------------+--------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.537 ; -7.058        ;
-; CLOCK_50                                                                        ; -2.451 ; -28.428       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -1.531 ; -51.256       ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -0.763 ; -14.760       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.372 ; -1.729        ;
-+---------------------------------------------------------------------------------+--------+---------------+
++-----------------------------------------------------------------------------------------------------------+
+; Fast 1100mV 0C Model Setup Summary                                                                        ;
++---------------------------------------------------------------------------------+---------+---------------+
+; Clock                                                                           ; Slack   ; End Point TNS ;
++---------------------------------------------------------------------------------+---------+---------------+
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -11.374 ; -330.813      ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -3.613  ; -7.163        ;
+; CLOCK_50                                                                        ; -2.660  ; -56.047       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -0.945  ; -47.953       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -0.314  ; -1.280        ;
++---------------------------------------------------------------------------------+---------+---------------+
 
 
 +---------------------------------------------------------------------------------------------------------+
@@ -379,11 +387,11 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.056 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.116 ; 0.000         ;
-; CLOCK_50                                                                        ; 0.178 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.182 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.259 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.118 ; 0.000         ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.123 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.140 ; 0.000         ;
+; CLOCK_50                                                                        ; 0.169 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.178 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -392,9 +400,9 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.509 ; -71.158       ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -2.126 ; -31.812       ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -2.047 ; -12.276       ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -2.652 ; -18.557       ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.563 ; -68.983       ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -2.167 ; -36.386       ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -403,9 +411,9 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                           ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------------+-------+---------------+
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.162 ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 1.852 ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 1.897 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 0.182 ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 1.796 ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 2.444 ; 0.000         ;
 +---------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -414,13 +422,13 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                           ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                        ; -0.392 ; -5.222        ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.064  ; 0.000         ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.097  ; 0.000         ;
-; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.129  ; 0.000         ;
+; CLOCK_50                                                                        ; -2.174 ; -44.951       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 0.040  ; 0.000         ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0.140  ; 0.000         ;
+; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0.145  ; 0.000         ;
 ; audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; 1.633  ; 0.000         ;
 ; CLOCK_27                                                                        ; 18.151 ; 0.000         ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.322 ; 0.000         ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 27.323 ; 0.000         ;
 +---------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -435,22 +443,22 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                                                            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                 ; -5.685   ; 0.056 ; -4.729   ; 0.162   ; -0.431              ;
+; Worst-case Slack                                                                 ; -21.586  ; 0.118 ; -4.999   ; 0.182   ; -2.174              ;
 ;  CLOCK_27                                                                        ; N/A      ; N/A   ; N/A      ; N/A     ; 18.151              ;
-;  CLOCK_50                                                                        ; -4.934   ; 0.178 ; N/A      ; N/A     ; -0.431              ;
-;  audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -3.216   ; 0.056 ; N/A      ; N/A     ; -0.394              ;
-;  audio3:audio|audio_clock:u4|LRCK_1X                                             ; -2.173   ; 0.116 ; -4.729   ; 1.897   ; -0.394              ;
-;  audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.427   ; 0.259 ; -4.020   ; 1.852   ; -0.394              ;
+;  CLOCK_50                                                                        ; -5.169   ; 0.169 ; N/A      ; N/A     ; -2.174              ;
+;  audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -2.286   ; 0.123 ; N/A      ; N/A     ; -0.394              ;
+;  audio3:audio|audio_clock:u4|LRCK_1X                                             ; -21.586  ; 0.118 ; -4.825   ; 1.796   ; -0.394              ;
+;  audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -1.301   ; 0.140 ; -4.999   ; 2.444   ; -0.394              ;
 ;  audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A   ; N/A      ; N/A     ; 1.633               ;
-;  audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.685   ; 0.182 ; -3.843   ; 0.162   ; 27.041              ;
-; Design-wide TNS                                                                  ; -314.235 ; 0.0   ; -218.368 ; 0.0     ; -87.804             ;
+;  audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -5.701   ; 0.178 ; -3.865   ; 0.182   ; 27.037              ;
+; Design-wide TNS                                                                  ; -946.621 ; 0.0   ; -233.454 ; 0.0     ; -145.258            ;
 ;  CLOCK_27                                                                        ; N/A      ; N/A   ; N/A      ; N/A     ; 0.000               ;
-;  CLOCK_50                                                                        ; -107.434 ; 0.000 ; N/A      ; N/A     ; -31.618             ;
-;  audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -136.534 ; 0.000 ; N/A      ; N/A     ; -36.699             ;
-;  audio3:audio|audio_clock:u4|LRCK_1X                                             ; -52.974  ; 0.000 ; -137.466 ; 0.000   ; -18.178             ;
-;  audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -7.540   ; 0.000 ; -24.108  ; 0.000   ; -3.182              ;
+;  CLOCK_50                                                                        ; -178.544 ; 0.000 ; N/A      ; N/A     ; -86.878             ;
+;  audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; -129.293 ; 0.000 ; N/A      ; N/A     ; -39.465             ;
+;  audio3:audio|audio_clock:u4|LRCK_1X                                             ; -626.611 ; 0.000 ; -133.846 ; 0.000   ; -17.818             ;
+;  audio3:audio|audio_clock:u4|oAUD_BCK                                            ; -7.210   ; 0.000 ; -34.969  ; 0.000   ; -4.028              ;
 ;  audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]   ; N/A      ; N/A   ; N/A      ; N/A     ; 0.000               ;
-;  audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -11.252  ; 0.000 ; -57.213  ; 0.000   ; 0.000               ;
+;  audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; -11.357  ; 0.000 ; -64.933  ; 0.000   ; 0.000               ;
 +----------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -548,8 +556,6 @@ No synchronizer chains to report.
 ; Pin        ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +------------+--------------+-----------------+-----------------+
 ; KEY[1]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; KEY[2]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; KEY[3]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[4]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[5]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[6]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
@@ -632,12 +638,14 @@ No synchronizer chains to report.
 ; KEY[0]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_50   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; CLOCK_27   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; SW[0]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; SW[1]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[2]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[3]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[0]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[1]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[8]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 ; SW[9]      ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[2]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[3]     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
 +------------+--------------+-----------------+-----------------+
 
 
@@ -652,7 +660,7 @@ No synchronizer chains to report.
 ; AUD_DACLRCK ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
 ; AUD_DACDAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
 ; AUD_XCK     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0568 V           ; 0.173 V                              ; 0.113 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0568 V          ; 0.173 V                             ; 0.113 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
-; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
+; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.52e-07 V                   ; 2.42 V              ; -0.0557 V           ; 0.175 V                              ; 0.114 V                              ; 4.5e-10 s                   ; 4.35e-10 s                  ; No                         ; No                         ; 2.32 V                      ; 3.52e-07 V                  ; 2.42 V             ; -0.0557 V          ; 0.175 V                             ; 0.114 V                             ; 4.5e-10 s                  ; 4.35e-10 s                 ; No                        ; No                        ;
 ; AUD_BCLK    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.07e-07 V                   ; 2.36 V              ; -0.0231 V           ; 0.14 V                               ; 0.089 V                              ; 4.52e-10 s                  ; 4.35e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.07e-07 V                  ; 2.36 V             ; -0.0231 V          ; 0.14 V                              ; 0.089 V                             ; 4.52e-10 s                 ; 4.35e-10 s                 ; No                        ; Yes                       ;
 ; GPIO_0[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
 ; GPIO_0[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.6e-07 V                    ; 2.41 V              ; -0.0463 V           ; 0.201 V                              ; 0.131 V                              ; 4.61e-10 s                  ; 4.53e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.6e-07 V                   ; 2.41 V             ; -0.0463 V          ; 0.201 V                             ; 0.131 V                             ; 4.61e-10 s                 ; 4.53e-10 s                 ; No                        ; Yes                       ;
@@ -740,7 +748,7 @@ No synchronizer chains to report.
 ; AUD_DACLRCK ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
 ; AUD_DACDAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
 ; AUD_XCK     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.0374 V           ; 0.189 V                              ; 0.158 V                              ; 4.66e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.0374 V          ; 0.189 V                             ; 0.158 V                             ; 4.66e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
-; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
+; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.88e-05 V                   ; 2.39 V              ; -0.037 V            ; 0.188 V                              ; 0.158 V                              ; 4.67e-10 s                  ; 4.67e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.88e-05 V                  ; 2.39 V             ; -0.037 V           ; 0.188 V                             ; 0.158 V                             ; 4.67e-10 s                 ; 4.67e-10 s                 ; No                        ; Yes                       ;
 ; AUD_BCLK    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.49e-05 V                   ; 2.34 V              ; -0.0118 V           ; 0.182 V                              ; 0.051 V                              ; 4.81e-10 s                  ; 4.83e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.49e-05 V                  ; 2.34 V             ; -0.0118 V          ; 0.182 V                             ; 0.051 V                             ; 4.81e-10 s                 ; 4.83e-10 s                 ; Yes                       ; Yes                       ;
 ; GPIO_0[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
 ; GPIO_0[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.96e-05 V                   ; 2.38 V              ; -0.0306 V           ; 0.23 V                               ; 0.206 V                              ; 4.83e-10 s                  ; 5.01e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 3.96e-05 V                  ; 2.38 V             ; -0.0306 V          ; 0.23 V                              ; 0.206 V                             ; 4.83e-10 s                 ; 5.01e-10 s                 ; No                        ; Yes                       ;
@@ -828,7 +836,7 @@ No synchronizer chains to report.
 ; AUD_DACLRCK ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
 ; AUD_DACDAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
 ; AUD_XCK     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.119 V            ; 0.326 V                              ; 0.298 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.119 V           ; 0.326 V                             ; 0.298 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
-; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
+; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.14e-06 V                   ; 2.91 V              ; -0.121 V            ; 0.326 V                              ; 0.297 V                              ; 2.74e-10 s                  ; 2.8e-10 s                   ; No                         ; No                         ; 2.75 V                      ; 4.14e-06 V                  ; 2.91 V             ; -0.121 V           ; 0.326 V                             ; 0.297 V                             ; 2.74e-10 s                 ; 2.8e-10 s                  ; No                        ; No                        ;
 ; AUD_BCLK    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 3.54e-06 V                   ; 2.81 V              ; -0.0578 V           ; 0.303 V                              ; 0.28 V                               ; 2.93e-10 s                  ; 3.01e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 3.54e-06 V                  ; 2.81 V             ; -0.0578 V          ; 0.303 V                             ; 0.28 V                              ; 2.93e-10 s                 ; 3.01e-10 s                 ; No                        ; No                        ;
 ; GPIO_0[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
 ; GPIO_0[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 4.25e-06 V                   ; 2.9 V               ; -0.107 V            ; 0.378 V                              ; 0.16 V                               ; 2.87e-10 s                  ; 4.28e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 4.25e-06 V                  ; 2.9 V              ; -0.107 V           ; 0.378 V                             ; 0.16 V                              ; 2.87e-10 s                 ; 4.28e-10 s                 ; No                        ; No                        ;
@@ -916,7 +924,7 @@ No synchronizer chains to report.
 ; AUD_DACLRCK ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
 ; AUD_DACDAT  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
 ; AUD_XCK     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0805 V           ; 0.358 V                              ; 0.156 V                              ; 3.01e-10 s                  ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0805 V          ; 0.358 V                             ; 0.156 V                             ; 3.01e-10 s                 ; 4.34e-10 s                 ; No                        ; No                        ;
-; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; I2C_SDAT    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000242 V                   ; 2.86 V              ; -0.0814 V           ; 0.36 V                               ; 0.156 V                              ; 3e-10 s                     ; 4.34e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000242 V                  ; 2.86 V             ; -0.0814 V          ; 0.36 V                              ; 0.156 V                             ; 3e-10 s                    ; 4.34e-10 s                 ; No                        ; No                        ;
 ; AUD_BCLK    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000213 V                   ; 2.79 V              ; -0.0324 V           ; 0.139 V                              ; 0.119 V                              ; 4.42e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.75 V                      ; 0.000213 V                  ; 2.79 V             ; -0.0324 V          ; 0.139 V                             ; 0.119 V                             ; 4.42e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
 ; GPIO_0[0]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
 ; GPIO_0[1]   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.75 V                       ; 0.000247 V                   ; 2.85 V              ; -0.0711 V           ; 0.204 V                              ; 0.181 V                              ; 4.55e-10 s                  ; 4.49e-10 s                  ; No                         ; No                         ; 2.75 V                      ; 0.000247 V                  ; 2.85 V             ; -0.0711 V          ; 0.204 V                             ; 0.181 V                             ; 4.55e-10 s                 ; 4.49e-10 s                 ; No                        ; No                        ;
@@ -999,13 +1007,14 @@ No synchronizer chains to report.
 ; From Clock                                                                      ; To Clock                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 0        ; 528      ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 0        ; 17       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 753      ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                        ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 1890048  ; 0        ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 0        ; 16       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 784      ; 0        ; 0        ; 0        ;
 ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 1        ; 1        ; 0        ; 0        ;
 ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 1        ; 1        ; 0        ; 0        ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 164      ; 0        ; 0        ; 0        ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 168      ; 0        ; 0        ; 0        ;
 ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; CLOCK_50                                                                        ; 1        ; 1        ; 0        ; 0        ;
-; CLOCK_50                                                                        ; CLOCK_50                                                                        ; 1533     ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                        ; CLOCK_50                                                                        ; 2060     ; 0        ; 0        ; 0        ;
 +---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1016,13 +1025,14 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock                                                                      ; To Clock                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 0        ; 528      ;
-; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 0        ; 17       ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 753      ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                        ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 1890048  ; 0        ;
+; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 0        ; 16       ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; 784      ; 0        ; 0        ; 0        ;
 ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 1        ; 1        ; 0        ; 0        ;
 ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 1        ; 1        ; 0        ; 0        ;
-; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 164      ; 0        ; 0        ; 0        ;
+; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 168      ; 0        ; 0        ; 0        ;
 ; audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK                                     ; CLOCK_50                                                                        ; 1        ; 1        ; 0        ; 0        ;
-; CLOCK_50                                                                        ; CLOCK_50                                                                        ; 1533     ; 0        ; 0        ; 0        ;
+; CLOCK_50                                                                        ; CLOCK_50                                                                        ; 2060     ; 0        ; 0        ; 0        ;
 +---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1033,8 +1043,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock ; To Clock                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLOCK_50   ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 32       ; 0        ;
-; CLOCK_50   ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 6        ; 0        ;
-; CLOCK_50   ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 15       ; 0        ; 0        ; 0        ;
+; CLOCK_50   ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 7        ; 0        ;
+; CLOCK_50   ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 17       ; 0        ; 0        ; 0        ;
 +------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1045,8 +1055,8 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock ; To Clock                                                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLOCK_50   ; audio3:audio|audio_clock:u4|LRCK_1X                                             ; 0        ; 0        ; 32       ; 0        ;
-; CLOCK_50   ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 6        ; 0        ;
-; CLOCK_50   ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 15       ; 0        ; 0        ; 0        ;
+; CLOCK_50   ; audio3:audio|audio_clock:u4|oAUD_BCK                                            ; 0        ; 0        ; 7        ; 0        ;
+; CLOCK_50   ; audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk ; 17       ; 0        ; 0        ; 0        ;
 +------------+---------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1070,10 +1080,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 8     ; 8    ;
-; Unconstrained Input Port Paths  ; 282   ; 282  ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 118   ; 118  ;
 ; Unconstrained Output Ports      ; 7     ; 7    ;
-; Unconstrained Output Port Paths ; 26    ; 26   ;
+; Unconstrained Output Port Paths ; 25    ; 25   ;
 +---------------------------------+-------+------+
 
 
@@ -1099,6 +1109,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; I2C_SDAT   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -1130,6 +1142,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; I2C_SDAT   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; KEY[0]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[2]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY[3]     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[0]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -1159,8 +1173,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
-    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Thu Mar 16 07:41:21 2017
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Tue Mar 21 21:03:06 2017
 Info: Command: quartus_sta week1milestone -c week1milestone
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -1549,7 +1563,8 @@ Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'week1milestone.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -1574,41 +1589,41 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -5.685
+Info (332146): Worst-case setup slack is -21.360
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.685             -11.252 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -4.784            -107.434 CLOCK_50 
-    Info (332119):    -3.216            -136.534 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -2.112             -51.475 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -1.427              -7.540 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case hold slack is 0.236
+    Info (332119):   -21.360            -620.217 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -5.701             -11.357 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -5.105            -178.544 CLOCK_50 
+    Info (332119):    -2.274            -129.293 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -1.301              -7.210 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case hold slack is 0.282
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.236               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.269               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):     0.362               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.370               0.000 CLOCK_50 
-    Info (332119):     0.449               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case recovery slack is -4.729
+    Info (332119):     0.282               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     0.285               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.339               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.364               0.000 CLOCK_50 
+    Info (332119):     0.376               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+Info (332146): Worst-case recovery slack is -4.955
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.729            -137.131 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -4.006             -24.024 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):    -3.843             -57.213 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case removal slack is 0.447
+    Info (332119):    -4.955             -34.675 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -4.825            -133.846 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -3.865             -64.933 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.455
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.447               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     3.330               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     3.375               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-Info (332146): Worst-case minimum pulse width slack is -0.431
+    Info (332119):     0.455               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     3.172               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     4.292               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.431             -29.783 CLOCK_50 
-    Info (332119):    -0.394             -36.699 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -0.394             -18.178 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -0.394              -3.144 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -2.174             -83.365 CLOCK_50 
+    Info (332119):    -0.394             -39.465 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -0.394             -17.818 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -0.394              -3.634 audio3:audio|audio_clock:u4|oAUD_BCK 
     Info (332119):     1.633               0.000 audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):    18.419               0.000 CLOCK_27 
     Info (332119):    27.081               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
@@ -1622,44 +1637,44 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -5.344
+Info (332146): Worst-case setup slack is -21.586
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.344             -10.551 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -4.934            -105.420 CLOCK_50 
-    Info (332119):    -3.147            -131.300 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -2.173             -52.974 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -1.399              -7.337 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case hold slack is 0.221
+    Info (332119):   -21.586            -626.611 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -5.441             -10.776 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -5.169            -174.439 CLOCK_50 
+    Info (332119):    -2.286            -126.884 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -1.266              -6.832 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case hold slack is 0.293
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.221               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.327               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):     0.344               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.372               0.000 CLOCK_50 
-    Info (332119):     0.461               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case recovery slack is -4.718
+    Info (332119):     0.293               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.316               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.330               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     0.370               0.000 CLOCK_50 
+    Info (332119):     0.385               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+Info (332146): Worst-case recovery slack is -4.999
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.718            -137.466 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -4.020             -24.108 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):    -3.774             -56.193 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-Info (332146): Worst-case removal slack is 0.466
+    Info (332119):    -4.999             -34.969 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -4.783            -133.838 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -3.801             -63.869 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.476
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.466               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     3.410               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     3.460               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-Info (332146): Worst-case minimum pulse width slack is -0.411
+    Info (332119):     0.476               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     3.234               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     4.398               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.411             -31.618 CLOCK_50 
-    Info (332119):    -0.394             -36.049 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -0.394             -16.902 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -0.394              -3.182 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -2.174             -86.878 CLOCK_50 
+    Info (332119):    -0.394             -38.043 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -0.394             -16.309 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -0.394              -4.028 audio3:audio|audio_clock:u4|oAUD_BCK 
     Info (332119):     1.633               0.000 audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):    18.445               0.000 CLOCK_27 
-    Info (332119):    27.041               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    27.037               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
@@ -1670,44 +1685,44 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.156
+Info (332146): Worst-case setup slack is -12.043
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.156              -8.299 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -2.928             -34.063 CLOCK_50 
-    Info (332119):    -1.769             -59.950 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -0.834             -16.546 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -0.487              -2.290 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case hold slack is 0.075
+    Info (332119):   -12.043            -349.903 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -4.232              -8.372 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -2.951             -66.014 CLOCK_50 
+    Info (332119):    -1.101             -55.882 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -0.396              -1.718 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case hold slack is 0.118
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.075               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.116               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):     0.186               0.000 CLOCK_50 
-    Info (332119):     0.201               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.281               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case recovery slack is -2.642
+    Info (332119):     0.118               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     0.136               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):     0.155               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.177               0.000 CLOCK_50 
+    Info (332119):     0.189               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case recovery slack is -2.802
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.642             -74.131 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -2.283             -34.134 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -2.111             -12.660 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case removal slack is 0.251
+    Info (332119):    -2.802             -19.610 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -2.707             -71.421 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -2.326             -39.015 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.264
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.251               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     1.853               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     1.908               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-Info (332146): Worst-case minimum pulse width slack is -0.409
+    Info (332119):     0.264               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     1.806               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     2.541               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.409              -5.310 CLOCK_50 
-    Info (332119):     0.032               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.087               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     0.131               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -2.174             -45.017 CLOCK_50 
+    Info (332119):     0.002               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):     0.117               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.151               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
     Info (332119):     1.633               0.000 audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):    18.162               0.000 CLOCK_27 
-    Info (332119):    27.332               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    27.331               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL  from: refclkin  to: fbclk
@@ -1716,50 +1731,50 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.537
+Info (332146): Worst-case setup slack is -11.374
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.537              -7.058 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -2.451             -28.428 CLOCK_50 
-    Info (332119):    -1.531             -51.256 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):    -0.763             -14.760 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -0.372              -1.729 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case hold slack is 0.056
+    Info (332119):   -11.374            -330.813 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -3.613              -7.163 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    -2.660             -56.047 CLOCK_50 
+    Info (332119):    -0.945             -47.953 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):    -0.314              -1.280 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case hold slack is 0.118
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.056               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.116               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):     0.178               0.000 CLOCK_50 
+    Info (332119):     0.118               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     0.123               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):     0.140               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.169               0.000 CLOCK_50 
+    Info (332119):     0.178               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case recovery slack is -2.652
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.652             -18.557 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):    -2.563             -68.983 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -2.167             -36.386 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+Info (332146): Worst-case removal slack is 0.182
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
     Info (332119):     0.182               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.259               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case recovery slack is -2.509
+    Info (332119):     1.796               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):     2.444               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+Info (332146): Worst-case minimum pulse width slack is -2.174
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.509             -71.158 audio3:audio|audio_clock:u4|LRCK_1X 
-    Info (332119):    -2.126             -31.812 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    -2.047             -12.276 audio3:audio|audio_clock:u4|oAUD_BCK 
-Info (332146): Worst-case removal slack is 0.162
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     0.162               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     1.852               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     1.897               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
-Info (332146): Worst-case minimum pulse width slack is -0.392
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -0.392              -5.222 CLOCK_50 
-    Info (332119):     0.064               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
-    Info (332119):     0.097               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
-    Info (332119):     0.129               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
+    Info (332119):    -2.174             -44.951 CLOCK_50 
+    Info (332119):     0.040               0.000 audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK 
+    Info (332119):     0.140               0.000 audio3:audio|audio_clock:u4|oAUD_BCK 
+    Info (332119):     0.145               0.000 audio3:audio|audio_clock:u4|LRCK_1X 
     Info (332119):     1.633               0.000 audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):    18.151               0.000 CLOCK_27 
-    Info (332119):    27.322               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    27.323               0.000 audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 392 warnings
-    Info: Peak virtual memory: 1182 megabytes
-    Info: Processing ended: Thu Mar 16 07:41:38 2017
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Peak virtual memory: 1263 megabytes
+    Info: Processing ended: Tue Mar 21 21:03:21 2017
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:08
 
 

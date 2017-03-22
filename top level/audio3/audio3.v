@@ -50,7 +50,7 @@ VGA_Audio_PLL 	p1 (
 I2C_AV_Config u3(	
 //	Host Side
   .iCLK(CLOCK_50),
-  .iRST_N(reset),
+  .iRST_N(RST),
 //	I2C Side
   .I2C_SCLK(I2C_SCLK),
   .I2C_SDAT(I2C_SDAT)	
@@ -108,10 +108,17 @@ sine_table sig1(
 	.signal(audio_outR)
 );
 
+sine_table sig2(
+	.index(index),
+	.signal(audio_outL)
+);
+
+
 	//audio_outR <= audio_inR;
 
 //always @(posedge AUD_DACLRCK)
-assign audio_outL = 15'h0000;
+//audio_outL <= audio_inL instead OF
+ //assign audio_outL = 15'h0000;
 
 
 endmodule

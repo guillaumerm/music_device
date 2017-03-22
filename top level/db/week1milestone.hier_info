@@ -1,10 +1,10 @@
 |top
-CLOCK_50 => CLOCK_50.IN1
+CLOCK_50 => CLOCK_50.IN3
 CLOCK_27 => CLOCK_27.IN1
-KEY[0] => KEY[0].IN1
+KEY[0] => KEY[0].IN3
 KEY[1] => ~NO_FANOUT~
-KEY[2] => ~NO_FANOUT~
-KEY[3] => ~NO_FANOUT~
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN1
 SW[0] => SW[0].IN1
 SW[1] => SW[1].IN1
 SW[2] => SW[2].IN1
@@ -98,7 +98,233 @@ GPIO_1[34] <> audio3:audio.GPIO_1
 GPIO_1[35] <> audio3:audio.GPIO_1
 
 
-|top|freq_select:fs
+|top|control:comb_3
+reset => note_counter.OUTPUTSELECT
+reset => note_counter.OUTPUTSELECT
+reset => note_counter.OUTPUTSELECT
+reset => note_counter.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+reset => current_state.OUTPUTSELECT
+load_n => Selector0.IN2
+load_n => next_state.OUTPUTSELECT
+load_n => next_state.OUTPUTSELECT
+load_n => Selector1.IN1
+playback => next_state.DATAA
+playback => next_state.DATAA
+clk => clk.IN1
+ld_play <= ld_play.DB_MAX_OUTPUT_PORT_TYPE
+ld_note <= ld_note.DB_MAX_OUTPUT_PORT_TYPE
+note_counter[0] <= note_counter[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+note_counter[1] <= note_counter[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+note_counter[2] <= note_counter[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+note_counter[3] <= note_counter[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|control:comb_3|RateDivider2:rd
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+clk => counter[8].CLK
+clk => counter[9].CLK
+clk => counter[10].CLK
+clk => counter[11].CLK
+clk => counter[12].CLK
+clk => counter[13].CLK
+clk => counter[14].CLK
+clk => counter[15].CLK
+clk => counter[16].CLK
+clk => counter[17].CLK
+clk => counter[18].CLK
+clk => counter[19].CLK
+clk => counter[20].CLK
+clk => counter[21].CLK
+clk => counter[22].CLK
+clk => counter[23].CLK
+clk => counter[24].CLK
+next_note_en <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|datapath:comb_4
+note_data[0] => note_data[0].IN1
+note_data[1] => note_data[1].IN1
+note_data[2] => note_data[2].IN1
+note_data[3] => note_data[3].IN1
+octave_data[0] => octave_data[0].IN1
+octave_data[1] => octave_data[1].IN1
+ld_note => notes_recorded.OUTPUTSELECT
+ld_note => notes_recorded.OUTPUTSELECT
+ld_note => notes_recorded.OUTPUTSELECT
+ld_note => notes_recorded.OUTPUTSELECT
+ld_note => enable.OUTPUTSELECT
+ld_play => notes_recorded.OUTPUTSELECT
+ld_play => notes_recorded.OUTPUTSELECT
+ld_play => notes_recorded.OUTPUTSELECT
+ld_play => notes_recorded.OUTPUTSELECT
+ld_play => enable.OUTPUTSELECT
+note_counter[0] => notes_recorded.DATAB
+note_counter[1] => notes_recorded.DATAB
+note_counter[2] => notes_recorded.DATAB
+note_counter[3] => notes_recorded.DATAB
+clk => clk.IN1
+reset => notes_recorded.OUTPUTSELECT
+reset => notes_recorded.OUTPUTSELECT
+reset => notes_recorded.OUTPUTSELECT
+reset => notes_recorded.OUTPUTSELECT
+reset => enable.OUTPUTSELECT
+freq_out[0] <= freq_select:fs.note_freq
+freq_out[1] <= freq_select:fs.note_freq
+freq_out[2] <= freq_select:fs.note_freq
+freq_out[3] <= freq_select:fs.note_freq
+freq_out[4] <= freq_select:fs.note_freq
+freq_out[5] <= freq_select:fs.note_freq
+freq_out[6] <= freq_select:fs.note_freq
+freq_out[7] <= freq_select:fs.note_freq
+freq_out[8] <= freq_select:fs.note_freq
+freq_out[9] <= freq_select:fs.note_freq
+freq_out[10] <= freq_select:fs.note_freq
+freq_out[11] <= freq_select:fs.note_freq
+freq_out[12] <= freq_select:fs.note_freq
+freq_out[13] <= freq_select:fs.note_freq
+freq_out[14] <= freq_select:fs.note_freq
+freq_out[15] <= freq_select:fs.note_freq
+freq_out[16] <= freq_select:fs.note_freq
+freq_out[17] <= freq_select:fs.note_freq
+freq_out[18] <= freq_select:fs.note_freq
+freq_out[19] <= freq_select:fs.note_freq
+freq_out[20] <= freq_select:fs.note_freq
+freq_out[21] <= freq_select:fs.note_freq
+freq_out[22] <= freq_select:fs.note_freq
+freq_out[23] <= freq_select:fs.note_freq
+freq_out[24] <= freq_select:fs.note_freq
+freq_out[25] <= freq_select:fs.note_freq
+freq_out[26] <= freq_select:fs.note_freq
+freq_out[27] <= freq_select:fs.note_freq
+freq_out[28] <= freq_select:fs.note_freq
+freq_out[29] <= freq_select:fs.note_freq
+freq_out[30] <= freq_select:fs.note_freq
+freq_out[31] <= freq_select:fs.note_freq
+
+
+|top|datapath:comb_4|memory:main
+address[0] => address[0].IN1
+address[1] => address[1].IN1
+address[2] => address[2].IN1
+address[3] => address[3].IN1
+clock => clock.IN1
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+data[4] => data[4].IN1
+data[5] => data[5].IN1
+wren => wren.IN1
+q[0] <= altsyncram:altsyncram_component.q_a
+q[1] <= altsyncram:altsyncram_component.q_a
+q[2] <= altsyncram:altsyncram_component.q_a
+q[3] <= altsyncram:altsyncram_component.q_a
+q[4] <= altsyncram:altsyncram_component.q_a
+q[5] <= altsyncram:altsyncram_component.q_a
+
+
+|top|datapath:comb_4|memory:main|altsyncram:altsyncram_component
+wren_a => altsyncram_r9m1:auto_generated.wren_a
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => altsyncram_r9m1:auto_generated.data_a[0]
+data_a[1] => altsyncram_r9m1:auto_generated.data_a[1]
+data_a[2] => altsyncram_r9m1:auto_generated.data_a[2]
+data_a[3] => altsyncram_r9m1:auto_generated.data_a[3]
+data_a[4] => altsyncram_r9m1:auto_generated.data_a[4]
+data_a[5] => altsyncram_r9m1:auto_generated.data_a[5]
+data_b[0] => ~NO_FANOUT~
+address_a[0] => altsyncram_r9m1:auto_generated.address_a[0]
+address_a[1] => altsyncram_r9m1:auto_generated.address_a[1]
+address_a[2] => altsyncram_r9m1:auto_generated.address_a[2]
+address_a[3] => altsyncram_r9m1:auto_generated.address_a[3]
+address_b[0] => ~NO_FANOUT~
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_r9m1:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= altsyncram_r9m1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_r9m1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_r9m1:auto_generated.q_a[2]
+q_a[3] <= altsyncram_r9m1:auto_generated.q_a[3]
+q_a[4] <= altsyncram_r9m1:auto_generated.q_a[4]
+q_a[5] <= altsyncram_r9m1:auto_generated.q_a[5]
+q_b[0] <= <GND>
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|top|datapath:comb_4|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[0] => ram_block1a1.PORTAADDR
+address_a[0] => ram_block1a2.PORTAADDR
+address_a[0] => ram_block1a3.PORTAADDR
+address_a[0] => ram_block1a4.PORTAADDR
+address_a[0] => ram_block1a5.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[1] => ram_block1a1.PORTAADDR1
+address_a[1] => ram_block1a2.PORTAADDR1
+address_a[1] => ram_block1a3.PORTAADDR1
+address_a[1] => ram_block1a4.PORTAADDR1
+address_a[1] => ram_block1a5.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+address_a[2] => ram_block1a1.PORTAADDR2
+address_a[2] => ram_block1a2.PORTAADDR2
+address_a[2] => ram_block1a3.PORTAADDR2
+address_a[2] => ram_block1a4.PORTAADDR2
+address_a[2] => ram_block1a5.PORTAADDR2
+address_a[3] => ram_block1a0.PORTAADDR3
+address_a[3] => ram_block1a1.PORTAADDR3
+address_a[3] => ram_block1a2.PORTAADDR3
+address_a[3] => ram_block1a3.PORTAADDR3
+address_a[3] => ram_block1a4.PORTAADDR3
+address_a[3] => ram_block1a5.PORTAADDR3
+clock0 => ram_block1a0.CLK0
+clock0 => ram_block1a1.CLK0
+clock0 => ram_block1a2.CLK0
+clock0 => ram_block1a3.CLK0
+clock0 => ram_block1a4.CLK0
+clock0 => ram_block1a5.CLK0
+data_a[0] => ram_block1a0.PORTADATAIN
+data_a[1] => ram_block1a1.PORTADATAIN
+data_a[2] => ram_block1a2.PORTADATAIN
+data_a[3] => ram_block1a3.PORTADATAIN
+data_a[4] => ram_block1a4.PORTADATAIN
+data_a[5] => ram_block1a5.PORTADATAIN
+q_a[0] <= ram_block1a0.PORTADATAOUT
+q_a[1] <= ram_block1a1.PORTADATAOUT
+q_a[2] <= ram_block1a2.PORTADATAOUT
+q_a[3] <= ram_block1a3.PORTADATAOUT
+q_a[4] <= ram_block1a4.PORTADATAOUT
+q_a[5] <= ram_block1a5.PORTADATAOUT
+wren_a => ram_block1a0.PORTAWE
+wren_a => ram_block1a1.PORTAWE
+wren_a => ram_block1a2.PORTAWE
+wren_a => ram_block1a3.PORTAWE
+wren_a => ram_block1a4.PORTAWE
+wren_a => ram_block1a5.PORTAWE
+
+
+|top|datapath:comb_4|freq_select:fs
 note[0] => Mux0.IN19
 note[0] => Mux1.IN19
 note[0] => Mux2.IN19
@@ -186,7 +412,7 @@ note_freq[31] <= <GND>
 |top|audio3:audio
 CLOCK_50 => CLOCK_50.IN2
 CLOCK_27 => CLOCK_27.IN1
-reset => reset.IN1
+reset => RST.IN1
 freq[0] => Mult0.IN48
 freq[1] => Mult0.IN47
 freq[2] => Mult0.IN46
@@ -797,6 +1023,33 @@ AUD_inR[15] <= AUD_inR[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|audio3:audio|sine_table:sig1
+index[0] => Ram0.RADDR
+index[1] => Ram0.RADDR1
+index[2] => Ram0.RADDR2
+index[3] => Ram0.RADDR3
+index[4] => Ram0.RADDR4
+index[5] => Ram0.RADDR5
+index[6] => Ram0.RADDR6
+index[7] => Ram0.RADDR7
+signal[0] <= Ram0.DATAOUT
+signal[1] <= Ram0.DATAOUT1
+signal[2] <= Ram0.DATAOUT2
+signal[3] <= Ram0.DATAOUT3
+signal[4] <= Ram0.DATAOUT4
+signal[5] <= Ram0.DATAOUT5
+signal[6] <= Ram0.DATAOUT6
+signal[7] <= Ram0.DATAOUT7
+signal[8] <= Ram0.DATAOUT8
+signal[9] <= Ram0.DATAOUT9
+signal[10] <= Ram0.DATAOUT10
+signal[11] <= Ram0.DATAOUT11
+signal[12] <= Ram0.DATAOUT12
+signal[13] <= Ram0.DATAOUT13
+signal[14] <= Ram0.DATAOUT14
+signal[15] <= Ram0.DATAOUT15
+
+
+|top|audio3:audio|sine_table:sig2
 index[0] => Ram0.RADDR
 index[1] => Ram0.RADDR1
 index[2] => Ram0.RADDR2

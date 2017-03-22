@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at control.v(4): object "playback" differs only in case from object "PLAYBACK" in the same scope File: D:/csc258/music_device/top level/control.v Line: 4

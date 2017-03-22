@@ -10,29 +10,29 @@ module freq_select(note, octave, note_freq);
 	begin
 		case(note)
 			//Range of A's
-			4'b0000 : note_freq = 220 * (octave + 1);
+			1 : note_freq = 220 * (octave + 1);
 			//Range of A#'s
-			4'b0001: note_freq = 233 * (octave + 1);
+			2: note_freq = 233 * (octave + 1);
 			//Range of B's	
-			4'b0010: note_freq = 246 * (octave + 1);
+			3: note_freq = 246 * (octave + 1);
 			//Range of C's
-			4'b0011: note_freq = 261 * (octave + 1);
+			4: note_freq = 261 * (octave + 1);
 			//Range of C#'s
-			4'b0100: note_freq = 277 * (octave + 1);
+			5: note_freq = 277 * (octave + 1);
 			//Range of D's
-			4'b0101: note_freq = 293 * (octave + 1);
+			6: note_freq = 293 * (octave + 1);
 			//Range of D#'s
-			4'b0110: note_freq = 311 * (octave + 1);
+			7: note_freq = 311 * (octave + 1);
 			//Range of E's
-			4'b0111: note_freq = 329 * (octave + 1);
+			8: note_freq = 329 * (octave + 1);
 			//Range of F's
-			4'b1000: note_freq = 349 * (octave + 1);
+			9: note_freq = 349 * (octave + 1);
 			//Range of F#'s
-			4'b1001: note_freq = 370 * (octave + 1);
+			10: note_freq = 370 * (octave + 1);
 			//Range of G's
-			4'b1010: note_freq = 391 * (octave + 1);
+			11: note_freq = 391 * (octave + 1);
 			//Range of G#'s
-			4'b1011: note_freq = 415 * (octave + 1);
+			12: note_freq = 415 * (octave + 1);
 			
 
 			default: note_freq = 0;

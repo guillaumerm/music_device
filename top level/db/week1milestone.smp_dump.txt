@@ -4,3 +4,9 @@ Name mSetup_ST.0000 mSetup_ST.0010 mSetup_ST.0001
 mSetup_ST.0000 0 0 0 
 mSetup_ST.0001 1 0 1 
 mSetup_ST.0010 1 1 0 
+
+State Machine - |top|control:comb_3|current_state
+Name current_state.LOAD_NOTE_WAIT current_state.PLAYBACK current_state.LOAD_NOTE 
+current_state.LOAD_NOTE_WAIT 0 0 0 
+current_state.LOAD_NOTE 1 0 1 
+current_state.PLAYBACK 1 1 0 

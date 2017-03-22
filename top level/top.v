@@ -23,11 +23,28 @@ module top(
   );
 
   wire [31:0] note_freq;
-
-  freq_select fs(.note(SW[3:0]), 
-					  .octave(SW[9:8]), 
-					  .note_freq(note_freq)
-					 );
+  wire [3:0] note_counter;
+  wire ld_play;
+  wire ld_note;  
+  
+  control(.reset(KEY[0]), 
+			 .load_n(KEY[2]), 
+			 .playback(KEY[3]), 
+			 .clk(CLOCK_50), 
+			 .ld_play(ld_play), 
+			 .ld_note(ld_note), 
+			 .note_counter(note_counter[3:0])
+			 );
+			 
+  datapath(.note_data(SW[3:0]),
+			  .octave_data(SW[9:8]), 
+			  .ld_note(ld_note), 
+			  .ld_play(ld_play), 
+			  .note_counter(note_counter[3:0]), 
+			  .clk(CLOCK_50),
+			  .reset(KEY[0]),
+			  .freq_out(note_freq[31:0])
+			  );
 	
 
   //ADAPTED CODE FROM http://www.johnloomis.org/digitallab/audio/audio3/audio3.html

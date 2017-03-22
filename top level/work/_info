@@ -1,0 +1,111 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/csc258/music_device/top level
+vcontrol
+Z1 !s110 1490144480
+!i10b 1
+!s100 S`jP59Hol2Sg;J2>F4>O;3
+IQ_4?aaPOd85078VoNjFAY1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1490142250
+Z4 8control.v
+Z5 Fcontrol.v
+L0 1
+Z6 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z7 !s108 1490144480.000000
+Z8 !s107 control.v|
+Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|control.v|
+!i113 1
+Z10 o-timescale 1ns/1ns
+vdatapath
+Z11 !s110 1490144308
+!i10b 1
+!s100 CJ8DO6XFf:Geegma1=UUL3
+I:SMlF8TVn_96Xl@Zd[G;G0
+R2
+R0
+Z12 w1490144302
+Z13 8datapath.v
+Z14 Fdatapath.v
+L0 1
+R6
+r1
+!s85 0
+31
+Z15 !s108 1490144308.000000
+Z16 !s107 datapath.v|
+Z17 !s90 -reportprogress|300|-timescale|1ns/1ns|datapath.v|
+!i113 1
+R10
+vfreq_select
+R11
+!i10b 1
+!s100 0c[G`1Fn6iPZ0aQhGD@ZK1
+IDA250zDmmf5DQm?F3]WIG3
+R2
+R0
+R12
+R13
+R14
+L0 59
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R10
+vmemory
+R11
+!i10b 1
+!s100 UI8LM:Oh]nza@ieUIdQHF0
+IeH_]_[`ok?QcYTDR3eH3?2
+R2
+R0
+R12
+R13
+R14
+L0 141
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R10
+vRateDivider2
+R1
+!i10b 1
+!s100 iAbX:9J^PhW<hzW=jiXLe2
+IU97`5WI`?0a0E]f_?YdBh3
+R2
+R0
+R3
+R4
+R5
+L0 111
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@rate@divider2

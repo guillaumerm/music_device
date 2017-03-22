@@ -1,0 +1,8 @@
+module datapath(|inputs switches, signals ... |outputs vga data .... freq ....);
+
+	  freq_select fs(.note(SW[3:0]), 
+					  .octave(SW[9:8]), 
+					  .note_freq(note_freq)
+					 );
+	
+endmodule

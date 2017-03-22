@@ -1,0 +1,11 @@
+module control(reset, load, playback, signals....);
+	input reset;
+	input load;
+	input playback;
+	//output some signals...;
+	
+	reg [3:0] current_state, next_state; 
+	localparam  LOAD_NOTE_WAIT        = 4'b0000,
+	            LOAD_NOTE             = 4'b0001,
+	            PLAYBACK_START		  	 = 4'b0010;
+endmodule

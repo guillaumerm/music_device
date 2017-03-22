@@ -1,6 +1,6 @@
 Flow report for week1milestone
-Thu Mar 16 07:41:44 2017
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Tue Mar 21 21:03:24 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
 ---------------------
@@ -38,29 +38,29 @@ agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Mar 16 07:41:44 2017       ;
-; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
-; Revision Name                   ; week1milestone                              ;
-; Top-level Entity Name           ; top                                         ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CSEMA5F31C6                                ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 224 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 176                                         ;
-; Total pins                      ; 97 / 457 ( 21 % )                           ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                       ;
-; Total DSP Blocks                ; 14 / 87 ( 16 % )                            ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Tue Mar 21 21:03:24 2017           ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                   ; week1milestone                                  ;
+; Top-level Entity Name           ; top                                             ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CSEMA5F31C6                                    ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 269 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 213                                             ;
+; Total pins                      ; 97 / 457 ( 21 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 96 / 4,065,280 ( < 1 % )                        ;
+; Total DSP Blocks                ; 14 / 87 ( 16 % )                                ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                                  ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/16/2017 07:38:30 ;
+; Start date & time ; 03/21/2017 21:01:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; week1milestone      ;
 +-------------------+---------------------+
@@ -79,12 +79,13 @@ agreement for further details.
 +-------------------------------------+---------------------------------+----------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value  ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+----------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 207120316936841.148961751007464 ; --             ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 167746773773032.149014451003828 ; --             ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --             ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>         ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                            ; --             ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --             ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --             ; --          ; --             ;
+; MISC_FILE                           ; memory_bb.v                     ; --             ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                        ; --             ; top         ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --             ; top         ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --             ; top         ; Top            ;
@@ -98,12 +99,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:23     ; 1.0                     ; 868 MB              ; 00:00:52                           ;
-; Fitter                    ; 00:02:06     ; 1.0                     ; 2156 MB             ; 00:02:31                           ;
-; Assembler                 ; 00:00:15     ; 1.0                     ; 893 MB              ; 00:00:15                           ;
-; TimeQuest Timing Analyzer ; 00:00:17     ; 1.0                     ; 1182 MB             ; 00:00:17                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 914 MB              ; 00:00:04                           ;
-; Total                     ; 00:03:05     ; --                      ; --                  ; 00:03:59                           ;
+; Analysis & Synthesis      ; 00:00:10     ; 1.0                     ; 930 MB              ; 00:00:21                           ;
+; Fitter                    ; 00:00:44     ; 1.0                     ; 2807 MB             ; 00:01:20                           ;
+; Assembler                 ; 00:00:15     ; 1.0                     ; 886 MB              ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.1                     ; 1263 MB             ; 00:00:08                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 923 MB              ; 00:00:01                           ;
+; Total                     ; 00:01:23     ; --                      ; --                  ; 00:01:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -112,11 +113,11 @@ agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; LeoNAOP          ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; LeoNAOP          ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; LeoNAOP          ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; LeoNAOP          ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; LeoNAOP          ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

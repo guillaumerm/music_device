@@ -2,85 +2,85 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -21.360
+TNS   : -620.217
+
 Type  : Slow 1100mV 85C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -5.685
-TNS   : -11.252
+Slack : -5.701
+TNS   : -11.357
 
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -4.784
-TNS   : -107.434
+Slack : -5.105
+TNS   : -178.544
 
 Type  : Slow 1100mV 85C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : -3.216
-TNS   : -136.534
-
-Type  : Slow 1100mV 85C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -2.112
-TNS   : -51.475
+Slack : -2.274
+TNS   : -129.293
 
 Type  : Slow 1100mV 85C Model Setup 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -1.427
-TNS   : -7.540
-
-Type  : Slow 1100mV 85C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.236
-TNS   : 0.000
+Slack : -1.301
+TNS   : -7.210
 
 Type  : Slow 1100mV 85C Model Hold 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.269
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.362
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.370
+Slack : 0.282
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.449
+Slack : 0.285
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -4.729
-TNS   : -137.131
+Type  : Slow 1100mV 85C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.364
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : 0.376
+TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -4.006
-TNS   : -24.024
+Slack : -4.955
+TNS   : -34.675
+
+Type  : Slow 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -4.825
+TNS   : -133.846
 
 Type  : Slow 1100mV 85C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -3.843
-TNS   : -57.213
+Slack : -3.865
+TNS   : -64.933
 
 Type  : Slow 1100mV 85C Model Removal 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.447
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 3.330
+Slack : 0.455
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 3.375
+Slack : 3.172
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
+Slack : 4.292
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.431
-TNS   : -29.783
+Slack : -2.174
+TNS   : -83.365
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
 Slack : -0.394
-TNS   : -36.699
+TNS   : -39.465
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|LRCK_1X'
 Slack : -0.394
-TNS   : -18.178
+TNS   : -17.818
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|oAUD_BCK'
 Slack : -0.394
-TNS   : -3.144
+TNS   : -3.634
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.633
@@ -94,85 +94,85 @@ Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio|p1|altpll_component|aut
 Slack : 27.081
 TNS   : 0.000
 
+Type  : Slow 1100mV 0C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -21.586
+TNS   : -626.611
+
 Type  : Slow 1100mV 0C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -5.344
-TNS   : -10.551
+Slack : -5.441
+TNS   : -10.776
 
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -4.934
-TNS   : -105.420
+Slack : -5.169
+TNS   : -174.439
 
 Type  : Slow 1100mV 0C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : -3.147
-TNS   : -131.300
-
-Type  : Slow 1100mV 0C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -2.173
-TNS   : -52.974
+Slack : -2.286
+TNS   : -126.884
 
 Type  : Slow 1100mV 0C Model Setup 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -1.399
-TNS   : -7.337
+Slack : -1.266
+TNS   : -6.832
 
-Type  : Slow 1100mV 0C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.221
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.327
+Type  : Slow 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|oAUD_BCK'
+Slack : 0.293
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.344
+Slack : 0.316
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : 0.330
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.372
+Slack : 0.370
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.461
+Type  : Slow 1100mV 0C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : 0.385
 TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -4.718
-TNS   : -137.466
 
 Type  : Slow 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -4.020
-TNS   : -24.108
+Slack : -4.999
+TNS   : -34.969
+
+Type  : Slow 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -4.783
+TNS   : -133.838
 
 Type  : Slow 1100mV 0C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -3.774
-TNS   : -56.193
+Slack : -3.801
+TNS   : -63.869
 
 Type  : Slow 1100mV 0C Model Removal 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.466
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 3.410
+Slack : 0.476
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 3.460
+Slack : 3.234
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
+Slack : 4.398
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.411
-TNS   : -31.618
+Slack : -2.174
+TNS   : -86.878
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
 Slack : -0.394
-TNS   : -36.049
+TNS   : -38.043
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|LRCK_1X'
 Slack : -0.394
-TNS   : -16.902
+TNS   : -16.309
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|oAUD_BCK'
 Slack : -0.394
-TNS   : -3.182
+TNS   : -4.028
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
 Slack : 1.633
@@ -183,87 +183,87 @@ Slack : 18.445
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 27.041
+Slack : 27.037
 TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -4.156
-TNS   : -8.299
-
-Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -2.928
-TNS   : -34.063
-
-Type  : Fast 1100mV 85C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : -1.769
-TNS   : -59.950
 
 Type  : Fast 1100mV 85C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -0.834
-TNS   : -16.546
+Slack : -12.043
+TNS   : -349.903
+
+Type  : Fast 1100mV 85C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : -4.232
+TNS   : -8.372
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.951
+TNS   : -66.014
+
+Type  : Fast 1100mV 85C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : -1.101
+TNS   : -55.882
 
 Type  : Fast 1100mV 85C Model Setup 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -0.487
-TNS   : -2.290
-
-Type  : Fast 1100mV 85C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.075
-TNS   : 0.000
+Slack : -0.396
+TNS   : -1.718
 
 Type  : Fast 1100mV 85C Model Hold 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.116
+Slack : 0.118
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.186
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.201
+Type  : Fast 1100mV 85C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : 0.136
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.281
+Slack : 0.155
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -2.642
-TNS   : -74.131
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.177
+TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -2.283
-TNS   : -34.134
+Type  : Fast 1100mV 85C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.189
+TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -2.111
-TNS   : -12.660
+Slack : -2.802
+TNS   : -19.610
+
+Type  : Fast 1100mV 85C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -2.707
+TNS   : -71.421
+
+Type  : Fast 1100mV 85C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.326
+TNS   : -39.015
 
 Type  : Fast 1100mV 85C Model Removal 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.251
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 1.853
+Slack : 0.264
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 1.908
+Slack : 1.806
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
+Slack : 2.541
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.409
-TNS   : -5.310
+Slack : -2.174
+TNS   : -45.017
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.032
+Slack : 0.002
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.087
+Slack : 0.117
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.131
+Slack : 0.151
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
@@ -275,87 +275,87 @@ Slack : 18.162
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 27.332
+Slack : 27.331
 TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -3.537
-TNS   : -7.058
-
-Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -2.451
-TNS   : -28.428
-
-Type  : Fast 1100mV 0C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : -1.531
-TNS   : -51.256
 
 Type  : Fast 1100mV 0C Model Setup 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -0.763
-TNS   : -14.760
+Slack : -11.374
+TNS   : -330.813
+
+Type  : Fast 1100mV 0C Model Setup 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : -3.613
+TNS   : -7.163
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.660
+TNS   : -56.047
+
+Type  : Fast 1100mV 0C Model Setup 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : -0.945
+TNS   : -47.953
 
 Type  : Fast 1100mV 0C Model Setup 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -0.372
-TNS   : -1.729
-
-Type  : Fast 1100mV 0C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.056
-TNS   : 0.000
+Slack : -0.314
+TNS   : -1.280
 
 Type  : Fast 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.116
+Slack : 0.118
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.178
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.182
+Type  : Fast 1100mV 0C Model Hold 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
+Slack : 0.123
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.259
+Slack : 0.140
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : -2.509
-TNS   : -71.158
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.169
+TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : -2.126
-TNS   : -31.812
+Type  : Fast 1100mV 0C Model Hold 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.178
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : -2.047
-TNS   : -12.276
+Slack : -2.652
+TNS   : -18.557
+
+Type  : Fast 1100mV 0C Model Recovery 'audio3:audio|audio_clock:u4|LRCK_1X'
+Slack : -2.563
+TNS   : -68.983
+
+Type  : Fast 1100mV 0C Model Recovery 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
+Slack : -2.167
+TNS   : -36.386
 
 Type  : Fast 1100mV 0C Model Removal 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.162
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 1.852
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 1.897
+Slack : 1.796
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'audio3:audio|audio_clock:u4|oAUD_BCK'
+Slack : 2.444
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.392
-TNS   : -5.222
+Slack : -2.174
+TNS   : -44.951
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio3:audio|I2C_AV_Config:u3|mI2C_CTRL_CLK'
-Slack : 0.064
+Slack : 0.040
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|oAUD_BCK'
-Slack : 0.097
+Slack : 0.140
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio3:audio|audio_clock:u4|LRCK_1X'
-Slack : 0.129
+Slack : 0.145
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
@@ -367,7 +367,7 @@ Slack : 18.151
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio|p1|altpll_component|auto_generated|generic_pll2~PLL_OUTPUT_COUNTER|divclk'
-Slack : 27.322
+Slack : 27.323
 TNS   : 0.000
 
 ------------------------------------------------------------
