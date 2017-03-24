@@ -96,7 +96,7 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 			begin
 				current_state <= LOAD_NOTE_WAIT;
 			end
-		else
+		elsereset
 			begin
 					if(current_state != PLAYBACK)
 						current_state <= next_state;

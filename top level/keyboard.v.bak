@@ -1,0 +1,75 @@
+module convert_keyboard_input(keyboard_code, clk, makeBreak, valid, reset, load_n, playback, note, octave);
+	input [7:0] keyboard_code;
+	input clk;
+	input makeBreak;
+	input valid;
+	input reset;
+	output reg load_n;
+	output reg playback;
+	output reg [3:0] note;
+	output reg [1:0] octave;
+	
+	reg [7:0] previous_keyboard_code;
+	
+	localparam K_A = 8'h1C,
+				  K_B = 8'h32,
+				  K_C = 8'h21,
+				  K_D = 8'h23,
+				  K_E = 8'h24,
+				  K_F = 8'h2B,
+				  K_G = 8'h34,
+				  K_O = 8'h44,
+				  K_1 = 8'h16,reset
+				  K_2 = 8'h1E,
+				  K_3 = 8'h26,
+				  K_4 = 8'h25,
+				  K_BKSP = 8'h66,
+				  K_SPACE = 8'h29,
+				  K_ENTER = 8'h5A,
+				  K_S = 8'h1B;
+	
+	always@(*)
+	begin
+			case({keyboard_code, previous_keyboard_code})
+				 {K_A, 8'hF0} :
+					begin
+						note = 2;	
+					end
+					
+				{K_A, K_S} || {K_S, K_A} :
+					begin
+						note = 2;	
+					end
+					
+				{K_B, K_S} || {K_S, K_A} :
+					begin
+						note = 2;	
+					end
+					
+				default : 
+					begin
+						octave = 0;
+						note = 0;
+					end
+			endcase
+			
+	end
+	
+	always@(posedge clk)
+	begin
+		if(!reset)
+		begin
+			previous_keyboard_code <= 0;
+			load_n <= 1;
+			playback <= 1;
+			note <= 0;
+			octave <= 0;
+		end
+		else
+		begin
+			if(valid)
+				previous_keyboard_code <= keyboard_code;
+			else if(makeBreak)
+				previous_keyboard_code <= 0;
+	end
+endmodule

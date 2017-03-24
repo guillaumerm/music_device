@@ -1,0 +1,45 @@
+vlib work
+
+vlog -timescale 1ns/1ns keyboard.v
+
+vsim convert_keyboard_input
+
+log {/*}
+add wave {/*}
+
+force {clk} 0 0, 1 5 -repeat 10
+
+#Reset
+force {keyboard_code[7:0]} 16#1c
+force {reset} 1
+force {makeBreak} 0
+force {valid} 0
+
+run 20ns
+
+# Key A
+force {keyboard_code[7:0]} 16#1c
+force {reset} 0
+force {makeBreak} 0
+force {valid} 1 
+
+run 20ns
+
+# Key S
+force {keyboard_code[7:0]} 16#1B
+force {reset} 0
+force {makeBreak} 0
+force {valid} 1
+ 
+run 20ns
+
+force {makeBreak} 1
+run 20ns
+
+# Key B
+force {keyboard_code[7:0]} 16#32
+force {reset} 0
+force {makeBreak} 0
+force {valid} 1 
+
+run 20ns
