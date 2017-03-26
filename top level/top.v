@@ -19,25 +19,52 @@ module top(
 	  inout	 AUD_BCLK,    // Audio CODEC Bit-Stream Clock
 	  output AUD_XCK,     // Audio CODEC Chip Clock
 	  //  GPIO Connections
-	  inout  [35:0]  GPIO_0, GPIO_1
+	  inout  [35:0]  GPIO_0, GPIO_1,
+	  input PS2_CLK,
+	  input PS2_DAT
   );
 
   wire [31:0] note_freq;
   wire [3:0] note_counter;
   wire ld_play;
   wire ld_note;  
+  wire [7:0] keyboard_code;
+  wire makeBreak;
+  wire valid;
+  wire [3:0] note;
+  wire [1:0] octave;
+  wire load_n;
+  wire playback; 
   
-  control(.reset(KEY[0]), 
-			 .load_n(KEY[2]), 
-			 .playback(KEY[3]), 
+keyboard_press_driver keyboard(
+			.CLOCK_50(CLOCK_50), 
+			.valid(valid), 
+			.makeBreak(valid),
+		   .outCode(keyboard_code),
+			.PS2_DAT(PS2_DAT), // PS2 data line
+			.PS2_CLK(PS2_CLK), // PS2 clock line
+			.reset(KEY[0])
+);
+  
+  convert_keyboard_input in0(.keyboard_code(keyboard_code), 
+									  .makeBreak(makeBreak), 
+									  .load_n(load_n), 
+									  .playback(playback), 
+									  .note(note), 
+									  .octave(octave)
+									  );
+  
+  control c0(.reset(KEY[0]), 
+			 .load_n(load_n), 
+			 .playback(playback), 
 			 .clk(CLOCK_50), 
 			 .ld_play(ld_play), 
 			 .ld_note(ld_note), 
 			 .note_counter(note_counter[3:0])
 			 );
 			 
-  datapath(.note_data(SW[3:0]),
-			  .octave_data(SW[9:8]), 
+  datapath d0(.note_data(note),
+			  .octave_data(octave), 
 			  .ld_note(ld_note), 
 			  .ld_play(ld_play), 
 			  .note_counter(note_counter[3:0]), 

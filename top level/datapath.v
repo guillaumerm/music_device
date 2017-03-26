@@ -10,14 +10,14 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, res
 	output [31:0] freq_out;
 	
 	reg [3:0] notes_recorded;
-	
+	reg [5:0] in_data;
 	wire [5:0] note_read;
-
+	
 	reg enable;
   
 	memory main(.address(notes_recorded),
 				 .clock(clk),
-				 .data({octave_data, note_data}),
+				 .data(in_data),
 				 .wren(enable),
 				 .q(note_read[5:0])
 				);
@@ -27,7 +27,8 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, res
 		if(!reset)
 			begin
 				notes_recorded <= 0;
-				enable <= 0;
+				enable <= 1;
+				in_data <= 0;
 			end
 		else
 			begin
@@ -41,11 +42,15 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, res
 					if(enable <= 0)
 						begin
 							notes_recorded <= notes_recorded == 4'b1111 ? 0 : notes_recorded + 1;
+							in_data <= {octave_data, note_data};
 							enable <= 1;
 						end
 					end
 				else
-					enable <= 0;
+					begin
+						enable <= 0;
+						in_data <= 0;
+					end
 			end
 	end
 	
