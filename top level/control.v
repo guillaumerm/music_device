@@ -103,13 +103,11 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 			begin
 				current_state <= LOAD_NOTE_WAIT;
 			end
-		elsereset
+		else
 			begin
-					if(current_sate == LOAD_NOTE && notes_recorded < 4'b1111)
-						notes_recorded <= notes_recorded + 1;
 					if(current_state != PLAYBACK)
 						current_state <= next_state;
-					else if(next_note_en && note_counter == 4'b1111)
+					else if(next_note_en && note_counter == notes_recorded)
 						current_state <= next_state;
 			end
 	end
