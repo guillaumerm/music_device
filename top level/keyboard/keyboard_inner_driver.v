@@ -46,7 +46,7 @@ end
 
 always @(posedge keyboard_clk_filtered)
 begin
-   if (reset==1)
+   if (reset==0)
    begin
       incnt <= 4'b0000;
       read_char <= 0;
