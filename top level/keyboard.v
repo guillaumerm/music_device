@@ -25,7 +25,6 @@ module convert_keyboard_input(keyboard_code, makeBreak, load_n, playback, note, 
 				  K_2 = 8'h1E,
 				  K_3 = 8'h26,
 				  K_4 = 8'h25,
-				  K_BKSP = 8'h66,
 				  K_SPACE = 8'h29,
 				  K_ENTER = 8'h5A;
 	
@@ -34,40 +33,40 @@ module convert_keyboard_input(keyboard_code, makeBreak, load_n, playback, note, 
 	begin
 			case(keyboard_code)
 				// A
-				K_A : note = makeBreak ? 1 : note;
+				K_A : note = 1;
 				
 				// A#
-				K_AS : note = makeBreak ? 2 : note;
+				K_AS : note = 2;
 				
 				// B	
-				K_B: note = makeBreak ? 3 : note;
+				K_B: note = 3;
 				
 				// C
-				K_C : note = makeBreak ? 4 : note;	
+				K_C : note = 4;	
 				
 				// C#
-				K_CS : note = makeBreak ? 5 : note;
+				K_CS : note = 5;
 				
 				// D
-				K_D : note = makeBreak ? 6 : note;	
+				K_D : note = 6;	
 				
 				// D#
-				K_DS : note = makeBreak ? 7 : note;
+				K_DS : note = 7;
 				
 				// E
-				K_E : note = makeBreak ? 8 : note;
+				K_E : note = 8;
 				
 				// F
-				K_F : note = makeBreak ? 9 : note;
+				K_F : note = 9;
 				
 				// F#
-				K_FS : note = makeBreak ? 10 : note;
+				K_FS : note = 10;
 				
 				// G
-				K_G : note = makeBreak ? 11 : note;	
+				K_G : note = 11;	
 				
 				// G#
-				K_GS : note = makeBreak ? 12 : note;	
+				K_GS : note = 12;	
 				
 				//Octave 0
 				K_1 : octave = 0;

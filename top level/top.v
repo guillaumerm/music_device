@@ -52,11 +52,22 @@ keyboard_press_driver keyboard(
 			.reset(KEY[0])
 );
 
+//Four least significant bits of keyboard_code
 hex_decoder h0(.hex_digit(keyboard_code[3:0]), .segments(HEX0));
+
+//Four most significant bits of keyboard_code
 hex_decoder h1(.hex_digit(keyboard_code[7:4]), .segments(HEX1));
+
+//Display the makeBreak value
 hex_decoder h2(.hex_digit({3'b000,makeBreak}), .segments(HEX2));
+
+//Display the valid value
 hex_decoder h3(.hex_digit({3'b000,valid}), .segments(HEX3));
+
+//Display the note
 hex_decoder h4(.hex_digit(note), .segments(HEX4));
+
+//Display the ocatave
 hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 
 
