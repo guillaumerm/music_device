@@ -21,7 +21,9 @@ module top(
 	  //  GPIO Connections
 	  inout  [35:0]  GPIO_0, GPIO_1,
 	  input PS2_CLK,
-	  input PS2_DAT
+	  input PS2_DAT,
+	  output [6:0] HEX0,
+	  output [6:0] HEX1
   );
 
   wire [31:0] note_freq;
@@ -39,13 +41,15 @@ module top(
 keyboard_press_driver keyboard(
 			.CLOCK_50(CLOCK_50), 
 			.valid(valid), 
-			.makeBreak(valid),
+			.makeBreak(makeBreak),
 		   .outCode(keyboard_code),
 			.PS2_DAT(PS2_DAT), // PS2 data line
 			.PS2_CLK(PS2_CLK), // PS2 clock line
 			.reset(KEY[0])
 );
 
+hexdecoder h0(.hex_digit(keyboard_code[3:0]), .segments(HEX0));
+hexdecoder h1(.hex_digit(keyboard_code[7:4]), .segments(HEX1));
 
   
   convert_keyboard_input in0(.keyboard_code(keyboard_code), 
@@ -95,4 +99,30 @@ keyboard_press_driver keyboard(
   				);
 
 
+endmodule
+
+module hex_decoder(hex_digit, segments);
+    input [3:0] hex_digit;
+    output reg [6:0] segments;
+   
+    always @(*)
+        case (hex_digit)
+            4'h0: segments = 7'b100_0000;
+            4'h1: segments = 7'b111_1001;
+            4'h2: segments = 7'b010_0100;
+            4'h3: segments = 7'b011_0000;
+            4'h4: segments = 7'b001_1001;
+            4'h5: segments = 7'b001_0010;
+            4'h6: segments = 7'b000_0010;
+            4'h7: segments = 7'b111_1000;
+            4'h8: segments = 7'b000_0000;
+            4'h9: segments = 7'b001_1000;
+            4'hA: segments = 7'b000_1000;
+            4'hB: segments = 7'b000_0011;
+            4'hC: segments = 7'b100_0110;
+            4'hD: segments = 7'b010_0001;
+            4'hE: segments = 7'b000_0110;
+            4'hF: segments = 7'b000_1110;   
+            default: segments = 7'h7f;
+        endcase
 endmodule
