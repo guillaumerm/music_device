@@ -23,7 +23,11 @@ module top(
 	  input PS2_CLK,
 	  input PS2_DAT,
 	  output [6:0] HEX0,
-	  output [6:0] HEX1
+	  output [6:0] HEX1,
+	  output [6:0] HEX2,
+	  output [6:0] HEX3,
+	  output [6:0] HEX4,
+	  output [6:0] HEX5
   );
 
   wire [31:0] note_freq;
@@ -50,6 +54,11 @@ keyboard_press_driver keyboard(
 
 hex_decoder h0(.hex_digit(keyboard_code[3:0]), .segments(HEX0));
 hex_decoder h1(.hex_digit(keyboard_code[7:4]), .segments(HEX1));
+hex_decoder h2(.hex_digit({3'b000,makeBreak}), .segments(HEX2));
+hex_decoder h3(.hex_digit({3'b000,valid}), .segments(HEX3));
+hex_decoder h4(.hex_digit(note), .segments(HEX4));
+hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
+
 
   
   convert_keyboard_input in0(.keyboard_code(keyboard_code), 
