@@ -48,8 +48,8 @@ keyboard_press_driver keyboard(
 			.reset(KEY[0])
 );
 
-hexdecoder h0(.hex_digit(keyboard_code[3:0]), .segments(HEX0));
-hexdecoder h1(.hex_digit(keyboard_code[7:4]), .segments(HEX1));
+hex_decoder h0(.hex_digit(keyboard_code[3:0]), .segments(HEX0));
+hex_decoder h1(.hex_digit(keyboard_code[7:4]), .segments(HEX1));
 
   
   convert_keyboard_input in0(.keyboard_code(keyboard_code), 
