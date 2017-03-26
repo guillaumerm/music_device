@@ -8,6 +8,8 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 	//16 notes to play back
 	output reg [3:0] note_counter;
 	
+	reg [3:0] notes_recorded;
+	
 	wire next_note_en;
 	
 	RateDivider2 rd(.clk(clk),
@@ -53,12 +55,17 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 	always@(posedge clk)
 	begin
 		if(!reset)
+		begin
 			note_counter <= 0;
+			notes_recorded <= 0;
+		end
 		else
 			begin
-				if(current_state == PLAYBACK && next_note_en && note_counter < 4'b1111)
+				if(current_state == LOAD_NOTE && notes_recorded < 4'b1111)
+					notes_recorded <= notes_recorded + 1;
+				else if(current_state == PLAYBACK && next_note_en && note_counter < notes_recorded)
 					note_counter <= note_counter + 1;
-				else if(next_note_en && note_counter == 4'b1111)
+				else if(next_note_en && note_counter == notes_recorded)
 					note_counter <= 0;
 			end
 	end
@@ -98,6 +105,8 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 			end
 		elsereset
 			begin
+					if(current_sate == LOAD_NOTE && notes_recorded < 4'b1111)
+						notes_recorded <= notes_recorded + 1;
 					if(current_state != PLAYBACK)
 						current_state <= next_state;
 					else if(next_note_en && note_counter == 4'b1111)
