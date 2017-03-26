@@ -14,7 +14,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, res
 	wire [5:0] note_read;
 	
 	reg enable;
-  
+
 	memory main(.address(notes_recorded),
 				 .clock(clk),
 				 .data(in_data),
@@ -39,7 +39,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, res
 					end
 				else if(ld_note)
 					begin
-					if(enable <= 0)
+					if(enable == 0)
 						begin
 							notes_recorded <= notes_recorded == 4'b1111 ? 0 : notes_recorded + 1;
 							in_data <= {octave_data, note_data};

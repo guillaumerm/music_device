@@ -61,7 +61,7 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 		end
 		else
 			begin
-				if(next_note_en && current_state == LOAD_NOTE && notes_recorded < 4'b1111)
+				if(current_state == LOAD_NOTE && notes_recorded < 4'b1111)
 					notes_recorded <= notes_recorded + 1;
 				else if(current_state == PLAYBACK && next_note_en && note_counter < notes_recorded)
 					note_counter <= note_counter + 1;
