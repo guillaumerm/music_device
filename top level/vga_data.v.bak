@@ -1,0 +1,16 @@
+module vga_dataout(inputs signals from datapath and control and keyboard modules and reset and clk...., output stuff to go to vga....)
+	always@(posedge clk)
+	begin
+		if(!reset)
+		begin
+			reset module, do it for every note on screen
+		end
+	end
+
+endmodule
+
+module vga_reset(input some reset enable so it knows to "reset" output colours and pixels that get changed)
+endmodule
+
+module vga_highlight(inputs note position and some enable so it knows its changing colours, outputs colours and pixels that get changed)
+endmodule
