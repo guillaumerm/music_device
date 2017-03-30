@@ -8,7 +8,7 @@ module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
 	output [7:0] x_out;
 	output [6:0] y_out;
 	output writeEn;
-	output colour;
+	output [2:0] colour;
 	
 	
 	//144 (12x12) bit representation of note	
@@ -148,26 +148,28 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 	output reg [6:0] y_out;
 	
 	reg [7:0] counter = 143;
-	reg [5:0] x_count = 0;
-	reg [3:0] y_count = 0;
+	reg [7:0] x_count = 0;
+	reg [6:0] y_count = 0;
 
 	localparam x_symbol_offset = 12;
-	reg draw_sharp, draw_octave, draw_note;
+	reg draw_sharp, draw_octave, draw_n;
 	//sharp
 	always@(clk)
 	begin
 	if(!reset)
-			begin
+		begin
 			colour <= 3'b000;
 			writeEn <= 1;
-			draw_sharp <= 1;
-			if(x_count < 12)
+			draw_sharp <= 0;
+			draw_n <= 0;
+			draw_octave <=0;
+			if(x_count < 160)
 				begin
 					x_out <= x_count;
 					y_out <= y_count;
 					x_count <= x_count + 1;
 				end
-			else if (x_count == 12)
+			else if (x_count == 160)
 				begin
 					x_count <= 0;
 					y_count <= y_count + 1;
@@ -177,79 +179,111 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 					x_count <= 0;
 					y_count <= 0;
 				end
-			end
+		end
 	else
-	begin
-		if(draw_sharp)
-			begin
-			if(x_count < 12)
+		begin
+			writeEn <= 0;
+			if(draw_sharp)
 				begin
-					writeEn <= sharp[counter];
-					if (writeEn)
-						colour <= 3'b010;
-					x_out <= x + x_count;
-					x_count <= x_count + 1;
+					if(x_count < 12)
+						begin
+							writeEn <= sharp[counter];
+							if (writeEn)
+								begin
+									colour <= 3'b010;
+									x_out <= x + x_count;
+									x_count <= x_count + 1;
+								end
+						end
+					else if (x_count == 12 && y_count < 12)
+						begin
+							y_out <= y + y_count;
+							x_count <=  0;
+							y_count <= y_count + 1;
+						end
+					else if (x_count == 12 && y_count == 12)
+						begin
+							x_count <=  0;
+							y_count <= 0;
+							draw_sharp <= 0;
+							draw_n <= 1;
+						end
+					else
+						begin
+							writeEn <= 0;
+						end
 				end
-			else if (x_count == 12 && y_count < 12)
+			else if(draw_n)
 				begin
-					x_count <=  0;
-					y_count <= y_count + 1;
-					y_out <= y + y_count;
+					if(x_count < 12)
+						begin
+							writeEn <= letter[counter];
+							if (writeEn)
+								begin
+									colour <= 3'b010;
+									//Offset included
+									x_out <= x + x_count + x_symbol_offset;
+									x_count <= x_count + 1;
+								end
+						end
+					else if (x_count == 12 && y_count < 12)
+						begin
+							y_out <= y + y_count;
+							x_count <=  0;
+							y_count <= y_count + 1;
+						end
+					else if (x_count == 12 && y_count == 12)
+						begin
+							x_count <=  0;
+							y_count <= 0;
+							draw_n <= 0;
+							draw_octave <= 1;
+						end
+					else
+						begin
+							writeEn <= 0;
+						end
 				end
-			else if (x_count == 12 && y_count == 12)
+			else if(draw_octave)
 				begin
-					x_count <=  0;
+					if(x_count < 12)
+						begin
+							writeEn <= oct[counter];
+							if (writeEn)
+							begin
+								colour <= 3'b010;
+								//offset included
+								x_out <= x + x_count + (x_symbol_offset * 2);
+								x_count <= x_count + 1;
+							end
+						end
+					else if (x_count == 12 && y_count < 12)
+						begin
+								y_out <= y + y_count;
+								x_count <=  0;
+								y_count <= y_count + 1;
+						end
+					else if (x_count == 12 && y_count == 12)
+						begin
+								x_count <=  0;
+								y_count <= 0;
+								draw_octave <= 0;
+								draw_sharp <= 1;
+						end
+					else
+						begin
+							writeEn <= 0;
+						end
+				end
+			else
+				begin
+					writeEn <= 0;
+					draw_sharp <= 1;
+					x_out <= x;
+					y_out <= y;
+					x_count <= 0;
 					y_count <= 0;
-					draw_sharp <= 0;
-					draw_note <= 1;
 				end
-			end
-		else if(draw_note)
-		begin
-			if(x_count < 12)
-				begin
-					writeEn <= letter[counter];
-					if (writeEn)
-						colour <= 3'b010;
-					//Offset included
-					x_out <= x + x_count + x_symbol_offset;
-				end
-			else if (x_count == 12 && y_count < 12)
-				begin
-					y_out <= y + y_count;
-				end
-			else if (x_count == 12 && y_count == 12)
-					begin
-						x_count <=  0;
-						y_count <= 0;
-						draw_note <= 0;
-						draw_octave <= 1;
-					end
-				
-		end
-		else if(draw_octave)
-		begin
-			if(x_count < 12)
-				begin
-					writeEn <= letter[counter];
-					if (writeEn)
-						colour <= 3'b010;
-						//offset included
-					x_out <= x + x_count + (x_symbol_offset * 2);
-					
-				end
-			else if (x_count == 12 && y_count < 12)
-				begin
-					y_out <= y + y_count;
-				end
-			else if (x_count == 12 && y_count == 12)
-					begin
-						x_count <=  0;
-						y_count <= 0;
-						draw_octave <= 0;
-						draw_sharp <= 1;
-					end
-		end
 		end
 	end
 	
