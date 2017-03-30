@@ -1,6 +1,6 @@
 Flow report for week1milestone
-Tue Mar 28 21:18:00 2017
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+Thu Mar 30 17:11:49 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
 ---------------------
@@ -38,29 +38,29 @@ agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Flow Summary                                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Tue Mar 28 21:18:00 2017           ;
-; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
-; Revision Name                   ; week1milestone                                  ;
-; Top-level Entity Name           ; top                                             ;
-; Family                          ; Cyclone V                                       ;
-; Device                          ; 5CSEMA5F31C6                                    ;
-; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 281                                             ;
-; Total pins                      ; 149                                             ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 57,696                                          ;
-; Total DSP Blocks                ; 14                                              ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 2                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Thu Mar 30 17:11:49 2017       ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                   ; week1milestone                              ;
+; Top-level Entity Name           ; top                                         ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSEMA5F31C6                                ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 360 / 32,070 ( 1 % )                        ;
+; Total registers                 ; 312                                         ;
+; Total pins                      ; 176 / 457 ( 39 % )                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 57,696 / 4,065,280 ( 1 % )                  ;
+; Total DSP Blocks                ; 14 / 87 ( 16 % )                            ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 2 / 6 ( 33 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/28/2017 21:17:48 ;
+; Start date & time ; 03/30/2017 17:10:01 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; week1milestone      ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+----------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value  ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+----------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 167746773773032.149075026804340       ; --             ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 118796719441121.149090820150093       ; --             ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --             ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>         ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --             ; --          ; eda_simulation ;
@@ -96,29 +96,41 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+----------------+-------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 926 MB              ; 00:00:21                           ;
-; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:21                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 1302 MB             ; 00:00:21                           ;
+; Fitter                    ; 00:01:03     ; 1.0                     ; 2383 MB             ; 00:01:19                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 1219 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 1495 MB             ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1521 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:41     ; --                      ; --                  ; 00:01:56                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Flow OS Summary                                                                   ;
-+----------------------+------------------+-----------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; BA3145WS03       ; Windows 7 ; 6.1        ; x86_64         ;
-+----------------------+------------------+-----------+------------+----------------+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++---------------------------+------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++---------------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; b3195-04         ; Ubuntu 14.04.5 ; 14         ; x86_64         ;
+; Fitter                    ; b3195-04         ; Ubuntu 14.04.5 ; 14         ; x86_64         ;
+; Assembler                 ; b3195-04         ; Ubuntu 14.04.5 ; 14         ; x86_64         ;
+; TimeQuest Timing Analyzer ; b3195-04         ; Ubuntu 14.04.5 ; 14         ; x86_64         ;
+; EDA Netlist Writer        ; b3195-04         ; Ubuntu 14.04.5 ; 14         ; x86_64         ;
++---------------------------+------------------+----------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off week1milestone -c week1milestone
+quartus_fit --read_settings_files=off --write_settings_files=off week1milestone -c week1milestone
+quartus_asm --read_settings_files=off --write_settings_files=off week1milestone -c week1milestone
+quartus_sta week1milestone -c week1milestone
+quartus_eda --read_settings_files=off --write_settings_files=off week1milestone -c week1milestone
 
 
 

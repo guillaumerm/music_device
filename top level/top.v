@@ -33,9 +33,9 @@ module top(
 	  output 	VGA_VS,							//	VGA V_SYNC
 	  output 	VGA_BLANK_N,						//	VGA BLANK
 	  output 	VGA_SYNC_N,						//	VGA SYNC
-	  output 	VGA_R,   						//	VGA Red[9:0]
-	  output 	VGA_G,	 						//	VGA Green[9:0]
-	  output 	VGA_B   						//	VGA Blue[9:0]
+	  output 	[9:0] VGA_R,   						//	VGA Red[9:0]
+	  output 	[9:0] VGA_G,	 						//	VGA Green[9:0]
+	  output 	[9:0] VGA_B   						//	VGA Blue[9:0]
   );
 
   wire [31:0] note_freq;
@@ -142,10 +142,10 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 	vga_adapter VGA(
 			.resetn(KEY[0]),
 			.clock(CLOCK_50),
-			.colour(colour),
-			.x(x),
-			.y(y),
-			.plot(writeEn),
+			.colour(0),
+			.x(0),
+			.y(0),
+			.plot(0),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),

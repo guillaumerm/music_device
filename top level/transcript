@@ -1,258 +1,86 @@
-do keyboard_converter_simulation.do
+do vga_data_wave.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:08:23 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
+# Start time: 16:37:55 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
 # 
 # Top level modules:
-# 	convert_keyboard_input
-# End time: 19:08:24 on Mar 23,2017, Elapsed time: 0:00:01
+# 	vga_data
+# End time: 16:37:55 on Mar 30,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:08:24 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
+# vsim vga_data 
+# Start time: 16:37:55 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+do vga_data_wave.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:12:24 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
+# Start time: 16:40:28 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
 # 
 # Top level modules:
-# 	convert_keyboard_input
-# End time: 19:12:24 on Mar 23,2017, Elapsed time: 0:00:00
+# 	vga_data
+# End time: 16:40:28 on Mar 30,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 19:12:24 on Mar 23,2017, Elapsed time: 0:04:00
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:12:24 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
+# End time: 16:40:29 on Mar 30,2017, Elapsed time: 0:02:34
+# Errors: 0, Warnings: 1
+# vsim vga_data 
+# Start time: 16:40:29 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+do vga_data_wave.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:13:28 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
+# Start time: 16:44:24 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
 # 
 # Top level modules:
-# 	convert_keyboard_input
-# End time: 19:13:28 on Mar 23,2017, Elapsed time: 0:00:00
+# 	vga_data
+# End time: 16:44:24 on Mar 30,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 19:13:28 on Mar 23,2017, Elapsed time: 0:01:04
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:13:28 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:15:01 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
+# End time: 16:44:25 on Mar 30,2017, Elapsed time: 0:03:56
+# Errors: 0, Warnings: 1
+# vsim vga_data 
+# Start time: 16:44:25 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+# ** Error: Invalid binary digit: 2.
+# ** Error: (vsim-4011) Invalid force value: 2#0002.
+# Error in macro ./vga_data_wave.do line 14
+# Invalid binary digit: 2.
+# ** Error: (vsim-4011) Invalid force value: 2#0002.
 # 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:15:01 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:15:01 on Mar 23,2017, Elapsed time: 0:01:33
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:15:01 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:15:32 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:15:32 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:15:33 on Mar 23,2017, Elapsed time: 0:00:32
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:15:33 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:16:33 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:16:33 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:16:33 on Mar 23,2017, Elapsed time: 0:01:00
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:16:33 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:20:27 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:20:27 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:20:27 on Mar 23,2017, Elapsed time: 0:03:54
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:20:27 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:22:15 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:22:15 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:22:16 on Mar 23,2017, Elapsed time: 0:01:49
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:22:16 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:35:42 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:35:42 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 19:35:46 on Mar 23,2017, Elapsed time: 0:13:30
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:35:46 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 19:36:34 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 19:36:35 on Mar 23,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 19:36:35 on Mar 23,2017, Elapsed time: 0:00:49
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 19:36:35 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 20:19:11 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# ** Error: (vlog-13053) keyboard.v(16): near "'2": Illegal base specifier in numeric constant.
-# ** Error: (vlog-13069) keyboard.v(33): near "always": syntax error, unexpected always, expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER.
-# ** Error: keyboard.v(40): 'K_AS' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(40): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(43): 'K_B' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(43): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(46): 'K_C' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(46): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(49): 'K_CS' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(49): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(52): 'K_D' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(52): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(55): 'K_DS' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(55): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(58): 'K_E' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(58): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(61): 'K_F' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(61): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(64): 'K_FS' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(64): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(67): 'K_G' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(67): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(70): 'K_GS' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(70): near "note": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(73): 'K_1' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(73): near "octave": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(76): 'K_2' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(76): near "octave": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(79): 'K_3' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(79): near "octave": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(82): 'K_4' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(82): near "octave": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(85): 'K_ENTER' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(85): near "playback": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(88): 'K_SPACE' already exists - must not be redefined.
-# ** Error: (vlog-13069) keyboard.v(88): near "load_n": syntax error, unexpected IDENTIFIER, expecting assert  or assume  or restrict .
-# ** Error: keyboard.v(93): (vlog-13205) Syntax error found in the scope following 'load_n'. Is there a missing '::'?
-# End time: 20:19:11 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 37, Warnings: 0
-# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
-# Error in macro ./keyboard_converter_simulation.do line 3
-# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
 #     while executing
-# "vlog -timescale 1ns/1ns keyboard.v"
-do keyboard_converter_simulation.do
+# "force {note[3:0]} 2#0002 "
+do vga_data_wave.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 20:19:48 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
+# Start time: 16:44:44 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
 # 
 # Top level modules:
-# 	convert_keyboard_input
-# End time: 20:19:49 on Mar 23,2017, Elapsed time: 0:00:01
+# 	vga_data
+# End time: 16:44:45 on Mar 30,2017, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# End time: 20:19:49 on Mar 23,2017, Elapsed time: 0:43:14
-# Errors: 40, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 20:19:49 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 20:20:35 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 20:20:35 on Mar 23,2017, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 20:20:36 on Mar 23,2017, Elapsed time: 0:00:47
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 20:20:36 on Mar 23,2017
-# Loading work.convert_keyboard_input
-do keyboard_converter_simulation.do
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 20:22:10 on Mar 23,2017
-# vlog -reportprogress 300 -timescale 1ns/1ns keyboard.v 
-# -- Compiling module convert_keyboard_input
-# 
-# Top level modules:
-# 	convert_keyboard_input
-# End time: 20:22:11 on Mar 23,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 20:22:12 on Mar 23,2017, Elapsed time: 0:01:36
-# Errors: 0, Warnings: 0
-# vsim convert_keyboard_input 
-# Start time: 20:22:12 on Mar 23,2017
-# Loading work.convert_keyboard_input
-# End time: 20:23:03 on Mar 23,2017, Elapsed time: 0:00:51
-# Errors: 0, Warnings: 0
+# End time: 16:44:45 on Mar 30,2017, Elapsed time: 0:00:20
+# Errors: 2, Warnings: 1
+# vsim vga_data 
+# Start time: 16:44:45 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v

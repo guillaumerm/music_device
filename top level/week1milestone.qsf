@@ -703,7 +703,6 @@ set_global_assignment -name VERILOG_FILE vga_adapter/vga_controller.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_address_translator.v
 set_global_assignment -name VERILOG_FILE vga_adapter/vga_adapter.v
 set_global_assignment -name BSF_FILE vga_adapter/vga_adapter.bsf
-set_global_assignment -name MIF_FILE vga_adapter/black.mif
 set_global_assignment -name VERILOG_FILE vga_data.v
 set_global_assignment -name VERILOG_FILE keyboard/keyboard_scancoderaw_driver.v
 set_global_assignment -name VERILOG_FILE keyboard/keyboard_press_driver.v

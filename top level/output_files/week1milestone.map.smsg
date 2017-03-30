@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at keyboard_inner_driver.v(47): always construct contains both blocking and non-blocking assignments File: W:/labs258/final project/music_device-master/top level/keyboard/keyboard_inner_driver.v Line: 47
-Info (10281): Verilog HDL Declaration information at control.v(4): object "playback" differs only in case from object "PLAYBACK" in the same scope File: W:/labs258/final project/music_device-master/top level/control.v Line: 4
+Warning (10268): Verilog HDL information at keyboard_inner_driver.v(47): always construct contains both blocking and non-blocking assignments File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard/keyboard_inner_driver.v Line: 47
+Info (10281): Verilog HDL Declaration information at control.v(4): object "playback" differs only in case from object "PLAYBACK" in the same scope File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 4

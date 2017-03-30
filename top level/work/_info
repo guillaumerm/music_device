@@ -68,6 +68,26 @@ Z17 !s107 datapath.v|
 Z18 !s90 -reportprogress|300|-timescale|1ns/1ns|datapath.v|
 !i113 1
 R10
+vdraw_note
+Z19 !s110 1490906685
+!i10b 1
+!s100 SDVnRie7G8YB=PaL56Y301
+I9nJI1_U4T828;zQ^Bzo[Z2
+R2
+R11
+Z20 w1490905955
+Z21 8vga_data.v
+Z22 Fvga_data.v
+L0 137
+R6
+r1
+!s85 0
+31
+Z23 !s108 1490906684.000000
+Z24 !s107 vga_data.v|
+Z25 !s90 -reportprogress|300|-timescale|1ns/1ns|vga_data.v|
+!i113 1
+R10
 vfreq_select
 !s110 1490303896
 !i10b 1
@@ -129,3 +149,23 @@ R9
 !i113 1
 R10
 n@rate@divider2
+vvga_data
+R19
+!i10b 1
+!s100 SBU_b^eVFSGU;]ZlJg6?42
+IWo=dRdIQ:ID3kGX8<e_P43
+R2
+R11
+R20
+R21
+R22
+L0 1
+R6
+r1
+!s85 0
+31
+R23
+R24
+R25
+!i113 1
+R10

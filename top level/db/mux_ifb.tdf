@@ -1,5 +1,5 @@
 --lpm_mux CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Cyclone V" LPM_SIZE=3 LPM_WIDTH=3 LPM_WIDTHS=2 data result sel
---VERSION_BEGIN 16.0 cbx_lpm_mux 2016:04:27:18:05:34:SJ cbx_mgl 2016:04:27:18:06:48:SJ  VERSION_END
+--VERSION_BEGIN 16.0 cbx_lpm_mux 2016:04:20:18:35:29:SJ cbx_mgl 2016:04:20:19:36:45:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
