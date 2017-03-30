@@ -163,11 +163,11 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 
 			
 	vga_data vgad(
-					.note(note), 
-					.octave(octave), 
+					.note(4'b0001), 
+					.octave(2'b01), 
 					.clk(CLOCK_50), 
 					.clear(KEY[2]),
-					.ld_note(~KEY[1]),
+					.ld_note(1'b1),
 					.x(30), //from coord picker/datapath
 					.y(30), //from coord picker/datapath
 					.x_out(x), 
