@@ -168,8 +168,8 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 					.clk(CLOCK_50), 
 					.clear(KEY[2]),
 					.ld_note(~KEY[1]),
-					.x(0), //from coord picker/datapath
-					.y(0), //from coord picker/datapath
+					.x(30), //from coord picker/datapath
+					.y(30), //from coord picker/datapath
 					.x_out(x), 
 					.y_out(y), 
 					.writeEn(writeEn),
