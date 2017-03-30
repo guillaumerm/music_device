@@ -190,10 +190,10 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 							if (writeEn)
 								begin
 									colour <= 3'b010;
-									x_out <= x + x_count;
-									x_count <= x_count + 1;
-									y_out <= y + y_count;
 								end
+							x_out <= x + x_count;
+							x_count <= x_count + 1;
+							y_out <= y + y_count;
 						end
 					else if (x_count == 12 && y_count < 12)
 						begin
@@ -220,11 +220,12 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 							if (writeEn)
 								begin
 									colour <= 3'b010;
-									//Offset included
-									x_out <= x + x_count + x_symbol_offset;
-									x_count <= x_count + 1;
-									y_out <= y + y_count;
+										
 								end
+							//Offset included
+							x_out <= x + x_count + x_symbol_offset;
+							x_count <= x_count + 1;
+							y_out <= y + y_count;
 						end
 					else if (x_count == 12 && y_count < 12)
 						begin
@@ -251,11 +252,11 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 							if (writeEn)
 							begin
 								colour <= 3'b010;
-								//offset included
-								x_out <= x + x_count + (x_symbol_offset * 2);
-								x_count <= x_count + 1;
-								y_out <= y + y_count;
 							end
+							//offset included
+							x_out <= x + x_count + (x_symbol_offset * 2);
+							x_count <= x_count + 1;
+							y_out <= y + y_count;			
 						end
 					else if (x_count == 12 && y_count < 12)
 						begin						
@@ -279,7 +280,7 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 					writeEn <= 0;
 					draw_sharp <= 1;
 					draw_octave <= 0;
-					draw_note <= 0;
+					draw_n <= 0;
 					x_out <= x;
 					y_out <= y;
 					x_count <= 0;
