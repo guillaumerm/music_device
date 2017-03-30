@@ -1,10 +1,10 @@
-module vga_data(note, octave, clk, reset, ld_note, x, y, x_out, y_out, writeEn, colour);
+module vga_data(note, octave, clk, clear, ld_note, x, y, x_out, y_out, writeEn, colour);
 	input [3:0] note;
 	input [1:0] octave;
 	input clk;
 	input [7:0] x;
 	input [6:0] y;
-	input reset;
+	input clear;
 	input ld_note;
 	output [7:0] x_out;
 	output [6:0] y_out;
@@ -127,7 +127,7 @@ module vga_data(note, octave, clk, reset, ld_note, x, y, x_out, y_out, writeEn, 
 						.x(x), 
 						.y(y),
 						.ld_note(ld_note),
-						.reset(reset),
+						.clear(clear),
 						.writeEn(writeEn),
 						.colour(colour),
 						.x_out(x_out),
@@ -136,14 +136,14 @@ module vga_data(note, octave, clk, reset, ld_note, x, y, x_out, y_out, writeEn, 
 	
 endmodule
 
-module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, writeEn,colour,x_out,y_out);
+module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,y_out);
 	input clk;
 	input [143:0] letter;
 	input [143:0] oct;
 	input [143:0] sharp;
 	input [7:0] x;
 	input [6:0] y;
-	input reset;
+	input clear;
 	input ld_note;
 	output reg writeEn;
 	output reg [2:0] colour;
@@ -159,7 +159,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, writeEn,colour,x_out,
 	//sharp
 	always@(clk)
 	begin
-	if(!reset)
+	if(!clear)
 		begin
 			colour <= 3'b000;
 			writeEn <= 1;
@@ -306,7 +306,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, writeEn,colour,x_out,
 	//counter track
 	always@(clk)
 	begin
-		if(!reset)
+		if(!clear)
 			counter <= 0;
 		else if(ld_note)
 		begin
