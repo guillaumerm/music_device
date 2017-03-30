@@ -1,6 +1,6 @@
 module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
-	input note;
-	input octave;
+	input [3:0] note;
+	input [1:0] octave;
 	input clk;
 	input [7:0] x;
 	input [6:0] y;
@@ -31,8 +31,6 @@ module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
 					three = 144'b000000000000001111111100001111111100000000001100000000001100001111111100001111111100000000001100000000001100001111111100001111111100000000000000,
 					four = 144'b000000000000001100001100001100001100001100001100001100001100001111111100001111111100000000001100000000001100000000001100000000001100000000000000;
 					
-	reg [7:0] x_count;
-	reg [7:0] y_count;
 
 	always@(*)
 	begin
@@ -163,13 +161,13 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 			colour <= 3'b000;
 			writeEn <= 1;
 			draw_sharp <= 1;
-			if(x_count < 160)
+			if(x_count < 12)
 				begin
 					x_out <= x_count;
 					y_out <= y_count;
 					x_count <= x_count + 1;
 				end
-			else if (x_count == 160)
+			else if (x_count == 12)
 				begin
 					x_count <= 0;
 					y_count <= y_count + 1;

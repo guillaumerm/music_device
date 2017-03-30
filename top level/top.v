@@ -158,7 +158,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "vga_adapter/black.mif";
+		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 			
 
 			
