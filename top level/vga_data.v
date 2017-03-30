@@ -1,10 +1,11 @@
-module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
+module vga_data(note, octave, clk, reset, ld_note, x, y, x_out, y_out, writeEn, colour);
 	input [3:0] note;
 	input [1:0] octave;
 	input clk;
 	input [7:0] x;
 	input [6:0] y;
 	input reset;
+	input ld_note;
 	output [7:0] x_out;
 	output [6:0] y_out;
 	output writeEn;
@@ -125,6 +126,7 @@ module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
 						.sharp(sharp), 
 						.x(x), 
 						.y(y),
+						.ld_note(ld_note),
 						.reset(reset),
 						.writeEn(writeEn),
 						.colour(colour),
@@ -134,7 +136,7 @@ module vga_data(note, octave, clk, reset, x, y, x_out, y_out, writeEn, colour);
 	
 endmodule
 
-module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
+module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, writeEn,colour,x_out,y_out);
 	input clk;
 	input [143:0] letter;
 	input [143:0] oct;
@@ -142,6 +144,7 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 	input [7:0] x;
 	input [6:0] y;
 	input reset;
+	input ld_note;
 	output reg writeEn;
 	output reg [2:0] colour;
 	output reg [7:0] x_out;
@@ -169,7 +172,7 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 					y_out <= y_count;
 					x_count <= x_count + 1;
 				end
-			else if (x_count == 160)
+			else if (x_count == 160 && y_count < 120)
 				begin
 					x_count <= 0;
 					y_count <= y_count + 1;
@@ -180,7 +183,7 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 					y_count <= 0;
 				end
 		end
-	else
+	else if(ld_note)
 		begin
 			if(draw_sharp)
 				begin
@@ -287,15 +290,33 @@ module draw_note(clk,letter,oct,sharp,x,y, reset, writeEn,colour,x_out,y_out);
 					y_count <= 0;
 				end
 		end
+		else
+			begin
+					writeEn <= 0;
+					draw_sharp <= 0;
+					draw_octave <= 0;
+					draw_n <= 0;
+					x_out <= x;
+					y_out <= y;
+					x_count <= 0;
+					y_count <= 0;
+				end
 	end
 	
 	//counter track
 	always@(clk)
 	begin
-		if(counter == 0)
-			counter <= 143;
+		if(!reset)
+			counter <= 0;
+		else if(ld_note)
+		begin
+			if(counter == 0)
+				counter <= 143;
+			else
+				counter <= counter - 1;
+		end
 		else
-			counter <= counter - 1;
+			counter <= 0;
 	end
 
 endmodule

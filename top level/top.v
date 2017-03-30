@@ -167,6 +167,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 					.octave(octave), 
 					.clk(CLOCK_50), 
 					.reset(KEY[0]),
+					.ld_note(~KEY[1]),
 					.x(0), //from coord picker/datapath
 					.y(0), //from coord picker/datapath
 					.x_out(x), 
