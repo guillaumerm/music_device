@@ -158,8 +158,6 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	
 	always@(posedge clk)
 	begin
-		if(ld_note)
-		begin
 			if(x_count < 11)
 			begin
 				if(y_count < 12)
@@ -184,24 +182,14 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 					y_count <= 0;
 				end
 			end
-		end
 	end
 	
 	always@(posedge clk)
 	begin
-		if(ld_note)
-		begin
 			writeEn <= 1;
 			colour <= 3'b100;
 			x_out <= x + x_count;
 			y_out <= y + y_count;	
-		end
-		else
-		begin
-			x_out <= x;
-			y_out <= y;
-			writeEn <= 0;
-		end
 	end
 	
 	//sharp
