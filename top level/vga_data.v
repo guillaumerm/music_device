@@ -155,8 +155,56 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 
 	localparam x_symbol_offset = 12;
 	reg draw_sharp, draw_octave, draw_n;
-	//sharp
+	
 	always@(clk)
+	begin
+		if(ld_note)
+		begin
+			if(x_count < 12)
+			begin
+				if(y_count < 12)
+				begin
+					x_count <= x_count + 1;
+				end
+				else
+				begin
+					y_count <= 0;
+				end
+			end
+			else
+			begin
+				if(y_count < 12)
+				begin
+					y_count <= y_count + 1;
+				end
+				else
+				begin
+					x_count <= 0;
+					y_count <= 0;
+				end
+			end
+		end
+	end
+	
+	always@(clk)
+	begin
+		if(ld_note)
+		begin
+			writeEn <= 1;
+			colour <= 3'b100;
+			x_out <= x + x_count;
+			y_out <= y+ y_count;	
+		end
+		else
+		begin
+			x_out <= x;
+			y_out <= y;
+			writeEn <= 0;
+		end
+	end
+	
+	//sharp
+	/*always@(clk)
 	begin
 	if(!clear)
 		begin
@@ -308,7 +356,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 		end
 		else
 			counter <= 0;
-	end
+	end*/
 
 endmodule
 
