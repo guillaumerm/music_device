@@ -112,6 +112,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			  .reset(KEY[0]),
 			  .clear(KEY[1]),
 			  .freq_out(note_freq[31:0]),
+			  .display_note(SW[0]),
 			  .x(x),
 			  .y(y),
 			  .writeEn(writeEn),
