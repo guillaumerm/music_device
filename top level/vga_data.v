@@ -154,41 +154,94 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	reg [6:0] y_count = 0;
 
 	localparam x_symbol_offset = 12;
-	reg draw_sharp, draw_octave, draw_n;
+	reg draw_sharp, draw_octave, draw_n, current_state, next_state;
 	reg [143:0] local_letter;
+
+	localparam S_DRAW = 1'b0,
+				  S_DRAW_WAIT = 1'b1;
+	
+	always@(*)
+	begin
+		case(current_state)
+			S_DRAW:
+				begin
+					next_state = local_letter == 0 ? S_DRAW_WAIT : S_DRAW;
+				end
+			S_DRAW_WAIT:
+				begin
+					next_state = ld_note ? S_DRAW : S_DRAW_WAIT;
+				end
+			default :
+				begin
+					next_state = S_DRAW_WAIT;
+				end
+		endcase
+	end
 	
 	always@(posedge clk)
 	begin
-			if(x_count < 11)
-			begin
-				if(y_count < 12)
+		current_state <= next_state;
+	end
+	
+		// Output logic of the signals
+	always@(*)
+	begin
+		case(current_state)
+			S_DRAW:
 				begin
-					x_count <= x_count + 1;
+					draw_n = 1;
+				end
+			S_DRAW_WAIT:
+				begin
+					draw_n = 0;
+				end
+			default :
+				begin
+					draw_n = 0;
+				end
+		endcase
+	end
+	
+	always@(posedge clk)
+	begin
+			if(draw_n)
+			begin	
+				if(x_count < 11)
+				begin
+					if(y_count < 12)
+					begin
+						x_count <= x_count + 1;
+					end
+					else
+					begin
+						y_count <= 0;
+					end
 				end
 				else
 				begin
-					y_count <= 0;
+					if(y_count < 11)
+					begin
+						x_count <= 0;
+						y_count <= y_count + 1;
+					end
+					else
+					begin
+						x_count <= 0;
+						y_count <= 0;
+					end
 				end
 			end
 			else
 			begin
-				if(y_count < 11)
-				begin
-					x_count <= 0;
-					y_count <= y_count + 1;
-				end
-				else
-				begin
-					x_count <= 0;
-					y_count <= 0;
-				end
+				x_count <= 0;
+				y_count <= 0;
 			end
 	end
 	
 	always@(posedge clk)
 	begin
 		//include real reset and shift clear ot one's later...
-			if (!clear)
+			if (ld_note)
 			begin
 				local_letter[143:0] <= letter[143:0];
 				x_out <= x;

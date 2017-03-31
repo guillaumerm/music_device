@@ -73,7 +73,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.octave(note_read[5:4]), 
 					.clk(clk), 
 					.clear(clear),
-					.ld_note(display_note),
+					.ld_note(ld_note),
 					.x(30), //from coord picker/datapath
 					.y(30), //from coord picker/datapath
 					.x_out(x_out), 
