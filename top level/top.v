@@ -78,6 +78,12 @@ hex_decoder h4(.hex_digit(note), .segments(HEX4));
 //Display the ocatave
 hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 
+			
+	// Create the colour, x, y and writeEn wires that are inputs to the controller.
+	wire [2:0] colour;
+	wire [7:0] x;
+	wire [6:0] y;
+	wire writeEn;
 
   
   convert_keyboard_input in0(.keyboard_code(keyboard_code), 
@@ -104,7 +110,12 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			  .note_counter(note_counter[3:0]), 
 			  .clk(CLOCK_50),
 			  .reset(KEY[0]),
-			  .freq_out(note_freq[31:0])
+			  .clear(KEY[1]),
+			  .freq_out(note_freq[31:0]),
+			  .x(x),
+			  .y(y),
+			  .writeEn(writeEn),
+			  .colour(colour)
 			  );
 	
 
@@ -129,12 +140,6 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 				
 				
 				
-			
-	// Create the colour, x, y and writeEn wires that are inputs to the controller.
-	wire [2:0] colour;
-	wire [7:0] x;
-	wire [6:0] y;
-	wire writeEn;
 
 	// Create an Instance of a VGA controller - there can be only one!
 	// Define the number of colours as well as the initial background
@@ -162,19 +167,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			
 
 			
-	vga_data vgad(
-					.note(4'b0001), 
-					.octave(2'b01), 
-					.clk(CLOCK_50), 
-					.clear(KEY[2]),
-					.ld_note(1'b1),
-					.x(30), //from coord picker/datapath
-					.y(30), //from coord picker/datapath
-					.x_out(x), 
-					.y_out(y), 
-					.writeEn(writeEn),
-					.colour(colour)
-					);
+
 endmodule
 
 module hex_decoder(hex_digit, segments);

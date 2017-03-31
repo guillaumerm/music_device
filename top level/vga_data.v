@@ -187,7 +187,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 		begin
 			if(draw_sharp)
 				begin
-					if(x_count < 12)
+					if(x_count < 12 && y_count < 12)
 						begin
 							writeEn <= sharp[counter];
 							if (writeEn)
@@ -198,26 +198,23 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 							x_count <= x_count + 1;
 							y_out <= y + y_count;
 						end
-					else if (x_count == 12 && y_count < 12)
-						begin
-							x_count <=  0;
-							y_count <= y_count + 1;
-						end
-					else if (x_count == 12 && y_count == 12)
+					else if (x_count == 12 && y_count == 11)
 						begin
 							x_count <=  0;
 							y_count <= 0;
 							draw_sharp <= 0;
 							draw_n <= 1;
-						end
-					else
-						begin
 							writeEn <= 0;
+						end
+					else if (x_count == 12 && y_count < 12)
+						begin
+							x_count <=  0;
+							y_count <= y_count + 1;
 						end
 				end
 			else if(draw_n)
 				begin
-					if(x_count < 12)
+					if(x_count < 12 && y_count < 12)
 						begin
 							writeEn <= letter[counter];
 							if (writeEn)
@@ -230,26 +227,23 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 							x_count <= x_count + 1;
 							y_out <= y + y_count;
 						end
-					else if (x_count == 12 && y_count < 12)
-						begin
-							x_count <=  0;
-							y_count <= y_count + 1;
-						end
-					else if (x_count == 12 && y_count == 12)
+					else if (x_count == 12 && y_count == 11)
 						begin
 							x_count <=  0;
 							y_count <= 0;
 							draw_n <= 0;
 							draw_octave <= 1;
-						end
-					else
-						begin
 							writeEn <= 0;
+						end
+					else if (x_count == 12 && y_count < 12)
+						begin
+							x_count <=  0;
+							y_count <= y_count + 1;
 						end
 				end
 			else if(draw_octave)
 				begin
-					if(x_count < 12)
+					if(x_count < 12 && y_count < 12)
 						begin
 							writeEn <= oct[counter];
 							if (writeEn)
@@ -261,21 +255,18 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 							x_count <= x_count + 1;
 							y_out <= y + y_count;			
 						end
-					else if (x_count == 12 && y_count < 12)
-						begin						
-								x_count <=  0;
-								y_count <= y_count + 1;
-						end
-					else if (x_count == 12 && y_count == 12)
+					else if (x_count == 12 && y_count == 11)
 						begin
 								x_count <=  0;
 								y_count <= 0;
 								draw_octave <= 0;
 								draw_sharp <= 1;
+								writeEn <= 0;
 						end
-					else
-						begin
-							writeEn <= 0;
+					else if (x_count == 12 && y_count < 12)
+						begin						
+								x_count <=  0;
+								y_count <= y_count + 1;
 						end
 				end
 			else
