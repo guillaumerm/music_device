@@ -160,7 +160,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	begin
 		if(ld_note)
 		begin
-			if(x_count < 12)
+			if(x_count < 11)
 			begin
 				if(y_count < 12)
 				begin
@@ -173,7 +173,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 			end
 			else
 			begin
-				if(y_count < 12)
+				if(y_count < 11)
 				begin
 					x_count <= 0;
 					y_count <= y_count + 1;
