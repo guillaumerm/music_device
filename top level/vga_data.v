@@ -188,13 +188,17 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	begin
 			
 			writeEn <= letter[counter];
-			
+					
 			if(counter == 0)
 				counter <= 143;
 			
 			counter <= counter - 1;
 			
-			colour <= 3'b100;
+			if(writeEn)
+				colour <= 3'b100;
+			else
+				colour <= 3'b000;
+				
 			x_out <= x + x_count;
 			y_out <= y + y_count;	
 	end
