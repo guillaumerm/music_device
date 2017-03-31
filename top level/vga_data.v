@@ -154,7 +154,8 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	reg [6:0] y_count = 0;
 
 	localparam x_symbol_offset = 12;
-	reg draw_sharp, draw_octave, draw_n, enable_test;
+	reg draw_sharp, draw_octave, draw_n;
+	reg [143:0] local_letter;
 	
 	always@(posedge clk)
 	begin
@@ -163,12 +164,10 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 				if(y_count < 12)
 				begin
 					x_count <= x_count + 1;
-					enable_test <= 1;
 				end
 				else
 				begin
 					y_count <= 0;
-					enable_test <= 1;
 				end
 			end
 			else
@@ -177,33 +176,39 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 				begin
 					x_count <= 0;
 					y_count <= y_count + 1;
-					enable_test <= 1;
 				end
 				else
 				begin
 					x_count <= 0;
 					y_count <= 0;
-					enable_test <= 0;
 				end
 			end
 	end
 	
 	always@(posedge clk)
 	begin
-			if (enable_test)
-				writeEn <= letter[counter];
-			else
-				writeEn <= 0;
-				
-	      counter <= counter - 1;
-				
-			if(writeEn)
-				colour <= 3'b100;
-			else
+		//include real reset and shift clear ot one's later...
+			if (!clear)
+			begin
+				local_letter[143:0] <= letter[143:0];
+				x_out <= x;
+				y_out <= y;	
 				colour <= 3'b000;
+				writeEn <= 0;
+			end
+			else
+			begin
+				writeEn <= local_letter[143];
+				local_letter <= local_letter << 1;
 				
-			x_out <= x + x_count;
-			y_out <= y + y_count;	
+				if(writeEn)
+					colour <= 3'b100;
+				else
+					colour <= 3'b000;
+					
+				x_out <= x + x_count;
+				y_out <= y + y_count;	
+			end
 	end
 	
 	//sharp
