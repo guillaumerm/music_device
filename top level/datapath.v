@@ -74,7 +74,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.clk(CLOCK_50), 
 					.clear(clear),
 					.ld_note(display_note),
-					.x(mem_addr * 36), //from coord picker/datapath
+					.x(30), //from coord picker/datapath
 					.y(30), //from coord picker/datapath
 					.x_out(x), 
 					.y_out(y), 

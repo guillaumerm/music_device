@@ -193,7 +193,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 			writeEn <= 1;
 			colour <= 3'b100;
 			x_out <= x + x_count;
-			y_out <= y+ y_count;	
+			y_out <= y + y_count;	
 		end
 		else
 		begin
