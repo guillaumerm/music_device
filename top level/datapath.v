@@ -1,4 +1,4 @@
-module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, clear, freq_out, x, y, writeEn, colour);
+module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, clear, freq_out, x_out, y_out, writeEn, colour);
 	input [3:0] note_data;
 	input [1:0] octave_data;
 	input ld_note;
@@ -10,8 +10,8 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	input display_note;
 	
 	output [31:0] freq_out;
-	output [7:0] x;
-	output [6:0] y;
+	output [7:0] x_out;
+	output [6:0] y_out;
 	output writeEn;
 	output [2:0] colour;
 	
@@ -71,13 +71,13 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	vga_data vgad(
 					.note(note_read[3:0]), 
 					.octave(note_read[5:4]), 
-					.clk(CLOCK_50), 
+					.clk(clk), 
 					.clear(clear),
 					.ld_note(display_note),
 					.x(30), //from coord picker/datapath
 					.y(30), //from coord picker/datapath
-					.x_out(x), 
-					.y_out(y), 
+					.x_out(x_out), 
+					.y_out(y_out), 
 					.writeEn(writeEn),
 					.colour(colour)
 					);

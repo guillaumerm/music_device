@@ -156,7 +156,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	localparam x_symbol_offset = 12;
 	reg draw_sharp, draw_octave, draw_n;
 	
-	always@(clk)
+	always@(posedge clk)
 	begin
 		if(ld_note)
 		begin
@@ -187,7 +187,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 		end
 	end
 	
-	always@(clk)
+	always@(posedge clk)
 	begin
 		if(ld_note)
 		begin
