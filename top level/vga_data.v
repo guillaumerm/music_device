@@ -241,7 +241,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	always@(posedge clk)
 	begin
 		//include real reset and shift clear ot one's later...
-			if (ld_note)
+			if (!draw_n)
 			begin
 				local_letter[143:0] <= letter[143:0];
 				x_out <= x;
