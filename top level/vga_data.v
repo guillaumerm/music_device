@@ -175,6 +175,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 			begin
 				if(y_count < 12)
 				begin
+					x_count <= 0;
 					y_count <= y_count + 1;
 				end
 				else
