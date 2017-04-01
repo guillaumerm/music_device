@@ -219,7 +219,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 	
 	always@(posedge clk)
 	begin
-			if(draw_n)
+			if(draw_n || clear_n)
 			begin	
 				if(x_count < 11)
 				begin
