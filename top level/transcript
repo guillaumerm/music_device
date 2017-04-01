@@ -84,3 +84,912 @@ do vga_data_wave.do
 # Loading work.draw_note
 # ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
 #    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:16:24 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:16:24 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:16:25 on Mar 30,2017, Elapsed time: 0:31:40
+# Errors: 0, Warnings: 1
+# vsim vga_data 
+# Start time: 17:16:25 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:26:22 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(217): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(230): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(236): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(239): (vlog-13205) Syntax error found in the scope following 'y_count'. Is there a missing '::'?
+# End time: 17:26:22 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:28:27 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(250): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(264): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(267): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:28:28 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:29:08 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(250): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(264): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(267): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:29:08 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:31:26 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(250): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(264): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(267): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:31:26 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:33:19 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(250): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(264): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(267): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:33:19 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:38:45 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(248): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(261): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(264): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:38:45 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:39:44 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(248): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(261): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(264): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:39:44 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:43:08 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: vga_data.v(235): (vlog-2730) Undefined variable: 'beginwriteEn'.
+# End time: 17:43:08 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:43:21 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:43:21 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:43:22 on Mar 30,2017, Elapsed time: 0:26:57
+# Errors: 47, Warnings: 1
+# vsim vga_data 
+# Start time: 17:43:22 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Warning: (vsim-3015) vga_data.v(122): [PCDPC] - Port size (3) does not match connection size (1) for port 'colour'. The port definition is at: vga_data.v(137).
+#    Time: 0 ns  Iteration: 0  Instance: /vga_data/draw File: vga_data.v
+# Error opening /h/u14/c6/01/mathie15/csc258/music_device/top level/(vsim-3015) vga_data.v
+# Path name '/h/u14/c6/01/mathie15/csc258/music_device/top level/(vsim-3015) vga_data.v' doesn't exist.
+# Error opening /h/u14/c6/01/mathie15/csc258/music_device/top level/(vsim-3015) vga_data.v
+# Path name '/h/u14/c6/01/mathie15/csc258/music_device/top level/(vsim-3015) vga_data.v' doesn't exist.
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:44:17 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:44:17 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:44:21 on Mar 30,2017, Elapsed time: 0:00:59
+# Errors: 2, Warnings: 1
+# vsim vga_data 
+# Start time: 17:44:21 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:49:03 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# ** Error: (vlog-13069) vga_data.v(248): near "else": syntax error, unexpected else.
+# ** Error: (vlog-13069) vga_data.v(261): near "else": syntax error, unexpected else.
+# ** Error: vga_data.v(264): (vlog-13205) Syntax error found in the scope following 'x_count'. Is there a missing '::'?
+# End time: 17:49:03 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:50:06 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:50:07 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 17:50:07 on Mar 30,2017, Elapsed time: 0:05:46
+# Errors: 6, Warnings: 0
+# vsim vga_data 
+# Start time: 17:50:07 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:53:16 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:53:16 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:53:17 on Mar 30,2017, Elapsed time: 0:03:10
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 17:53:17 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:53:34 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:53:35 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 17:53:35 on Mar 30,2017, Elapsed time: 0:00:18
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 17:53:35 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:55:08 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:55:09 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 17:55:10 on Mar 30,2017, Elapsed time: 0:01:35
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 17:55:10 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 17:55:53 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 17:55:53 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 17:55:54 on Mar 30,2017, Elapsed time: 0:00:44
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 17:55:54 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 18:42:36 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 18:42:37 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 18:42:38 on Mar 30,2017, Elapsed time: 0:46:44
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 18:42:38 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 18:43:12 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 18:43:12 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:43:13 on Mar 30,2017, Elapsed time: 0:00:35
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 18:43:13 on Mar 30,2017
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:14:16 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:14:16 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:14:17 on Mar 30,2017, Elapsed time: 0:31:04
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:14:17 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Error (suppressible): (vish-4008) Object 'reset' not found.
+# Error in macro ./vga_data_wave.do line 13
+# ** Error (suppressible): (vish-4008) Object 'reset' not found.
+# 
+#     while executing
+# "force {reset} 0"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:15:09 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# ** Error: (vlog-13069) vga_data.v(62): near "<=": syntax error, unexpected <=, expecting '('.
+# ** Error: (vlog-13069) vga_data.v(63): near ";": syntax error, unexpected ';', expecting ':'.
+# ** Error: (vlog-13069) vga_data.v(70): near "4": syntax error, unexpected INTEGER NUMBER.
+# ** Error: vga_data.v(73): (vlog-13205) Syntax error found in the scope following 'sharp'. Is there a missing '::'?
+# End time: 19:15:09 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./vga_data_wave.do line 3
+# /s/appspace/quartus-16.0.0.211/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -timescale 1ns/1ns vga_data.v"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:15:42 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:15:42 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:15:43 on Mar 30,2017, Elapsed time: 0:01:26
+# Errors: 8, Warnings: 0
+# vsim vga_data 
+# Start time: 19:15:43 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+# ** Error (suppressible): (vish-4008) Object 'reset' not found.
+# Error in macro ./vga_data_wave.do line 13
+# ** Error (suppressible): (vish-4008) Object 'reset' not found.
+# 
+#     while executing
+# "force {reset} 0"
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:16:50 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:16:50 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:16:51 on Mar 30,2017, Elapsed time: 0:01:08
+# Errors: 1, Warnings: 0
+# vsim vga_data 
+# Start time: 19:16:51 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:17:09 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:17:09 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:17:09 on Mar 30,2017, Elapsed time: 0:00:18
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 19:17:09 on Mar 30,2017
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:18:13 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:18:13 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:18:14 on Mar 30,2017, Elapsed time: 0:01:05
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:18:14 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:18:49 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:18:49 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:18:50 on Mar 30,2017, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:18:50 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:23:49 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:23:49 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:23:50 on Mar 30,2017, Elapsed time: 0:05:00
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:23:50 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:35:57 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:35:58 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 19:35:59 on Mar 30,2017, Elapsed time: 0:12:09
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:35:59 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:39:03 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:39:03 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:39:04 on Mar 30,2017, Elapsed time: 0:03:05
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:39:04 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:41:33 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:41:33 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:41:34 on Mar 30,2017, Elapsed time: 0:02:30
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 19:41:34 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:45:31 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:45:31 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:45:32 on Mar 30,2017, Elapsed time: 0:03:58
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 19:45:32 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:47:16 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:47:16 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:47:17 on Mar 30,2017, Elapsed time: 0:01:45
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 19:47:17 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:48:34 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:48:34 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:48:35 on Mar 30,2017, Elapsed time: 0:01:18
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 19:48:35 on Mar 30,2017
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:51:14 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:51:14 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:51:15 on Mar 30,2017, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:51:15 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do vga_data_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 19:53:21 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 19:53:21 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:53:22 on Mar 30,2017, Elapsed time: 0:02:07
+# Errors: 0, Warnings: 0
+# vsim vga_data 
+# Start time: 19:53:22 on Mar 30,2017
+# Loading work.vga_data
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:46:49 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 20:46:49 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:46:51 on Mar 30,2017, Elapsed time: 0:53:29
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 20:46:51 on Mar 30,2017
+# Loading work.draw_note
+datapath_simulation.do
+# invalid command name "datapath_simulation.do"
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:51:58 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:51:59 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 20:52:01 on Mar 30,2017, Elapsed time: 0:05:10
+# Errors: 1, Warnings: 0
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:52:01 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:53:30 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:53:30 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:53:31 on Mar 30,2017, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 2
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:53:31 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:54:10 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:54:10 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:54:11 on Mar 30,2017, Elapsed time: 0:00:40
+# Errors: 0, Warnings: 2
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:54:11 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:54:55 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:54:55 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:54:56 on Mar 30,2017, Elapsed time: 0:00:45
+# Errors: 0, Warnings: 2
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:54:56 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:56:34 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:56:34 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:56:35 on Mar 30,2017, Elapsed time: 0:01:39
+# Errors: 0, Warnings: 2
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:56:35 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Error: evaluating expression "x[7:0]"
+# Expecting a signal name in slice or index expression.
+# Error in macro ./datapath_simulation.do line 18
+# evaluating expression "x[7:0]"
+# Expecting a signal name in slice or index expression.
+# 
+#     while executing
+# "force {x[7:0]} 0"
+do datapath_simulation.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 20:56:45 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns datapath.v 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 20:56:45 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 20:56:46 on Mar 30,2017, Elapsed time: 0:00:11
+# Errors: 2, Warnings: 2
+# vsim -L altera_mf_ver datapath 
+# Start time: 20:56:46 on Mar 30,2017
+# Loading work.datapath
+# Loading work.memory
+# Loading altera_mf_ver.altsyncram
+# Loading work.freq_select
+# Loading work.vga_data
+# Loading work.draw_note
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (8) does not match connection size (32) for port 'x'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+# ** Warning: (vsim-3015) datapath.v(71): [PCDPC] - Port size (7) does not match connection size (32) for port 'y'. The port definition is at: vga_data.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /datapath/vgad File: vga_data.v
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 21:10:24 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 21:10:24 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:10:25 on Mar 30,2017, Elapsed time: 0:13:39
+# Errors: 0, Warnings: 2
+# vsim draw_note 
+# Start time: 21:10:25 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 21:12:11 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 21:12:12 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 21:12:13 on Mar 30,2017, Elapsed time: 0:01:48
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 21:12:13 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 21:15:28 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 21:15:28 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:15:29 on Mar 30,2017, Elapsed time: 0:03:16
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 21:15:29 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 21:49:26 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 21:49:27 on Mar 30,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 21:49:28 on Mar 30,2017, Elapsed time: 0:33:59
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 21:49:28 on Mar 30,2017
+# Loading work.draw_note
+do draw_note_wave.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 21:54:28 on Mar 30,2017
+# vlog -reportprogress 300 -timescale 1ns/1ns vga_data.v 
+# -- Compiling module vga_data
+# -- Compiling module draw_note
+# 
+# Top level modules:
+# 	vga_data
+# End time: 21:54:28 on Mar 30,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:54:30 on Mar 30,2017, Elapsed time: 0:05:02
+# Errors: 0, Warnings: 0
+# vsim draw_note 
+# Start time: 21:54:30 on Mar 30,2017
+# Loading work.draw_note

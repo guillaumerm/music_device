@@ -1,5 +1,5 @@
 Analysis & Synthesis report for week1milestone
-Thu Mar 30 17:10:17 2017
+Sat Apr  1 19:45:32 2017
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -42,19 +42,18 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
  34. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
  35. altsyncram Parameter Settings by Entity Instance
  36. altpll Parameter Settings by Entity Instance
- 37. Port Connectivity Checks: "vga_data:vgad|draw_note:draw"
- 38. Port Connectivity Checks: "vga_data:vgad"
- 39. Port Connectivity Checks: "vga_adapter:VGA"
- 40. Port Connectivity Checks: "audio3:audio|audio_converter:u5"
- 41. Port Connectivity Checks: "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0"
- 42. Port Connectivity Checks: "audio3:audio|VGA_Audio_PLL:p1"
- 43. Port Connectivity Checks: "hex_decoder:h5"
- 44. Port Connectivity Checks: "hex_decoder:h3"
- 45. Port Connectivity Checks: "hex_decoder:h2"
- 46. Post-Synthesis Netlist Statistics for Top Partition
- 47. Elapsed Time Per Partition
- 48. Analysis & Synthesis Messages
- 49. Analysis & Synthesis Suppressed Messages
+ 37. Port Connectivity Checks: "audio3:audio|audio_converter:u5"
+ 38. Port Connectivity Checks: "audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0"
+ 39. Port Connectivity Checks: "audio3:audio|VGA_Audio_PLL:p1"
+ 40. Port Connectivity Checks: "datapath:d0|vga_data:vgad|draw_note:draw"
+ 41. Port Connectivity Checks: "hex_decoder:h5"
+ 42. Port Connectivity Checks: "hex_decoder:h1"
+ 43. Port Connectivity Checks: "hex_decoder:h0"
+ 44. Port Connectivity Checks: "keyboard_press_driver:keyboard"
+ 45. Post-Synthesis Netlist Statistics for Top Partition
+ 46. Elapsed Time Per Partition
+ 47. Analysis & Synthesis Messages
+ 48. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -81,13 +80,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Mar 30 17:10:17 2017       ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr  1 19:45:32 2017       ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                   ; week1milestone                              ;
 ; Top-level Entity Name           ; top                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 281                                         ;
+; Total registers                 ; 284                                         ;
 ; Total pins                      ; 176                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 57,696                                      ;
@@ -255,16 +254,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 364            ;
+; Estimate of Logic utilization (ALMs needed) ; 359            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 538            ;
+; Combinational ALUT usage for logic          ; 530            ;
 ;     -- 7 input functions                    ; 4              ;
-;     -- 6 input functions                    ; 177            ;
+;     -- 6 input functions                    ; 175            ;
 ;     -- 5 input functions                    ; 69             ;
-;     -- 4 input functions                    ; 71             ;
-;     -- <=3 input functions                  ; 217            ;
+;     -- 4 input functions                    ; 58             ;
+;     -- <=3 input functions                  ; 224            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 281            ;
+; Dedicated logic registers                   ; 284            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 176            ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -276,9 +275,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 3              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 126            ;
-; Total fan-out                               ; 3643           ;
-; Average fan-out                             ; 2.85           ;
+; Maximum fan-out                             ; 129            ;
+; Total fan-out                               ; 3633           ;
+; Average fan-out                             ; 2.86           ;
 +---------------------------------------------+----------------+
 
 
@@ -287,7 +286,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |top                                                    ; 538 (1)           ; 281 (0)      ; 57696             ; 14         ; 176  ; 0            ; |top                                                                                                ; top                    ; work         ;
+; |top                                                    ; 530 (1)           ; 284 (0)      ; 57696             ; 14         ; 176  ; 0            ; |top                                                                                                ; top                    ; work         ;
 ;    |audio3:audio|                                       ; 254 (32)          ; 146 (32)     ; 0                 ; 2          ; 0    ; 0            ; |top|audio3:audio                                                                                   ; audio3                 ; work         ;
 ;       |I2C_AV_Config:u3|                                ; 97 (53)           ; 75 (45)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3                                                                  ; I2C_AV_Config          ; work         ;
 ;          |I2C_Controller:u0|                            ; 44 (44)           ; 30 (30)      ; 0                 ; 0          ; 0    ; 0            ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0                                                ; I2C_Controller         ; work         ;
@@ -301,22 +300,24 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |control:c0|                                         ; 70 (23)           ; 36 (11)      ; 0                 ; 0          ; 0    ; 0            ; |top|control:c0                                                                                     ; control                ; work         ;
 ;       |RateDivider2:rd|                                 ; 47 (47)           ; 25 (25)      ; 0                 ; 0          ; 0    ; 0            ; |top|control:c0|RateDivider2:rd                                                                     ; RateDivider2           ; work         ;
 ;    |convert_keyboard_input:in0|                         ; 40 (40)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|convert_keyboard_input:in0                                                                     ; convert_keyboard_input ; work         ;
-;    |datapath:d0|                                        ; 73 (13)           ; 11 (11)      ; 96                ; 12         ; 0    ; 0            ; |top|datapath:d0                                                                                    ; datapath               ; work         ;
+;    |datapath:d0|                                        ; 78 (13)           ; 15 (11)      ; 96                ; 12         ; 0    ; 0            ; |top|datapath:d0                                                                                    ; datapath               ; work         ;
+;       |coord_picker:cds|                                ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|datapath:d0|coord_picker:cds                                                                   ; coord_picker           ; work         ;
 ;       |freq_select:fs|                                  ; 60 (60)           ; 0 (0)        ; 0                 ; 12         ; 0    ; 0            ; |top|datapath:d0|freq_select:fs                                                                     ; freq_select            ; work         ;
 ;       |memory:main|                                     ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:d0|memory:main                                                                        ; memory                 ; work         ;
 ;          |altsyncram:altsyncram_component|              ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:d0|memory:main|altsyncram:altsyncram_component                                        ; altsyncram             ; work         ;
 ;             |altsyncram_r9m1:auto_generated|            ; 0 (0)             ; 0 (0)        ; 96                ; 0          ; 0    ; 0            ; |top|datapath:d0|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated         ; altsyncram_r9m1        ; work         ;
-;    |hex_decoder:h0|                                     ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|hex_decoder:h0                                                                                 ; hex_decoder            ; work         ;
-;    |hex_decoder:h1|                                     ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|hex_decoder:h1                                                                                 ; hex_decoder            ; work         ;
+;       |vga_data:vgad|                                   ; 2 (0)             ; 4 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|datapath:d0|vga_data:vgad                                                                      ; vga_data               ; work         ;
+;          |draw_note:draw|                               ; 2 (2)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |top|datapath:d0|vga_data:vgad|draw_note:draw                                                       ; draw_note              ; work         ;
 ;    |hex_decoder:h4|                                     ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|hex_decoder:h4                                                                                 ; hex_decoder            ; work         ;
 ;    |hex_decoder:h5|                                     ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|hex_decoder:h5                                                                                 ; hex_decoder            ; work         ;
-;    |keyboard_press_driver:keyboard|                     ; 28 (14)           ; 58 (24)      ; 0                 ; 0          ; 0    ; 0            ; |top|keyboard_press_driver:keyboard                                                                 ; keyboard_press_driver  ; work         ;
+;    |keyboard_press_driver:keyboard|                     ; 26 (12)           ; 57 (23)      ; 0                 ; 0          ; 0    ; 0            ; |top|keyboard_press_driver:keyboard                                                                 ; keyboard_press_driver  ; work         ;
 ;       |keyboard_inner_driver:kbd|                       ; 14 (14)           ; 34 (34)      ; 0                 ; 0          ; 0    ; 0            ; |top|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd                                       ; keyboard_inner_driver  ; work         ;
-;    |vga_adapter:VGA|                                    ; 48 (0)            ; 30 (0)       ; 57600             ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+;    |vga_adapter:VGA|                                    ; 51 (0)            ; 30 (0)       ; 57600             ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 6 (0)             ; 4 (0)        ; 57600             ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
 ;          |altsyncram_m6m1:auto_generated|               ; 6 (0)             ; 4 (4)        ; 57600             ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                          ; altsyncram_m6m1        ; work         ;
 ;             |decode_01a:rden_decode_b|                  ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b ; decode_01a             ; work         ;
 ;             |mux_ifb:mux3|                              ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3             ; mux_ifb                ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 3 (3)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
 ;       |vga_controller:controller|                       ; 42 (32)           ; 26 (26)      ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
 ;          |vga_address_translator:controller_translator| ; 10 (10)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
 ;       |vga_pll:mypll|                                   ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |top|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
@@ -423,29 +424,497 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[16,17,19,23] ; Stuck at GND due to stuck port data_in                             ;
 ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[20,21]       ; Merged with audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[18] ;
 ; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[20,21]                  ; Merged with audio3:audio|I2C_AV_Config:u3|mI2C_DATA[18]            ;
+; datapath:d0|colour_in[0]                                        ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[0]         ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[0]        ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[0]           ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|colour[0]              ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[1]         ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[1]        ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[1..13]       ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|current_state          ; Stuck at VCC due to stuck port data_in                             ;
+; datapath:d0|colour_in[1,2]                                      ; Lost fanout                                                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[2..143]   ; Lost fanout                                                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[14..143]     ; Lost fanout                                                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[2..143]    ; Lost fanout                                                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|y_count[0..6]          ; Lost fanout                                                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|writeEn                ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|colour[1,2]            ; Stuck at GND due to stuck port clock_enable                        ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_out[0,1]             ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_out[2]               ; Stuck at VCC due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|y_out[0,1]             ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|y_out[2]               ; Stuck at VCC due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|y_out[3]               ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_count[0..7]          ; Stuck at GND due to stuck port sclear                              ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_out[7]               ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|y_out[6]               ; Stuck at GND due to stuck port data_in                             ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_out[5]               ; Merged with datapath:d0|vga_data:vgad|draw_note:draw|x_out[3]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|x_out[6]               ; Merged with datapath:d0|vga_data:vgad|draw_note:draw|x_out[4]      ;
 ; audio3:audio|I2C_AV_Config:u3|mSetup_ST~9                       ; Lost fanout                                                        ;
 ; audio3:audio|I2C_AV_Config:u3|mSetup_ST~10                      ; Lost fanout                                                        ;
 ; keyboard_press_driver:keyboard|count~6                          ; Lost fanout                                                        ;
 ; keyboard_press_driver:keyboard|count~7                          ; Lost fanout                                                        ;
 ; audio3:audio|audio_clock:u4|BCK_DIV[3]                          ; Stuck at GND due to stuck port data_in                             ;
-; Total Number of Removed Registers = 17                          ;                                                                    ;
+; Total Number of Removed Registers = 483                         ;                                                                    ;
 +-----------------------------------------------------------------+--------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                      ;
-+---------------------------------------------+---------------------------+--------------------------------------------------------+
-; Register name                               ; Reason for Removal        ; Registers Removed due to This Register                 ;
-+---------------------------------------------+---------------------------+--------------------------------------------------------+
-; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[23] ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[23] ;
-;                                             ; due to stuck port data_in ;                                                        ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[19] ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[19] ;
-;                                             ; due to stuck port data_in ;                                                        ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[17] ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[17] ;
-;                                             ; due to stuck port data_in ;                                                        ;
-; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[16] ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[16] ;
-;                                             ; due to stuck port data_in ;                                                        ;
-+---------------------------------------------+---------------------------+--------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++----------------------------------------------------------+---------------------------+-------------------------------------------------------------+
+; Register name                                            ; Reason for Removal        ; Registers Removed due to This Register                      ;
++----------------------------------------------------------+---------------------------+-------------------------------------------------------------+
+; datapath:d0|vga_data:vgad|draw_note:draw|current_state   ; Stuck at VCC              ; datapath:d0|colour_in[1], datapath:d0|colour_in[2],         ;
+;                                                          ; due to stuck port data_in ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[143], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[142], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[141], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[140], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[139], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[138], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[137], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[136], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[135], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[134], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[133], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[132], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[131], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[130], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[129], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[128], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[127], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[126], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[125], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[124], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[123], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[122], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[121], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[120], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[119], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[118], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[117], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[116], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[115], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[114], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[113], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[112], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[111], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[110], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[109], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[108], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[107], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[106], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[105], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[104], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[103], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[102], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[101], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[100], ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[99],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[98],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[97],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[96],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[95],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[94],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[93],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[92],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[91],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[90],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[89],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[88],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[87],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[86],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[85],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[84],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[83],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[82],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[81],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[80],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[79],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[78],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[77],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[76],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[75],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[74],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[73],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[72],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[71],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[70],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[69],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[68],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[67],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[66],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[65],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[64],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[63],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[62],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[61],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[60],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[59],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[58],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[57],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[56],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[55],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[54],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[53],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[52],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[51],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[50],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[49],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[48],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[47],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[46],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[45],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[44],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[43],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[42],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[41],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[40],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[39],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[38],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[37],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[36],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[35],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[34],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[33],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[32],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[31],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[30],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[29],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[28],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[27],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[26],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[25],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[24],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[23],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[22],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[21],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[20],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[19],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[18],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[17],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[16],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[15],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[14],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[13],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[12],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[11],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[10],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[9],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[8],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[7],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[6],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[26],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[62],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[63],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[143],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[142],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[141],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[140],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[139],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[138],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[137],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[136],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[135],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[134],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[133],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[132],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[131],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[130],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[129],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[128],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[127],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[126],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[125],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[124],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[123],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[27],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[143],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[142],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[141],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[140],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[139],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[138],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[137],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[136],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[135],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[134],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[133],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[132],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[131],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[130],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[129],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[128],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[127],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[126],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[125],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[124],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[123],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[122],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[121],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[120],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[119],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[118],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[117],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[116],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[115],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[114],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[113],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[112],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[111],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[110],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[109],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[108],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[107],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[106],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[105],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[104],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[103],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[102],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[101],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[100],  ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[99],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[98],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[97],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[96],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[95],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[94],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[93],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[92],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[91],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[90],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[89],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[88],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[87],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[86],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[85],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[84],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[83],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[82],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[81],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[80],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[79],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[78],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[77],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[76],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[75],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[74],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[73],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[72],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[71],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[70],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[69],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[68],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[67],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[66],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[65],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[64],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[63],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[62],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[61],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[60],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[59],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[58],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[57],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[56],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[55],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[54],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[53],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[52],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[51],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[50],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[49],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[48],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[47],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[46],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[45],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[44],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[43],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[42],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[41],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[40],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[39],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[38],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[37],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[36],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[35],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[34],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[33],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[32],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[31],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[30],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[29],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[28],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[27],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[26],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[25],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[24],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[23],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[22],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[21],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[20],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[19],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[18],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[17],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[16],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[15],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[14],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[13],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[12],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[11],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[10],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[9],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[8],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[7],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[6],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[3],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[2],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[1],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[0],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[5],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_count[4],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|writeEn,           ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|colour[1],         ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|colour[2],         ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_out[0],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_out[1],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_out[2],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_out[0],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_out[1],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_out[2],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_out[3],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_count[3],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_count[4],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_count[6],        ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|x_out[7],          ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|y_out[6]           ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[61]   ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[60],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[59],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[58],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[57],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[56],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[55],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[54],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[53],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[52],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[51],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[50],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[49],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[48],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[47],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[46],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[45],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[44],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[43],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[42],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[41],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[40],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[39],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[38],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[37],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[36],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[35],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[34],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[33],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[32],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[31],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[30],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[29],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[28]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[0]    ; Stuck at GND              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[1],      ;
+;                                                          ; due to stuck port data_in ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[2],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[3],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[4],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[5],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[6],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[7],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[8],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[9],      ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[10],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[11],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[12],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[13],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[5],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[14],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[15]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[97]   ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[96],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[95],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[94],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[93],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[92],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[91],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[90],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[89],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[88],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[87]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[109]  ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[108],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[107],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[106],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[105],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[104],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[103],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[102],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[101],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[100],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[99]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[85]   ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[84],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[83],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[82],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[81],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[80],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[79],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[78],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[77],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[76],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[75]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[121]  ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[120],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[119],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[118],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[117],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[116],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[115],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[114],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[113],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[112],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[111]     ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[73]   ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[72],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[71],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[70],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[69],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[68],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[67],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[66],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[65],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[64]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[25]   ; Lost Fanouts              ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[24],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[23],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[22],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[21],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[20],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[19],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[18],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[17],     ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_oct[16]      ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[0]  ; Stuck at GND              ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[1],    ;
+;                                                          ; due to stuck port data_in ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[6],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[5],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[4],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[3],    ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[2]     ;
+; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[0] ; Stuck at GND              ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[1],   ;
+;                                                          ; due to stuck port data_in ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[4],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[3],   ;
+;                                                          ;                           ; datapath:d0|vga_data:vgad|draw_note:draw|local_letter[2]    ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[23]              ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[23]      ;
+;                                                          ; due to stuck port data_in ;                                                             ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[19]              ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[19]      ;
+;                                                          ; due to stuck port data_in ;                                                             ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[17]              ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[17]      ;
+;                                                          ; due to stuck port data_in ;                                                             ;
+; audio3:audio|I2C_AV_Config:u3|mI2C_DATA[16]              ; Stuck at GND              ; audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD[16]      ;
+;                                                          ; due to stuck port data_in ;                                                             ;
+; datapath:d0|colour_in[0]                                 ; Stuck at GND              ; datapath:d0|vga_data:vgad|draw_note:draw|colour[0]          ;
+;                                                          ; due to stuck port data_in ;                                                             ;
++----------------------------------------------------------+---------------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -453,7 +922,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 281   ;
+; Total registers                              ; 284   ;
 ; Number of registers using Synchronous Clear  ; 63    ;
 ; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 110   ;
@@ -503,16 +972,28 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top|keyboard_press_driver:keyboard|filter_scan[0]                                                     ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|control:c0|notes_recorded[0]                                                                      ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|incnt[3]                                 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|control:c0|note_counter[0]                                                                        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|datapath:d0|mem_addr[0]                                                                           ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top|datapath:d0|in_data[5]                                                                            ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[4]                                     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[2] ;
-; 16:1               ; 11 bits   ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; No         ; |top|datapath:d0|freq_select:fs|Mux5                                                                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|x_out[0]                                                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|control:c0|notes_recorded[1]                                                                      ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_oct[62]                                            ;
+; 3:1                ; 48 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_oct[78]                                            ;
+; 3:1                ; 66 bits   ; 132 LEs       ; 0 LEs                ; 132 LEs                ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_oct[71]                                            ;
+; 3:1                ; 84 bits   ; 168 LEs       ; 0 LEs                ; 168 LEs                ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_letter[21]                                         ;
+; 3:1                ; 57 bits   ; 114 LEs       ; 0 LEs                ; 114 LEs                ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_letter[106]                                        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |top|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top|keyboard_press_driver:keyboard|filter_scan[7]                                                     ;
+; 3:1                ; 67 bits   ; 134 LEs       ; 0 LEs                ; 134 LEs                ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[81]                                          ;
+; 3:1                ; 74 bits   ; 148 LEs       ; 0 LEs                ; 148 LEs                ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|local_sharp[143]                                         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top|datapath:d0|colour_in[2]                                                                          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|x_count[3]                                               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top|keyboard_press_driver:keyboard|keyboard_inner_driver:kbd|incnt[2]                                 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|control:c0|note_counter[3]                                                                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|datapath:d0|mem_addr[1]                                                                           ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|y_count[1]                                               ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top|datapath:d0|vga_data:vgad|draw_note:draw|x_out[4]                                                 ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |top|datapath:d0|in_data[3]                                                                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|audio3:audio|I2C_AV_Config:u3|I2C_Controller:u0|SD_COUNTER[5]                                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |top|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[0] ;
+; 16:1               ; 11 bits   ; 110 LEs       ; 110 LEs              ; 0 LEs                  ; No         ; |top|datapath:d0|freq_select:fs|Mux8                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------+
 
 
@@ -1582,104 +2063,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_data:vgad|draw_note:draw"                                                                                                         ;
-+------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
-; Port             ; Type   ; Severity ; Details                                                                                                                   ;
-+------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
-; letter[143..130] ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[121..118] ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[109..106] ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[97..94]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[90..89]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[85..82]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[73..70]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[61..58]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[49..46]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[37..34]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[25..22]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[13..10]   ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[1..0]     ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; letter[76]       ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[123..122]    ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[111..110]    ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[99..98]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[87..86]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[75..74]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[63..62]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[27..26]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[15..14]      ; Input  ; Info     ; Stuck at VCC                                                                                                              ;
-; oct[143..130]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[121..118]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[109..106]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[103..100]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[97..94]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[91..88]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[85..82]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[73..70]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[61..58]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[55..52]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[49..46]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[43..40]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[37..34]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[25..22]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; oct[13..0]       ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[143..130]  ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[127..124]  ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[121..118]  ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[115..112]  ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[109..107]  ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[96..95]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[84..82]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[79..76]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[73..70]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[67..64]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[61..58]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[55..52]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[49..47]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[36..35]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[24..22]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[19..16]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[13..10]    ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[7..4]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; sharp[1..0]      ; Input  ; Info     ; Stuck at GND                                                                                                              ;
-; colour           ; Output ; Warning  ; Output or bidir port (3 bits) is wider than the port expression (1 bits) it drives; bit(s) "colour[2..1]" have no fanouts ;
-+------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_data:vgad"                                                                                                                                                                           ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; x          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (8 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; x[7..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; y          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (7 bits) it drives.  The 25 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; y[6..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; x_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; y_out      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; writeEn    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; colour     ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (3 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND.              ;
-; colour[-1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_adapter:VGA"                                                                                                                                                                          ;
-+--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port         ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; colour       ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (3 bits) it drives.  The 29 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; colour[2..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; x            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (8 bits) it drives.  The 24 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; x[7..0]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; y            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (7 bits) it drives.  The 25 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; y[6..0]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; plot         ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; plot[-1]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-+--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "audio3:audio|audio_converter:u5"                                                       ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1711,6 +2094,70 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:d0|vga_data:vgad|draw_note:draw" ;
++------------------+-------+----------+--------------------------------+
+; Port             ; Type  ; Severity ; Details                        ;
++------------------+-------+----------+--------------------------------+
+; letter[143..130] ; Input ; Info     ; Stuck at GND                   ;
+; letter[121..118] ; Input ; Info     ; Stuck at GND                   ;
+; letter[109..106] ; Input ; Info     ; Stuck at GND                   ;
+; letter[97..94]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[90..89]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[85..82]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[73..70]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[61..58]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[49..46]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[37..34]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[25..22]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[13..10]   ; Input ; Info     ; Stuck at GND                   ;
+; letter[1..0]     ; Input ; Info     ; Stuck at GND                   ;
+; letter[76]       ; Input ; Info     ; Stuck at GND                   ;
+; oct[123..122]    ; Input ; Info     ; Stuck at VCC                   ;
+; oct[111..110]    ; Input ; Info     ; Stuck at VCC                   ;
+; oct[99..98]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[87..86]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[75..74]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[63..62]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[27..26]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[15..14]      ; Input ; Info     ; Stuck at VCC                   ;
+; oct[143..130]    ; Input ; Info     ; Stuck at GND                   ;
+; oct[121..118]    ; Input ; Info     ; Stuck at GND                   ;
+; oct[109..106]    ; Input ; Info     ; Stuck at GND                   ;
+; oct[103..100]    ; Input ; Info     ; Stuck at GND                   ;
+; oct[97..94]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[91..88]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[85..82]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[73..70]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[61..58]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[55..52]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[49..46]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[43..40]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[37..34]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[25..22]      ; Input ; Info     ; Stuck at GND                   ;
+; oct[13..0]       ; Input ; Info     ; Stuck at GND                   ;
+; sharp[143..130]  ; Input ; Info     ; Stuck at GND                   ;
+; sharp[127..124]  ; Input ; Info     ; Stuck at GND                   ;
+; sharp[121..118]  ; Input ; Info     ; Stuck at GND                   ;
+; sharp[115..112]  ; Input ; Info     ; Stuck at GND                   ;
+; sharp[109..107]  ; Input ; Info     ; Stuck at GND                   ;
+; sharp[96..95]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[84..82]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[79..76]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[73..70]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[67..64]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[61..58]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[55..52]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[49..47]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[36..35]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[24..22]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[19..16]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[13..10]    ; Input ; Info     ; Stuck at GND                   ;
+; sharp[7..4]      ; Input ; Info     ; Stuck at GND                   ;
+; sharp[1..0]      ; Input ; Info     ; Stuck at GND                   ;
++------------------+-------+----------+--------------------------------+
+
+
 +---------------------------------------------------+
 ; Port Connectivity Checks: "hex_decoder:h5"        ;
 +-----------------+-------+----------+--------------+
@@ -1720,8 +2167,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+--------------+
 
 
++------------------------------------------------+
+; Port Connectivity Checks: "hex_decoder:h1"     ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; hex_digit[3] ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
+
+
 +---------------------------------------------------+
-; Port Connectivity Checks: "hex_decoder:h3"        ;
+; Port Connectivity Checks: "hex_decoder:h0"        ;
 +-----------------+-------+----------+--------------+
 ; Port            ; Type  ; Severity ; Details      ;
 +-----------------+-------+----------+--------------+
@@ -1729,13 +2185,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+--------------+
 
 
-+---------------------------------------------------+
-; Port Connectivity Checks: "hex_decoder:h2"        ;
-+-----------------+-------+----------+--------------+
-; Port            ; Type  ; Severity ; Details      ;
-+-----------------+-------+----------+--------------+
-; hex_digit[3..1] ; Input ; Info     ; Stuck at GND ;
-+-----------------+-------+----------+--------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keyboard_press_driver:keyboard"                                                      ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; valid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -1743,7 +2199,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 281                         ;
+; arriav_ff             ; 284                         ;
 ;     CLR               ; 61                          ;
 ;     CLR SCLR          ; 35                          ;
 ;     ENA               ; 101                         ;
@@ -1752,22 +2208,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR          ; 8                           ;
 ;     SCLR              ; 10                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 51                          ;
+;     plain             ; 54                          ;
 ; arriav_io_obuf        ; 74                          ;
-; arriav_lcell_comb     ; 543                         ;
+; arriav_lcell_comb     ; 534                         ;
 ;     arith             ; 121                         ;
 ;         1 data inputs ; 88                          ;
 ;         2 data inputs ; 33                          ;
 ;     extend            ; 4                           ;
 ;         7 data inputs ; 4                           ;
-;     normal            ; 408                         ;
+;     normal            ; 399                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 24                          ;
-;         2 data inputs ; 18                          ;
-;         3 data inputs ; 47                          ;
-;         4 data inputs ; 71                          ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 58                          ;
 ;         5 data inputs ; 69                          ;
-;         6 data inputs ; 177                         ;
+;         6 data inputs ; 175                         ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
@@ -1779,7 +2235,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 15                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.17                        ;
+; Average LUT depth     ; 2.16                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1798,7 +2254,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Thu Mar 30 17:10:00 2017
+    Info: Processing started: Sat Apr  1 19:45:15 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off week1milestone -c week1milestone
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
@@ -1811,7 +2267,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_adapter File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_adapter/vga_adapter.v Line: 78
 Info (12021): Found 2 design units, including 2 entities, in source file vga_data.v
     Info (12023): Found entity 1: vga_data File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 1
-    Info (12023): Found entity 2: draw_note File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 137
+    Info (12023): Found entity 2: draw_note File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 140
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard/keyboard_scancoderaw_driver.v
     Info (12023): Found entity 1: keyboard_scancoderaw_driver File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard/keyboard_scancoderaw_driver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard/keyboard_press_driver.v
@@ -1838,14 +2294,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file audio3/
     Info (12023): Found entity 1: audio_clock File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio_clock.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file top.v
     Info (12023): Found entity 1: top File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 1
-    Info (12023): Found entity 2: hex_decoder File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 179
+    Info (12023): Found entity 2: hex_decoder File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 174
 Info (12021): Found 1 design units, including 1 entities, in source file freq_select.v
     Info (12023): Found entity 1: freq_select File: /h/u14/c6/01/mathie15/csc258/music_device/top level/freq_select.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file control.v
     Info (12023): Found entity 1: control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 1
     Info (12023): Found entity 2: RateDivider2 File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 118
-Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+Info (12021): Found 2 design units, including 2 entities, in source file datapath.v
     Info (12023): Found entity 1: datapath File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 1
+    Info (12023): Found entity 2: coord_picker File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 95
 Info (12021): Found 1 design units, including 1 entities, in source file memory.v
     Info (12023): Found entity 1: memory File: /h/u14/c6/01/mathie15/csc258/music_device/top level/memory.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard.v
@@ -1857,7 +2314,7 @@ Info (12127): Elaborating entity "top" for the top level hierarchy
 Info (12128): Elaborating entity "keyboard_press_driver" for hierarchy "keyboard_press_driver:keyboard" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 61
 Info (12128): Elaborating entity "keyboard_inner_driver" for hierarchy "keyboard_press_driver:keyboard|keyboard_inner_driver:kbd" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard/keyboard_press_driver.v Line: 38
 Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:h0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 64
-Info (12128): Elaborating entity "convert_keyboard_input" for hierarchy "convert_keyboard_input:in0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 89
+Info (12128): Elaborating entity "convert_keyboard_input" for hierarchy "convert_keyboard_input:in0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 95
 Warning (10230): Verilog HDL assignment warning at keyboard.v(85): truncated value with size 32 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 85
 Warning (10230): Verilog HDL assignment warning at keyboard.v(88): truncated value with size 32 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 88
 Warning (10240): Verilog HDL Always Construct warning at keyboard.v(35): inferring latch(es) for variable "octave", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 35
@@ -1872,7 +2329,7 @@ Info (10041): Inferred latch for "note[2]" at keyboard.v(35) File: /h/u14/c6/01/
 Info (10041): Inferred latch for "note[3]" at keyboard.v(35) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 35
 Info (10041): Inferred latch for "octave[0]" at keyboard.v(35) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 35
 Info (10041): Inferred latch for "octave[1]" at keyboard.v(35) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/keyboard.v Line: 35
-Info (12128): Elaborating entity "control" for hierarchy "control:c0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 98
+Info (12128): Elaborating entity "control" for hierarchy "control:c0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 104
 Warning (10230): Verilog HDL assignment warning at control.v(65): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 65
 Warning (10230): Verilog HDL assignment warning at control.v(67): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 67
 Info (12128): Elaborating entity "RateDivider2" for hierarchy "control:c0|RateDivider2:rd" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 17
@@ -1880,9 +2337,9 @@ Warning (10230): Verilog HDL assignment warning at control.v(123): truncated val
 Warning (10230): Verilog HDL assignment warning at control.v(127): truncated value with size 32 to match size of target (25) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 127
 Warning (10230): Verilog HDL assignment warning at control.v(129): truncated value with size 32 to match size of target (25) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 129
 Warning (10230): Verilog HDL assignment warning at control.v(131): truncated value with size 32 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/control.v Line: 131
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:d0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 108
-Warning (10230): Verilog HDL assignment warning at datapath.v(44): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 44
-Info (12128): Elaborating entity "memory" for hierarchy "datapath:d0|memory:main" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 23
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:d0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 120
+Warning (10230): Verilog HDL assignment warning at datapath.v(56): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 56
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:d0|memory:main" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 33
 Info (12128): Elaborating entity "altsyncram" for hierarchy "datapath:d0|memory:main|altsyncram:altsyncram_component" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/memory.v Line: 86
 Info (12130): Elaborated megafunction instantiation "datapath:d0|memory:main|altsyncram:altsyncram_component" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/memory.v Line: 86
 Info (12133): Instantiated megafunction "datapath:d0|memory:main|altsyncram:altsyncram_component" with the following parameter: File: /h/u14/c6/01/mathie15/csc258/music_device/top level/memory.v Line: 86
@@ -1903,8 +2360,46 @@ Info (12133): Instantiated megafunction "datapath:d0|memory:main|altsyncram:alts
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r9m1.tdf
     Info (12023): Found entity 1: altsyncram_r9m1 File: /h/u14/c6/01/mathie15/csc258/music_device/top level/db/altsyncram_r9m1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_r9m1" for hierarchy "datapath:d0|memory:main|altsyncram:altsyncram_component|altsyncram_r9m1:auto_generated" File: /s/appspace/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "freq_select" for hierarchy "datapath:d0|freq_select:fs" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 60
-Info (12128): Elaborating entity "audio3" for hierarchy "audio3:audio" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 127
+Info (12128): Elaborating entity "freq_select" for hierarchy "datapath:d0|freq_select:fs" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 73
+Info (12128): Elaborating entity "coord_picker" for hierarchy "datapath:d0|coord_picker:cds" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 78
+Warning (10230): Verilog HDL assignment warning at datapath.v(110): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 110
+Warning (10230): Verilog HDL assignment warning at datapath.v(115): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 115
+Warning (10230): Verilog HDL assignment warning at datapath.v(120): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 120
+Warning (10230): Verilog HDL assignment warning at datapath.v(126): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 126
+Warning (10230): Verilog HDL assignment warning at datapath.v(130): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 130
+Warning (10230): Verilog HDL assignment warning at datapath.v(131): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 131
+Warning (10230): Verilog HDL assignment warning at datapath.v(135): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 135
+Warning (10230): Verilog HDL assignment warning at datapath.v(136): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 136
+Warning (10230): Verilog HDL assignment warning at datapath.v(140): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 140
+Warning (10230): Verilog HDL assignment warning at datapath.v(141): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 141
+Warning (10230): Verilog HDL assignment warning at datapath.v(146): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 146
+Warning (10230): Verilog HDL assignment warning at datapath.v(150): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 150
+Warning (10230): Verilog HDL assignment warning at datapath.v(151): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 151
+Warning (10230): Verilog HDL assignment warning at datapath.v(155): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 155
+Warning (10230): Verilog HDL assignment warning at datapath.v(156): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 156
+Warning (10230): Verilog HDL assignment warning at datapath.v(160): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 160
+Warning (10230): Verilog HDL assignment warning at datapath.v(161): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 161
+Warning (10230): Verilog HDL assignment warning at datapath.v(166): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 166
+Warning (10230): Verilog HDL assignment warning at datapath.v(170): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 170
+Warning (10230): Verilog HDL assignment warning at datapath.v(171): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 171
+Warning (10230): Verilog HDL assignment warning at datapath.v(175): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 175
+Warning (10230): Verilog HDL assignment warning at datapath.v(176): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 176
+Warning (10230): Verilog HDL assignment warning at datapath.v(180): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 180
+Warning (10230): Verilog HDL assignment warning at datapath.v(181): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 181
+Info (12128): Elaborating entity "vga_data" for hierarchy "datapath:d0|vga_data:vgad" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/datapath.v Line: 92
+Info (12128): Elaborating entity "draw_note" for hierarchy "datapath:d0|vga_data:vgad|draw_note:draw" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 136
+Warning (10199): Verilog HDL Case Statement warning at vga_data.v(169): case item expression never matches the case expression File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 169
+Warning (10230): Verilog HDL assignment warning at vga_data.v(175): truncated value with size 2 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 175
+Warning (10230): Verilog HDL assignment warning at vga_data.v(179): truncated value with size 2 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 179
+Warning (10230): Verilog HDL assignment warning at vga_data.v(183): truncated value with size 2 to match size of target (1) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 183
+Warning (10199): Verilog HDL Case Statement warning at vga_data.v(197): case item expression never matches the case expression File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 197
+Warning (10230): Verilog HDL assignment warning at vga_data.v(228): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 228
+Warning (10230): Verilog HDL assignment warning at vga_data.v(240): truncated value with size 32 to match size of target (7) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 240
+Warning (10230): Verilog HDL assignment warning at vga_data.v(288): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 288
+Warning (10230): Verilog HDL assignment warning at vga_data.v(296): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 296
+Warning (10230): Verilog HDL assignment warning at vga_data.v(323): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 323
+Warning (10230): Verilog HDL assignment warning at vga_data.v(331): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 331
+Info (12128): Elaborating entity "audio3" for hierarchy "audio3:audio" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 139
 Info (12128): Elaborating entity "Reset_Delay" for hierarchy "audio3:audio|Reset_Delay:r0" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio3.v Line: 36
 Info (12128): Elaborating entity "VGA_Audio_PLL" for hierarchy "audio3:audio|VGA_Audio_PLL:p1" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio3.v Line: 48
 Info (12128): Elaborating entity "altpll" for hierarchy "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/VGA_Audio_PLL.v Line: 85
@@ -1979,7 +2474,7 @@ Info (12128): Elaborating entity "I2C_Controller" for hierarchy "audio3:audio|I2
 Info (12128): Elaborating entity "audio_clock" for hierarchy "audio3:audio|audio_clock:u4" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio3.v Line: 69
 Info (12128): Elaborating entity "audio_converter" for hierarchy "audio3:audio|audio_converter:u5" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio3.v Line: 83
 Info (12128): Elaborating entity "sine_table" for hierarchy "audio3:audio|sine_table:sig1" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/audio3.v Line: 109
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 157
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 163
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_adapter/vga_adapter.v Line: 192
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_adapter/vga_adapter.v Line: 213
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_adapter/vga_adapter.v Line: 213
@@ -2030,112 +2525,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: /h/u14/c6/01/mathie15/csc258/music_device/top level/db/altpll_80u.tdf Line: 26
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: /s/appspace/quartus/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "vga_data" for hierarchy "vga_data:vgad" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 176
-Info (12128): Elaborating entity "draw_note" for hierarchy "vga_data:vgad|draw_note:draw" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 133
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(159): variable "reset" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 159
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(164): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 164
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(166): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 166
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(167): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 167
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(168): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 168
-Warning (10230): Verilog HDL assignment warning at vga_data.v(168): truncated value with size 32 to match size of target (6) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 168
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(170): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 170
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(173): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 173
-Warning (10230): Verilog HDL assignment warning at vga_data.v(173): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 173
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(183): variable "draw_sharp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 183
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(185): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 185
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(187): variable "sharp" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 187
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(187): variable "counter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 187
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(188): variable "writeEn" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 188
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(190): variable "x" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 190
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(190): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 190
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(191): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 191
-Warning (10230): Verilog HDL assignment warning at vga_data.v(191): truncated value with size 32 to match size of target (6) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 191
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(193): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 193
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(193): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 193
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(196): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 196
-Warning (10230): Verilog HDL assignment warning at vga_data.v(196): truncated value with size 32 to match size of target (4) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 196
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(197): variable "y" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 197
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(197): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 197
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(199): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 199
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(199): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 199
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(207): variable "draw_note" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 207
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(209): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 209
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(211): variable "letter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 211
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(211): variable "counter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 211
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(212): variable "writeEn" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 212
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(215): variable "x" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 215
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(215): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 215
-Warning (10230): Verilog HDL assignment warning at vga_data.v(215): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 215
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(217): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 217
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(217): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 217
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(219): variable "y" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 219
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(219): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 219
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(221): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 221
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(221): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 221
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(230): variable "draw_octave" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 230
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(232): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 232
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(234): variable "letter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 234
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(234): variable "counter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 234
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(235): variable "writeEn" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 235
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(238): variable "x" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 238
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(238): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 238
-Warning (10230): Verilog HDL assignment warning at vga_data.v(238): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 238
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(241): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 241
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(241): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 241
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(243): variable "y" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 243
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(243): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 243
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(245): variable "x_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 245
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(245): variable "y_count" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 245
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "colour", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "writeEn", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "draw_sharp", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "x_out", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "y_out", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "x_count", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "y_count", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "draw_note", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10240): Verilog HDL Always Construct warning at vga_data.v(157): inferring latch(es) for variable "draw_octave", which holds its previous value in one or more paths through the always construct File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(259): variable "counter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 259
-Warning (10235): Verilog HDL Always Construct warning at vga_data.v(262): variable "counter" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 262
-Warning (10230): Verilog HDL assignment warning at vga_data.v(262): truncated value with size 32 to match size of target (8) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 262
-Info (10041): Inferred latch for "draw_octave" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "draw_note" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_count[0]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_count[1]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_count[2]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_count[3]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[0]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[1]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[2]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[3]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[4]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_count[5]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[0]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[1]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[2]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[3]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[4]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[5]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "y_out[6]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[0]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[1]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[2]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[3]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[4]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[5]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[6]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "x_out[7]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "draw_sharp" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "writeEn" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "colour[0]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "colour[1]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
-Info (10041): Inferred latch for "colour[2]" at vga_data.v(157) File: /h/u14/c6/01/mathie15/csc258/music_device/top level/vga_data.v Line: 157
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following PLL node(s):
         Warning (14320): Synthesized away node "audio3:audio|VGA_Audio_PLL:p1|altpll:altpll_component|altpll_jlb2:auto_generated|clk[2]" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/db/altpll_jlb2.tdf Line: 49
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276004): RAM logic "audio3:audio|I2C_AV_Config:u3|Ram0" is uninferred due to inappropriate RAM size File: /h/u14/c6/01/mathie15/csc258/music_device/top level/audio3/I2C_AV_Config.v Line: 117
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "AUD_BCLK" and its non-tri-state driver. File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 19
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
@@ -2160,16 +2555,32 @@ Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "AUD_BCLK~synth" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "TD_RESET" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 10
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 27
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 27
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 27
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 25
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 26
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 27
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
     Warning (13410): Pin "HEX3[1]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
     Warning (13410): Pin "HEX3[2]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 28
     Warning (13410): Pin "HEX5[1]" is stuck at GND File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 30
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 35
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 427 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DIN -entity DE1_SoC was ignored
@@ -2578,19 +2989,19 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 8
     Warning (15610): No output dependent on input pin "SW[9]" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 8
     Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: /h/u14/c6/01/mathie15/csc258/music_device/top level/top.v Line: 16
-Info (21057): Implemented 817 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 809 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 83 output pins
     Info (21060): Implemented 74 bidirectional pins
-    Info (21061): Implemented 609 logic cells
+    Info (21061): Implemented 601 logic cells
     Info (21064): Implemented 15 RAM segments
     Info (21065): Implemented 3 PLLs
     Info (21062): Implemented 14 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 520 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 505 warnings
     Info: Peak virtual memory: 1358 megabytes
-    Info: Processing ended: Thu Mar 30 17:10:17 2017
+    Info: Processing ended: Sat Apr  1 19:45:32 2017
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+
