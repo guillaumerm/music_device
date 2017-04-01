@@ -155,23 +155,28 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 	reg [7:0] x_count = 0;
 	reg [6:0] y_count = 0;
 
-	reg draw_sharp, draw_octave, draw_n, current_state, next_state;
+	reg clear_n, draw_n, current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
 	localparam S_DRAW = 2'b00,
 				  S_DRAW_WAIT = 2'b01,
-				  S_RESET = 2'b10;
+				  S_RESET = 2'b10,
+				  S_CLEAR = 2'b11;
 	
 	always@(*)
 	begin
 		case(current_state)
+			S_CLEAR:
+				begin
+					next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW : S_CLEAR;
+				end
 			S_DRAW:
 				begin
 					next_state = local_letter == 0 && local_oct == 0 && local_sharp == 0 ? S_DRAW_WAIT : S_DRAW;
 				end
 			S_DRAW_WAIT:
 				begin
-					next_state = ld_note ? S_DRAW : S_DRAW_WAIT;
+					next_state = ld_note ? S_CLEAR : S_DRAW_WAIT;
 				end
 			default :
 				begin
@@ -189,16 +194,24 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 	always@(*)
 	begin
 		case(current_state)
+			S_CLEAR:
+				begin
+					clear_n = 1;
+					draw_n = 0;
+				end
 			S_DRAW:
 				begin
+					clear_n = 0;
 					draw_n = 1;
 				end
 			S_DRAW_WAIT:
 				begin
+					clear_n = 0;
 					draw_n = 0;
 				end
 			default :
 				begin
+					clear_n = 0;
 					draw_n = 0;
 				end
 		endcase
@@ -243,69 +256,90 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 	always@(posedge clk)
 	begin
 		//include real reset and shift clear ot one's later...
-			if (!draw_n)
+
+			if (!draw_n && !clear_n)
 			begin
 				local_oct[143:0] <= oct[143:0];
 				local_letter[143:0] <= letter[143:0];
 				local_sharp[143:0] <= sharp[143:0];
-				clear_letter <= 2**144;
-				clear_oct <= 2**144;
-				clear_sharp <= 2**144;
+				clear_letter <= 0;
+				clear_oct <= 0;
+				clear_sharp <= 0;
 				x_out <= x;
 				y_out <= y;	
 				writeEn <= 0;
 			end
+			else if(clear_n && !draw_n)
+				begin
+									colour <= 3'b000;
+									if(clear_sharp != 0)
+										begin
+											
+											writeEn <= clear_sharp[143];
+											clear_sharp <= clear_sharp << 1;
+											x_out <= x + x_count;
+											y_out <= y + y_count;
+										end
+									else if(clear_letter != 0)
+										begin
+											
+											writeEn <= clear_letter[143];
+											clear_letter <= clear_letter << 1;
+											x_out <= x + 12 + x_count;
+											y_out <= y + y_count;
+										end
+									else if(clear_oct != 0)
+										begin
+											
+											writeEn <= clear_oct[143];
+											clear_oct <= clear_oct << 1;
+											x_out <= x + 24 + x_count;
+											y_out <= y + y_count;
+										end
+									else
+									begin
+										
+									
+										x_out <= x;
+										y_out <= y;	
+									end
+				end
+			else if (!clear_n && draw_n)
+				begin
+									colour <= colour_in;
+									if(local_sharp != 0)
+										begin
+											
+											writeEn <= local_sharp[143];
+											local_sharp <= local_sharp << 1;
+											x_out <= x + x_count;
+											y_out <= y + y_count;
+										end
+									else if(local_letter != 0)
+										begin
+									
+											writeEn <= local_letter[143];
+											local_letter <= local_letter << 1;
+											x_out <= x + 12 + x_count;
+											y_out <= y + y_count;
+										end
+									else if(local_oct != 0)
+										begin
+								
+											writeEn <= local_oct[143];
+											local_oct <= local_oct << 1;
+											x_out <= x + 24 + x_count;
+											y_out <= y + y_count;
+										end
+									else
+									begin
+										
+									
+										x_out <= x;
+										y_out <= y;	
+									end
+				end
 			else
-			begin
-				if(local_sharp != 0 && clear_sharp == 0)
-					begin
-						colour <= colour_in;
-						writeEn <= local_sharp[143];
-						local_sharp <= local_sharp << 1;
-						x_out <= x + x_count;
-						y_out <= y + y_count;
-					end
-				else if(local_letter != 0 && clear_letter == 0)
-					begin
-						colour <= colour_in;
-						writeEn <= local_letter[143];
-						local_letter <= local_letter << 1;
-						x_out <= x + 12 + x_count;
-						y_out <= y + y_count;
-					end
-				else if(local_oct != 0 && clear_oct == 0)
-					begin
-						colour <= colour_in;
-						writeEn <= local_oct[143];
-						local_oct <= local_oct << 1;
-						x_out <= x + 24 + x_count;
-						y_out <= y + y_count;
-					end
-				else if(clear_sharp != 0)
-					begin
-						colour <= 3'b000;
-						writeEn <= clear_sharp[143];
-						clear_sharp <= clear_sharp << 1;
-						x_out <= x + x_count;
-						y_out <= y + y_count;
-					end
-				else if(clear_letter != 0)
-					begin
-						colour <= 3'b000;
-						writeEn <= clear_letter[143];
-						clear_letter <= clear_letter << 1;
-						x_out <= x + 12 + x_count;
-						y_out <= y + y_count;
-					end
-				else if(clear_oct != 0)
-					begin
-						colour <= 3'b000;
-						writeEn <= clear_oct[143];
-						clear_oct <= clear_oct << 1;
-						x_out <= x + 24 + x_count;
-						y_out <= y + y_count;
-					end
-				else
 					begin
 						writeEn <= 0;
 						colour <= 3'b000;
@@ -313,5 +347,4 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 						y_out <= y;	
 					end
 			end
-	end
 endmodule
