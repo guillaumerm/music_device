@@ -18,9 +18,11 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	
 	
 	reg [3:0] mem_addr;
+	reg [2:0] colour_in;
 	reg [5:0] in_data;
 	wire [5:0] note_read;
-	
+	wire [7:0] x;
+	wire [6:0] y;
 	reg enable;
 
 	memory main(.address(mem_addr),
@@ -37,6 +39,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 				mem_addr <= 0;
 				enable <= 1;
 				in_data <= 0;
+				colour_in <= 3'b000;
 			end
 		else
 			begin
@@ -44,6 +47,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					begin
 						mem_addr <= note_counter;
 						enable <= 0;
+						colour_in <= 3'b110;
 					end
 				else if(ld_note)
 					begin
@@ -52,12 +56,14 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 							mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
 							in_data <= {octave_data, note_data};
 							enable <= 1;
+							colour_in <= 3'b100;
 						end
 					end
 				else
 					begin
 						enable <= 0;
 						in_data <= 0;
+						colour_in <= 3'b000;
 					end
 			end
 	end
@@ -67,18 +73,120 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 				  .note_freq(freq_out[31:0])
 				 );
 
-				 
+	coord_picker cds(.mem_addr(mem_addr),
+						  .x_out(x),
+						  .y_out(y)
+						 );
 	vga_data vgad(
 					.note(note_read[3:0]), 
 					.octave(note_read[5:4]), 
 					.clk(clk), 
 					.clear(clear),
-					.ld_note(ld_note),
-					.x(30), //from coord picker/datapath
-					.y(30), //from coord picker/datapath
+					.ld_note(ld_note|ld_play),
+					.colour_in(colour_in),
+					.x(x), //from coord picker/datapath
+					.y(y), //from coord picker/datapath
 					.x_out(x_out), 
 					.y_out(y_out), 
 					.writeEn(writeEn),
 					.colour(colour)
 					);
+endmodule
+
+module coord_picker(mem_addr, x_out, y_out);
+	input [3:0] mem_addr;
+	output reg [7:0] x_out;
+	output reg [6:0] y_out;
+	
+	always@(*)
+	begin
+		case(mem_addr)
+		0 : 
+			begin
+				x_out = 4;
+				y_out = 4;
+			end
+		1 :
+			begin
+				x_out = 4 + 36 + 4;
+				y_out = 4;
+			end
+		2 :
+			begin
+				x_out =  4 + 36 +  4 + 36 +  4;
+				y_out = 4;
+			end
+		3 :
+			begin
+				x_out =  4+ 36 +  4 + 36 +  4 + 36 + 4;
+				y_out = 4;
+			end
+		4 :
+			begin
+				x_out = 4;
+				y_out = 4 + 12 + 4;
+			end
+		5 :
+			begin
+				x_out = 4 + 36 + 4;
+				y_out = 4 + 12 + 4;
+			end
+		6 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 + 4;
+			end
+		7 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 + 4;
+			end
+		8 :
+			begin
+				x_out = 4;
+				y_out = 4 + 12 + 4 + 12 + 4;
+			end
+		9 :
+			begin
+				x_out = 4 + 36 + 4;
+				y_out = 4 + 12 + 4 + 12 + 4;
+			end
+		10 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4;
+				y_out = 4 +12 + 4 + 12 + 4;
+			end
+		11 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 + 4 + 12 + 4;
+			end
+		12 :
+			begin
+				x_out = 4;
+				y_out = 4 + 12 + 4 + 12 + 4 +12 + 4;
+			end
+		13 :
+			begin
+				x_out = 4 + 36 + 4;
+				y_out = 4 +12 + 4 + 12 + 4 + 12 + 4;
+			end
+		14 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 + 4 + 12 + 4 + 12 + 4;
+			end
+		15 :
+			begin
+				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 +4 + 12 + 4 + 12 + 4;
+			end
+		default :
+			begin
+				x_out = 0;
+				y_out = 0;
+			end
+		
+	endcase
+end
 endmodule

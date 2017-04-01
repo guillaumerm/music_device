@@ -1,4 +1,4 @@
-module vga_data(note, octave, clk, clear, ld_note, x, y, x_out, y_out, writeEn, colour);
+module vga_data(note, octave, clk, clear, ld_note, colour_in, x, y, x_out, y_out, writeEn, colour);
 	input [3:0] note;
 	input [1:0] octave;
 	input clk;
@@ -6,6 +6,7 @@ module vga_data(note, octave, clk, clear, ld_note, x, y, x_out, y_out, writeEn, 
 	input [6:0] y;
 	input clear;
 	input ld_note;
+	input [2:0] colour_in;
 	output [7:0] x_out;
 	output [6:0] y_out;
 	output writeEn;
@@ -127,6 +128,7 @@ module vga_data(note, octave, clk, clear, ld_note, x, y, x_out, y_out, writeEn, 
 						.y(y),
 						.ld_note(ld_note),
 						.clear(clear),
+						.colour_in(colour_in),
 						.writeEn(writeEn),
 						.colour(colour),
 						.x_out(x_out),
@@ -135,7 +137,7 @@ module vga_data(note, octave, clk, clear, ld_note, x, y, x_out, y_out, writeEn, 
 	
 endmodule
 
-module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,y_out);
+module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, colour, x_out,y_out);
 	input clk;
 	input [143:0] letter;
 	input [143:0] oct;
@@ -144,28 +146,28 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 	input [6:0] y;
 	input clear;
 	input ld_note;
+	input [2:0] colour_in;
 	output reg writeEn;
 	output reg [2:0] colour;
 	output reg [7:0] x_out;
 	output reg [6:0] y_out;
 	
-	reg [7:0] counter = 143;
 	reg [7:0] x_count = 0;
 	reg [6:0] y_count = 0;
 
-	localparam x_symbol_offset = 12;
 	reg draw_sharp, draw_octave, draw_n, current_state, next_state;
-	reg [143:0] local_letter;
-
-	localparam S_DRAW = 1'b0,
-				  S_DRAW_WAIT = 1'b1;
+	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
+	
+	localparam S_DRAW = 2'b00,
+				  S_DRAW_WAIT = 2'b01,
+				  S_RESET = 2'b10;
 	
 	always@(*)
 	begin
 		case(current_state)
 			S_DRAW:
 				begin
-					next_state = local_letter == 0 ? S_DRAW_WAIT : S_DRAW;
+					next_state = local_letter == 0 && local_oct == 0 && local_sharp == 0 ? S_DRAW_WAIT : S_DRAW;
 				end
 			S_DRAW_WAIT:
 				begin
@@ -243,190 +245,73 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, writeEn,colour,x_out,
 		//include real reset and shift clear ot one's later...
 			if (!draw_n)
 			begin
+				local_oct[143:0] <= oct[143:0];
 				local_letter[143:0] <= letter[143:0];
+				local_sharp[143:0] <= sharp[143:0];
+				clear_letter <= 2**144;
+				clear_oct <= 2**144;
+				clear_sharp <= 2**144;
 				x_out <= x;
 				y_out <= y;	
-				colour <= 3'b000;
 				writeEn <= 0;
 			end
 			else
 			begin
-				writeEn <= local_letter[143];
-				local_letter <= local_letter << 1;
-				
-				if(writeEn)
-					colour <= 3'b100;
+				if(local_sharp != 0 && clear_sharp == 0)
+					begin
+						colour <= colour_in;
+						writeEn <= local_sharp[143];
+						local_sharp <= local_sharp << 1;
+						x_out <= x + x_count;
+						y_out <= y + y_count;
+					end
+				else if(local_letter != 0 && clear_sharp == 0)
+					begin
+						colour <= colour_in;
+						writeEn <= local_letter[143];
+						local_letter <= local_letter << 1;
+						x_out <= x + 12 + x_count;
+						y_out <= y + y_count;
+					end
+				else if(local_oct != 0 && clear_sharp == 0)
+					begin
+						colour <= colour_in;
+						writeEn <= local_oct[143];
+						local_oct <= local_oct << 1;
+						x_out <= x + 24 + x_count;
+						y_out <= y + y_count;
+					end
+				else if(clear_sharp != 0)
+					begin
+						colour <= 3'b000;
+						writeEn <= clear_sharp[143];
+						clear_sharp <= clear_sharp << 1;
+						x_out <= x + x_count;
+						y_out <= y + y_count;
+					end
+				else if(clear_letter != 0)
+					begin
+						colour <= 3'b000;
+						writeEn <= clear_letter[143];
+						clear_letter <= clear_letter << 1;
+						x_out <= x + 12 + x_count;
+						y_out <= y + y_count;
+					end
+				else if(clear_oct != 0)
+					begin
+						colour <= 3'b000;
+						writeEn <= clear_oct[143];
+						clear_oct <= clear_oct << 1;
+						x_out <= x + 24 + x_count;
+						y_out <= y + y_count;
+					end
 				else
-					colour <= 3'b000;
-					
-				x_out <= x + x_count;
-				y_out <= y + y_count;	
+					begin
+						writeEn <= 0;
+						colour <= 3'b000;
+						x_out <= x;
+						y_out <= y;	
+					end
 			end
 	end
-	
-	//sharp
-	/*always@(clk)
-	begin
-	if(!clear)
-		begin
-			colour <= 3'b000;
-			writeEn <= 1;
-			draw_sharp <= 0;
-			draw_n <= 0;
-			draw_octave <=0;
-			
-			if(x_count < 160)
-				begin
-					x_out <= x_count;
-					y_out <= y_count;
-					x_count <= x_count + 1;
-				end
-			else if (x_count == 160 && y_count < 120)
-				begin
-					x_count <= 0;
-					y_count <= y_count + 1;
-				end
-			else
-				begin
-					x_count <= 0;
-					y_count <= 0;
-				end
-		end
-	else if(ld_note)
-		begin
-			if(draw_sharp)
-				begin
-					if(x_count < 12 && y_count < 12)
-						begin
-							writeEn <= sharp[counter];
-							if (writeEn)
-								begin
-									colour <= 3'b010;
-								end
-							x_out <= x + x_count;
-							x_count <= x_count + 1;
-							y_out <= y + y_count;
-						end
-					else if (x_count == 12 && y_count == 11)
-						begin
-							x_count <=  0;
-							y_count <= 0;
-							draw_sharp <= 0;
-							draw_n <= 1;
-							writeEn <= 0;
-						end
-					else if (x_count == 12 && y_count < 12)
-						begin
-							x_count <=  0;
-							y_count <= y_count + 1;
-						end
-				end
-			else if(draw_n)
-				begin
-					if(x_count < 12 && y_count < 12)
-						begin
-							writeEn <= letter[counter];
-							if (writeEn)
-								begin
-									colour <= 3'b010;
-										
-								end
-							//Offset included
-							x_out <= x + x_count + x_symbol_offset;
-							x_count <= x_count + 1;
-							y_out <= y + y_count;
-						end
-					else if (x_count == 12 && y_count == 11)
-						begin
-							x_count <=  0;
-							y_count <= 0;
-							draw_n <= 0;
-							draw_octave <= 1;
-							writeEn <= 0;
-						end
-					else if (x_count == 12 && y_count < 12)
-						begin
-							x_count <=  0;
-							y_count <= y_count + 1;
-						end
-				end
-			else if(draw_octave)
-				begin
-					if(x_count < 12 && y_count < 12)
-						begin
-							writeEn <= oct[counter];
-							if (writeEn)
-							begin
-								colour <= 3'b010;
-							end
-							//offset included
-							x_out <= x + x_count + (x_symbol_offset * 2);
-							x_count <= x_count + 1;
-							y_out <= y + y_count;			
-						end
-					else if (x_count == 12 && y_count == 11)
-						begin
-								x_count <=  0;
-								y_count <= 0;
-								draw_octave <= 0;
-								draw_sharp <= 1;
-								writeEn <= 0;
-						end
-					else if (x_count == 12 && y_count < 12)
-						begin						
-								x_count <=  0;
-								y_count <= y_count + 1;
-						end
-				end
-			else
-				begin
-					writeEn <= 0;
-					draw_sharp <= 1;
-					draw_octave <= 0;
-					draw_n <= 0;
-					x_out <= x;
-					y_out <= y;
-					x_count <= 0;
-					y_count <= 0;
-				end
-		end
-		else
-			begin
-					writeEn <= 0;
-					draw_sharp <= 0;
-					draw_octave <= 0;
-					draw_n <= 0;
-					x_out <= x;
-					y_out <= y;
-					x_count <= 0;
-					y_count <= 0;
-				end
-	end
-	
-	//counter track
-	always@(clk)
-	begin
-		if(!clear)
-			counter <= 0;
-		else if(ld_note)
-		begin
-			if(counter == 0)
-				counter <= 143;
-			else
-				counter <= counter - 1;
-		end
-		else
-			counter <= 0;
-	end*/
-
 endmodule
-
-/*
-module vga_note_reset(input some reset enable so it knows to "reset" output colours and pixels that get changed)
-endmodule
-
-module vga_highlight(inputs note position and some enable so it knows its changing colours, outputs colours and pixels that get changed)
-endmodule
-
-choose_coord(x, y, x_pos, y_pos, sharp_offset, octave_offset)
-*/
