@@ -63,7 +63,6 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					begin
 						enable <= 0;
 						in_data <= 0;
-						colour_in <= 3'b000;
 					end
 			end
 	end
@@ -101,82 +100,82 @@ module coord_picker(mem_addr, x_out, y_out);
 	always@(*)
 	begin
 		case(mem_addr)
-		0 : 
+		1 : 
 			begin
 				x_out = 4;
-				y_out = 4;
-			end
-		1 :
-			begin
-				x_out = 4 + 36 + 4;
 				y_out = 4;
 			end
 		2 :
 			begin
-				x_out =  4 + 36 +  4 + 36 +  4;
+				x_out = 4 + 36 + 4;
 				y_out = 4;
 			end
 		3 :
 			begin
-				x_out =  4+ 36 +  4 + 36 +  4 + 36 + 4;
+				x_out =  4 + 36 +  4 + 36 +  4;
 				y_out = 4;
 			end
 		4 :
 			begin
-				x_out = 4;
-				y_out = 4 + 12 + 4;
+				x_out =  4+ 36 +  4 + 36 +  4 + 36 + 4;
+				y_out = 4;
 			end
 		5 :
 			begin
-				x_out = 4 + 36 + 4;
+				x_out = 4;
 				y_out = 4 + 12 + 4;
 			end
 		6 :
 			begin
-				x_out = 4 + 36 + 4 + 36 + 4;
+				x_out = 4 + 36 + 4;
 				y_out = 4 + 12 + 4;
 			end
 		7 :
 			begin
-				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
+				x_out = 4 + 36 + 4 + 36 + 4;
 				y_out = 4 + 12 + 4;
 			end
 		8 :
 			begin
-				x_out = 4;
-				y_out = 4 + 12 + 4 + 12 + 4;
+				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
+				y_out = 4 + 12 + 4;
 			end
 		9 :
 			begin
-				x_out = 4 + 36 + 4;
+				x_out = 4;
 				y_out = 4 + 12 + 4 + 12 + 4;
 			end
 		10 :
 			begin
+				x_out = 4 + 36 + 4;
+				y_out = 4 + 12 + 4 + 12 + 4;
+			end
+		11 :
+			begin
 				x_out = 4 + 36 + 4 + 36 + 4;
 				y_out = 4 +12 + 4 + 12 + 4;
 			end
-		11 :
+		12 :
 			begin
 				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
 				y_out = 4 + 12 + 4 + 12 + 4;
 			end
-		12 :
+		13 :
 			begin
 				x_out = 4;
 				y_out = 4 + 12 + 4 + 12 + 4 +12 + 4;
 			end
-		13 :
+		14 :
 			begin
 				x_out = 4 + 36 + 4;
 				y_out = 4 +12 + 4 + 12 + 4 + 12 + 4;
 			end
-		14 :
+		15 :
 			begin
 				x_out = 4 + 36 + 4 + 36 + 4;
 				y_out = 4 + 12 + 4 + 12 + 4 + 12 + 4;
 			end
-		15 :
+		0 :
 			begin
 				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
 				y_out = 4 + 12 +4 + 12 + 4 + 12 + 4;
