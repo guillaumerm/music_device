@@ -256,15 +256,15 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, clear, colour_in, writeEn, c
 	always@(posedge clk)
 	begin
 		//include real reset and shift clear ot one's later...
-
+			
 			if (!draw_n && !clear_n)
 			begin
 				local_oct[143:0] <= oct[143:0];
 				local_letter[143:0] <= letter[143:0];
 				local_sharp[143:0] <= sharp[143:0];
-				clear_letter <= 0;
-				clear_oct <= 0;
-				clear_sharp <= 0;
+				clear_letter <= 2*144;
+				clear_oct <= 2**144;
+				clear_sharp <= 2**144;
 				x_out <= x;
 				y_out <= y;	
 				writeEn <= 0;
