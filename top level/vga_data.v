@@ -171,35 +171,42 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 			S_RESET:
 				begin
 				if(!reset)
-					next_state <= S_RESET;
+					next_state = S_RESET;
 				else
 					next_state = y_count == 119 ? S_DRAW_WAIT : S_RESET;
 				end
 			S_CLEAR:
 				begin
 				if(!reset)
-					next_state <= S_RESET;
+					next_state = S_RESET;
 				else
 					next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW : S_CLEAR;
 				end
 			S_DRAW:
 				begin
 				if(!reset)
-					next_state <= S_RESET;
+					next_state = S_RESET;
 				else
+				begin
 					next_state = local_letter == 0 && local_oct == 0 && local_sharp == 0 ? S_DRAW_WAIT : S_DRAW;
+				end
 				end
 			S_DRAW_WAIT:
 				begin
 				if(!reset)
-					next_state <= S_RESET;
-				else
-					next_state = ld_note ? S_CLEAR : S_DRAW_WAIT;
+					next_state = S_RESET;
+				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_WAIT;
+				end
+			S_DRAW_WAIT_GO:
+				begin
+				if(!reset)
+					next_state = S_RESET;
+				next_state = ld_note ? S_DRAW_WAIT_GO : S_CLEAR;
 				end
 			default :
 				begin
 				if(!reset)
-					next_state <= S_RESET;
+					next_state = S_RESET;
 				else
 					next_state = S_DRAW_WAIT;
 				end
@@ -329,7 +336,6 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 									colour <= colour_in;
 									if(local_sharp != 0)
 										begin
-											
 											writeEn <= local_sharp[143];
 											local_sharp <= local_sharp << 1;
 											x_out <= x + x_count;
@@ -337,7 +343,6 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 										end
 									else if(local_letter != 0)
 										begin
-									
 											writeEn <= local_letter[143];
 											local_letter <= local_letter << 1;
 											x_out <= x + 12 + x_count;
@@ -345,7 +350,6 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 										end
 									else if(local_oct != 0)
 										begin
-								
 											writeEn <= local_oct[143];
 											local_oct <= local_oct << 1;
 											x_out <= x + 24 + x_count;
@@ -354,7 +358,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 									else
 									begin
 										x_out <= x;
-										y_out <= y;	
+										y_out <= y;
 									end
 					end
 				S_CLEAR:
