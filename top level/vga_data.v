@@ -157,13 +157,14 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 
 	
 	reg enable_counter_144, enable_counter_19200;
-	reg [1:0] current_state, next_state;
+	reg [2:0] current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
-	localparam S_DRAW = 2'b00,
-				  S_DRAW_WAIT = 2'b01,
-				  S_RESET = 2'b10,
-				  S_CLEAR = 2'b11;
+	localparam S_DRAW = 3'b000,
+				  S_DRAW_WAIT = 3'b001,
+				  S_RESET = 3'b010,
+				  S_CLEAR = 3'b011,
+				  S_DRAW_WAIT_GO = 3'b100;
 	
 	always@(*)
 	begin

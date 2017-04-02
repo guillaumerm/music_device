@@ -1,4 +1,4 @@
-module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
+module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter, next_note_en);
 	input reset;
 	input load_n;
 	input playback;
@@ -7,10 +7,11 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter);
 	output reg ld_note;
 	//16 notes to play back
 	output reg [3:0] note_counter;
+	output next_note_en;
 	
 	reg [3:0] notes_recorded;
 	
-	wire next_note_en;
+	
 	
 	RateDivider2 rd(.clk(clk),
 						 .next_note_en(next_note_en)
