@@ -156,7 +156,8 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 	reg [6:0] y_count = 0;
 
 	
-	reg enable_counter_144, enable_counter_19200, current_state, next_state;
+	reg enable_counter_144, enable_counter_19200;
+	reg [1:0] current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
 	localparam S_DRAW = 2'b00,
@@ -316,6 +317,12 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 						writeEn <= 1;
 						x_out <= x_count;
 						y_out <= y_count;
+						local_oct[143:0] <= oct[143:0];
+						local_letter[143:0] <= letter[143:0];
+						local_sharp[143:0] <= sharp[143:0];
+						clear_letter <= 2*144;
+						clear_oct <= 2**144;
+						clear_sharp <= 2**144;
 					end
 				S_DRAW:
 					begin
