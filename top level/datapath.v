@@ -1,4 +1,4 @@
-module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, clear, freq_out, x_out, y_out, writeEn, colour);
+module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, freq_out, x_out, y_out, writeEn, colour);
 	input [3:0] note_data;
 	input [1:0] octave_data;
 	input ld_note;
@@ -6,7 +6,6 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	input [3:0] note_counter;
 	input clk;
 	input reset;
-	input clear;
 	input display_note;
 	
 	output [31:0] freq_out;
@@ -80,7 +79,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.note(note_read[3:0]), 
 					.octave(note_read[5:4]), 
 					.clk(clk), 
-					.clear(clear),
+					.reset(reset),
 					.ld_note(ld_note||ld_play),
 					.colour_in(colour_in),
 					.x(x), //from coord picker/datapath

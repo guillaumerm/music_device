@@ -110,7 +110,6 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			  .note_counter(note_counter[3:0]), 
 			  .clk(CLOCK_50),
 			  .reset(KEY[0]),
-			  .clear(KEY[1]),
 			  .freq_out(note_freq[31:0]),
 			  .display_note(SW[0]),
 			  .x_out(x),
