@@ -320,9 +320,9 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 						local_oct[143:0] <= oct[143:0];
 						local_letter[143:0] <= letter[143:0];
 						local_sharp[143:0] <= sharp[143:0];
-						clear_letter <= 2*144;
-						clear_oct <= 2**144;
-						clear_sharp <= 2**144;
+						clear_letter <= 2**144 - 1;
+						clear_oct <= 2**144 - 1;
+						clear_sharp <= 2**144 - 1;
 					end
 				S_DRAW:
 					begin
@@ -392,9 +392,9 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 						local_oct[143:0] <= oct[143:0];
 						local_letter[143:0] <= letter[143:0];
 						local_sharp[143:0] <= sharp[143:0];
-						clear_letter <= 2*144;
-						clear_oct <= 2**144;
-						clear_sharp <= 2**144;
+						clear_letter <= 2**144 - 1;
+						clear_oct <= 2**144 - 1;
+						clear_sharp <= 2**144 - 1;
 						x_out <= x;
 						y_out <= y;	
 						writeEn <= 0;
