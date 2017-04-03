@@ -19,10 +19,8 @@ module vga_data(note, octave, clk, reset, ld_note, colour_in, x, y, x_out, y_out
 	reg [143:0] oct;
 	
 	localparam a = 144'b000000000000000001100000000011110000000111111000001110011100001100001100001100001100001100001100001111111100001111111100001100001100001100001100,
-					
 					b = 144'b000000000000001111111000001111111100001100001100001100001100001100001100001111111000001111111000001100001100001100001100001111111100001111111000,
-					c = 144'b000000000000000111111000001111111100001100001100001100000000001100000000001100000000001100000000001100000000001100001100001111111100000111111000,
-							 
+					c = 144'b000000000000000111111000001111111100001100001100001100000000001100000000001100000000001100000000001100000000001100001100001111111100000111111000,	 
 					d = 	144'b000000000000001111111000001111111100000110001100000110001100000110001100000110001100000110001100000110001100001111111100001111111000000000000000,
 					e = 	144'b000000000000001111111100001111111100001100000000001100000000001111100000001111100000001100000000001100000000001111111100001111111100000000000000,
 					f = 	144'b000000000000000111111100001111111100001100000000001100000000001111100000001111100000001100000000001100000000001100000000001100000000000000000000,						
@@ -160,11 +158,13 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 	reg [2:0] current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
-	localparam S_DRAW = 3'b000,
-				  S_DRAW_WAIT = 3'b001,
-				  S_RESET = 3'b010,
-				  S_CLEAR = 3'b011,
-				  S_DRAW_WAIT_GO = 3'b100;
+	localparam S_DRAW_SHARP = 3'b000,
+				  S_DRAW_NOTE = 3'b001,
+				  S_DRAW_OCT = 3'b010,
+				  S_DRAW_WAIT = 3'b011,
+				  S_RESET = 3'b100,
+				  S_CLEAR = 3'b101,
+				  S_DRAW_WAIT_GO = 3'b110;
 	
 	always@(*)
 	begin
@@ -181,28 +181,51 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 				if(!reset)
 					next_state = S_RESET;
 				else
-					next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW : S_CLEAR;
+					begin
+					if(ld_note)
+						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW_WAIT_GO : S_CLEAR;
+					else
+						next_state = S_DRAW_WAIT;
+					end
 				end
-			S_DRAW:
+			S_DRAW_SHARP:
 				begin
 				if(!reset)
 					next_state = S_RESET;
 				else
-				begin
-					next_state = local_letter == 0 && local_oct == 0 && local_sharp == 0 ? S_DRAW_WAIT : S_DRAW;
+					begin
+						next_state = local_sharp == 0 ? S_DRAW_NOTE : S_DRAW_SHARP;
+					end
 				end
+			S_DRAW_NOTE:
+				begin
+				if(!reset)
+					next_state = S_RESET;
+				else
+					begin
+						next_state = local_letter == 0  ? S_DRAW_OCT : S_DRAW_NOTE;
+					end
+				end
+			S_DRAW_OCT:
+				begin
+				if(!reset)
+					next_state = S_RESET;
+				else
+					begin
+						next_state = local_oct == 0 ? S_DRAW_WAIT : S_DRAW_OCT;
+					end
 				end
 			S_DRAW_WAIT:
 				begin
 				if(!reset)
 					next_state = S_RESET;
-				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_WAIT;
+				next_state = ld_note ? S_CLEAR : S_DRAW_WAIT;
 				end
 			S_DRAW_WAIT_GO:
 				begin
 				if(!reset)
 					next_state = S_RESET;
-				next_state = ld_note ? S_DRAW_WAIT_GO : S_CLEAR;
+				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_SHARP;
 				end
 			default :
 				begin
@@ -234,7 +257,17 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
 				end
-			S_DRAW:
+			S_DRAW_SHARP:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_DRAW_NOTE:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_DRAW_OCT:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
@@ -332,7 +365,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 						clear_oct <= 2**144 - 1;
 						clear_sharp <= 2**144 - 1;
 					end
-				S_DRAW:
+				S_DRAW_SHARP:
 					begin
 									colour <= colour_in;
 									if(local_sharp != 0)
@@ -342,24 +375,39 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 											x_out <= x + x_count;
 											y_out <= y + y_count;
 										end
-									else if(local_letter != 0)
+									else
+									begin
+										writeEn <= 0;
+									end
+					end
+				S_DRAW_NOTE:
+					begin
+									colour <= colour_in;
+									if(local_letter != 0)
 										begin
 											writeEn <= local_letter[143];
 											local_letter <= local_letter << 1;
-											x_out <= x + 11 + x_count;
-											y_out <= y + y_count;
-										end
-									else if(local_oct != 0)
-										begin
-											writeEn <= local_oct[143];
-											local_oct <= local_oct << 1;
-											x_out <= x + 22 + x_count;
+											x_out <= x + 12 + x_count;
 											y_out <= y + y_count;
 										end
 									else
 									begin
-										x_out <= x;
-										y_out <= y;
+										writeEn <= 0;
+									end
+					end
+				S_DRAW_OCT:
+					begin
+									colour <= colour_in;
+									if(local_oct != 0)
+										begin
+											writeEn <= local_oct[143];
+											local_oct <= local_oct << 1;
+											x_out <= x + 24 + x_count;
+											y_out <= y + y_count;
+										end
+									else
+									begin
+										writeEn <= 0;
 									end
 					end
 				S_CLEAR:
@@ -376,20 +424,19 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 										begin
 											writeEn <= clear_letter[143];
 											clear_letter <= clear_letter << 1;
-											x_out <= x + 11 + x_count;
+											x_out <= x + 12 + x_count;
 											y_out <= y + y_count;
 										end
 									else if(clear_oct != 0)
 										begin
 											writeEn <= clear_oct[143];
 											clear_oct <= clear_oct << 1;
-											x_out <= x + 22 + x_count;
+											x_out <= x + 24 + x_count;
 											y_out <= y + y_count;
 										end
 									else
 									begin
-										x_out <= x;
-										y_out <= y;	
+										writeEn <= 0;
 									end
 					end
 				S_DRAW_WAIT:

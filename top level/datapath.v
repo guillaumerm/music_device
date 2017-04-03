@@ -177,7 +177,7 @@ module coord_picker(mem_addr, x_out, y_out);
 		15 :
 			begin
 				x_out = 4 + 36 + 4 + 36 + 4 + 36 + 4;
-				y_out = 4 + 12 +4 + 12 + 4 + 12 + 4;
+				y_out = 4 + 12 + 4 + 12 + 4 + 12 + 4;
 			end
 		default :
 			begin
