@@ -161,21 +161,31 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 	reg [6:0] prev_y = 0;
 	
 	reg enable_counter_144, enable_counter_19200;
-	reg [3:0] current_state, next_state;
-	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
+	reg [4:0] current_state, next_state;
+	reg [143:0] local_letter, local_oct, local_sharp, prev_letter, prev_oct, prev_sharp, clear_letter, clear_oct, clear_sharp, clear_pletter, clear_poct, clear_psharp;
 	
-	localparam S_DRAW_SHARP = 4'b0000,
-				  S_DRAW_NOTE = 4'b0001,
-				  S_DRAW_OCT = 4'b0010,
-				  S_DRAW_WAIT = 4'b0011,
-				  S_RESET = 4'b0100,
-				  S_CLEAR = 4'b0101,
-				  S_DRAW_WAIT_GO = 4'b0110,
-				  S_RESET_COUNT = 4'b0111,
-				  S_CLEAR_COUNT = 4'b1000,
-				  S_DS_COUNT = 4'b1001,
-				  S_DN_COUNT =4'b1010,
-				  S_DO_COUNT =4'b1011;
+	localparam S_DRAW_SHARP = 5'b00000,
+				  S_DRAW_NOTE = 5'b00001,
+				  S_DRAW_OCT = 5'b00010,
+				  S_DRAW_WAIT = 5'b00011,
+				  S_RESET = 5'b00100,
+				  S_CLEAR = 5'b00101,
+				  S_DRAW_WAIT_GO = 5'b00110,
+				  S_RESET_COUNT = 5'b00111,
+				  S_CLEAR_COUNT = 5'b01000,
+				  S_DS_COUNT = 5'b01001,
+				  S_DN_COUNT = 5'b01010,
+				  S_DO_COUNT = 5'b01011,
+				  
+				  S_DRAW_PSHARP = 5'b01100,
+				  S_DRAW_PNOTE = 5'b01101,
+				  S_DRAW_POCT = 5'b01110,
+				  S_PCLEAR = 5'b01111,
+				  S_PCLEAR_COUNT = 5'b10000,
+				  S_PDS_COUNT = 5'b10001,
+				  S_PDN_COUNT = 5'b10010,
+				  S_PDO_COUNT = 5'b10011,
+				  S_LOAD_PREV = 5'b10100;
 	
 	always@(*)
 	begin
@@ -239,7 +249,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_oct == 0 ? S_DRAW_WAIT : S_DRAW_OCT;
+						next_state = local_oct == 0 ? S_PCLEAR_COUNT : S_DRAW_OCT;
 					end
 				end
 			S_DO_COUNT:
@@ -258,6 +268,68 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_SHARP;
 				end
+				
+			//states for redrawing previous note
+			S_PCLEAR:
+				begin
+				if(!reset)
+					next_state = S_RESET_COUNT;
+				else
+					begin
+						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_PDS_COUNT : S_PCLEAR;
+					end
+				end
+			S_PCLEAR_COUNT:
+				begin
+					next_state = S_PCLEAR;
+				end
+			S_DRAW_PSHARP:
+				begin
+				if(!reset)
+					next_state = S_RESET_COUNT;
+				else
+					begin
+						next_state = local_sharp == 0 ? S_PDN_COUNT : S_DRAW_PSHARP;
+					end
+				end
+			S_PDS_COUNT:
+				begin
+					next_state = S_DRAW_PSHARP;
+				end
+			S_DRAW_PNOTE:
+				begin
+				if(!reset)
+					next_state = S_RESET_COUNT;
+				else
+					begin
+						next_state = local_letter == 0  ? S_PDO_COUNT : S_DRAW_PNOTE;
+					end
+				end
+			S_PDN_COUNT:
+				begin
+					next_state = S_DRAW_PNOTE;
+				end
+			S_DRAW_POCT:
+				begin
+				if(!reset)
+					next_state = S_RESET_COUNT;
+				else
+					begin
+						next_state = local_oct == 0 ? S_LOAD_PREV : S_DRAW_POCT;
+					end
+				end
+			S_LOAD_PREV:
+				begin
+				if(!reset)
+					next_state = S_RESET_COUNT;
+				else
+					next_state = S_DRAW_WAIT;
+				end
+			S_PDO_COUNT:
+				begin
+					next_state = S_DRAW_POCT;
+				end
+				
 			default :
 				begin
 				if(!reset)
@@ -329,6 +401,48 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					enable_counter_144 <= 0;
 				end
 			S_DRAW_WAIT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
+				
+			//draw over old notes
+			S_PCLEAR:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_PCLEAR_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
+			S_DRAW_PSHARP:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_PDS_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
+			S_DRAW_PNOTE:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_PDN_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
+			S_DRAW_POCT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 1;
+				end
+			S_PDO_COUNT:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 0;
@@ -417,9 +531,15 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 						local_oct[143:0] <= oct[143:0];
 						local_letter[143:0] <= letter[143:0];
 						local_sharp[143:0] <= sharp[143:0];
+						prev_oct <= 0;
+						prev_letter <= 0;
+						prev_sharp <= 0;
 						clear_letter <= 2**144 - 1;
 						clear_oct <= 2**144 - 1;
 						clear_sharp <= 2**144 - 1;
+						clear_pletter <= 2**144 - 1;
+						clear_poct <= 2**144 - 1;
+						clear_psharp <= 2**144 - 1;
 					end
 				S_DRAW_SHARP:
 					begin
@@ -496,15 +616,104 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 										local_oct[143:0] <= oct[143:0];
 										local_letter[143:0] <= letter[143:0];
 										local_sharp[143:0] <= sharp[143:0];
+										
 										x_out <= x;
 										y_out <= y;	
 									end
+					end
+					
+				S_DRAW_PSHARP:
+					begin
+									colour <= 3'b100;
+									if(prev_sharp != 0)
+										begin
+											writeEn <= prev_sharp[143];
+											prev_sharp <= prev_sharp << 1;
+											x_out <= prev_x + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else
+									begin
+										writeEn <= 0;
+									end
+					end
+				S_DRAW_PNOTE:
+					begin
+									colour <= 3'b100;
+									if(prev_letter != 0)
+										begin
+											writeEn <= prev_letter[143];
+											prev_letter <= prev_letter << 1;
+											x_out <= prev_x + 12 + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else
+									begin
+										writeEn <= 0;
+									end
+					end
+				S_DRAW_POCT:
+					begin
+									colour <= 3'b100;
+									if(local_oct != 0)
+										begin
+											writeEn <= prev_oct[143];
+											prev_oct <= prev_oct << 1;
+											x_out <= prev_x + 24 + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else
+									begin
+										writeEn <= 0;
+									end
+					end
+				S_PCLEAR:
+					begin
+									colour <= 3'b000;
+									if(clear_psharp != 0)
+										begin
+											writeEn <= clear_psharp[143];
+											clear_psharp <= clear_psharp << 1;
+											x_out <= prev_x + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else if(clear_pletter != 0)
+										begin
+											writeEn <= clear_pletter[143];
+											clear_pletter <= clear_pletter << 1;
+											x_out <= prev_x + 12 + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else if(clear_poct != 0)
+										begin
+											writeEn <= clear_poct[143];
+											clear_poct <= clear_poct << 1;
+											x_out <= prev_x + 24 + x_count;
+											y_out <= prev_y + y_count;
+										end
+									else
+									begin
+										writeEn <= 0;
+										x_out <= prev_x;
+										y_out <= prev_y;	
+									end
+					end
+				S_LOAD_PREV:
+					begin
+						prev_x <= x;
+						prev_y <= y;
+						prev_letter <= local_letter;
+						prev_oct <= local_oct;
+						prev_sharp <= local_sharp;
 					end
 				S_DRAW_WAIT:
 					begin
 						clear_letter <= 2**144 - 1;
 						clear_oct <= 2**144 - 1;
 						clear_sharp <= 2**144 - 1;
+						clear_pletter <= 2**144 - 1;
+						clear_poct <= 2**144 - 1;
+						clear_psharp <= 2**144 - 1;
 						x_out <= x;
 						y_out <= y;	
 						writeEn <= 0;
