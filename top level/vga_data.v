@@ -155,7 +155,10 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 	
 	reg [7:0] x_count = 0;
 	reg [6:0] y_count = 0;
-
+	
+	//first state
+	reg [7:0] prev_x = 0;
+	reg [6:0] prev_y = 0;
 	
 	reg enable_counter_144, enable_counter_19200;
 	reg [3:0] current_state, next_state;
