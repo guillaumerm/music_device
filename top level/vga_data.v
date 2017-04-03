@@ -346,14 +346,14 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 										begin
 											writeEn <= local_letter[143];
 											local_letter <= local_letter << 1;
-											x_out <= x + 12 + x_count;
+											x_out <= x + 11 + x_count;
 											y_out <= y + y_count;
 										end
 									else if(local_oct != 0)
 										begin
 											writeEn <= local_oct[143];
 											local_oct <= local_oct << 1;
-											x_out <= x + 24 + x_count;
+											x_out <= x + 22 + x_count;
 											y_out <= y + y_count;
 										end
 									else
@@ -376,14 +376,14 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 										begin
 											writeEn <= clear_letter[143];
 											clear_letter <= clear_letter << 1;
-											x_out <= x + 12 + x_count;
+											x_out <= x + 11 + x_count;
 											y_out <= y + y_count;
 										end
 									else if(clear_oct != 0)
 										begin
 											writeEn <= clear_oct[143];
 											clear_oct <= clear_oct << 1;
-											x_out <= x + 24 + x_count;
+											x_out <= x + 22 + x_count;
 											y_out <= y + y_count;
 										end
 									else
