@@ -161,13 +161,18 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 	reg [2:0] current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
-	localparam S_DRAW_SHARP = 3'b000,
-				  S_DRAW_NOTE = 3'b001,
-				  S_DRAW_OCT = 3'b010,
-				  S_DRAW_WAIT = 3'b011,
-				  S_RESET = 3'b100,
-				  S_CLEAR = 3'b101,
-				  S_DRAW_WAIT_GO = 3'b110;
+	localparam S_DRAW_SHARP = 4'b0000,
+				  S_DRAW_NOTE = 4'b0001,
+				  S_DRAW_OCT = 4'b0010,
+				  S_DRAW_WAIT = 4'b0011,
+				  S_RESET = 4'b0100,
+				  S_CLEAR = 4'b0101,
+				  S_DRAW_WAIT_GO = 4'b0110,
+				  S_RESET_COUNT = 4'b0111,
+				  S_CLEAR_COUNT = 4'b1000,
+				  S_DS_COUNT = 4'b1001,
+				  S_DN_COUNT =4'b1010,
+				  S_DO_COUNT =4'b1011;
 	
 	always@(*)
 	begin
@@ -175,67 +180,85 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 			S_RESET:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					next_state = y_count == 119 ? S_DRAW_WAIT : S_RESET;
+				end
+			S_RESET_COUNT:
+				begin
+					next_state = S_RESET;
 				end
 			S_CLEAR:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					begin
 					if(ld_note)
 						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW_WAIT_GO : S_CLEAR;
-					else if(ld_play)
-						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW_SHARP : S_CLEAR;
 					else
-						next_state = S_DRAW_WAIT;
+						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DS_COUNT : S_CLEAR;
 					end
+				end
+			S_CLEAR_COUNT:
+				begin
+					next_state = S_CLEAR;
 				end
 			S_DRAW_SHARP:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_sharp == 0 ? S_DRAW_NOTE : S_DRAW_SHARP;
+						next_state = local_sharp == 0 ? S_DN_COUNT : S_DRAW_SHARP;
 					end
+				end
+			S_DS_COUNT:
+				begin
+					next_state = S_DRAW_SHARP;
 				end
 			S_DRAW_NOTE:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_letter == 0  ? S_DRAW_OCT : S_DRAW_NOTE;
+						next_state = local_letter == 0  ? S_DO_COUNT : S_DRAW_NOTE;
 					end
+				end
+			S_DN_COUNT:
+				begin
+					next_state = S_DRAW_NOTE;
 				end
 			S_DRAW_OCT:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					begin
 						next_state = local_oct == 0 ? S_DRAW_WAIT : S_DRAW_OCT;
 					end
 				end
+			S_DO_COUNT:
+				begin
+					next_state = S_DRAW_OCT;
+				end
 			S_DRAW_WAIT:
 				begin
 				if(!reset)
-					next_state = S_RESET;
-				next_state = ld_note||ld_play ? S_CLEAR : S_DRAW_WAIT;
+					next_state = S_RESET_COUNT;
+				next_state = ld_note||ld_play ? S_CLEAR_COUNT : S_DRAW_WAIT;
 				end
 			S_DRAW_WAIT_GO:
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_SHARP;
 				end
 			default :
 				begin
 				if(!reset)
-					next_state = S_RESET;
+					next_state = S_RESET_COUNT;
 				else
 					next_state = S_DRAW_WAIT;
 				end
@@ -257,25 +280,50 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					enable_counter_19200 <= 1;
 					enable_counter_144 <= 0;
 				end
+			S_RESET_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
 			S_CLEAR:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
+				end
+			S_CLEAR_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
 				end
 			S_DRAW_SHARP:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
 				end
+			S_DS_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
 			S_DRAW_NOTE:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
 				end
+			S_DN_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
+				end
 			S_DRAW_OCT:
 				begin
 					enable_counter_19200 <= 0;
 					enable_counter_144 <= 1;
+				end
+			S_DO_COUNT:
+				begin
+					enable_counter_19200 <= 0;
+					enable_counter_144 <= 0;
 				end
 			S_DRAW_WAIT:
 				begin
