@@ -158,7 +158,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 
 	
 	reg enable_counter_144, enable_counter_19200;
-	reg [2:0] current_state, next_state;
+	reg [3:0] current_state, next_state;
 	reg [143:0] local_letter, local_oct, local_sharp, clear_letter, clear_oct, clear_sharp;
 	
 	localparam S_DRAW_SHARP = 4'b0000,
@@ -180,7 +180,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 			S_RESET:
 				begin
 				if(!reset)
-					next_state = S_RESET_COUNT;
+					next_state = S_RESET;
 				else
 					next_state = y_count == 119 ? S_DRAW_WAIT : S_RESET;
 				end
