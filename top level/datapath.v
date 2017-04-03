@@ -23,7 +23,6 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	wire [7:0] x;
 	wire [6:0] y;
 	reg enable;
-	reg draw_old;
 
 	memory main(.address(mem_addr),
 				 .clock(clk),
@@ -45,19 +44,16 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 			begin
 				if(ld_play)
 					begin
-					if(draw_old == 0)
-						begin
-							mem_addr <= note_counter;
-							enable <= 0;
-							draw_old <= 1;
-							colour_in <= 3'b110;
-						end
-					else 
-						begin
-							mem_addr <= mem_addr - 1;
-							draw_old <= 0;
-							colour_in <= 3'b100;
-						end
+						mem_addr <= note_counter;
+						enable <= 0;
+						if(next_note_en)
+							begin
+								colour_in <= 3'b110;
+							end
+						else
+							begin
+								colour_in <= 3'b100;
+							end
 					end
 				else if(ld_note)
 					begin
