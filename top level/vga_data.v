@@ -441,12 +441,18 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 					end
 				S_DRAW_WAIT:
 					begin
-						local_oct[143:0] <= oct[143:0];
-						local_letter[143:0] <= letter[143:0];
-						local_sharp[143:0] <= sharp[143:0];
 						clear_letter <= 2**144 - 1;
 						clear_oct <= 2**144 - 1;
 						clear_sharp <= 2**144 - 1;
+						x_out <= x;
+						y_out <= y;	
+						writeEn <= 0;
+					end
+				S_DRAW_WAIT_GO:
+					begin
+						local_oct[143:0] <= oct[143:0];
+						local_letter[143:0] <= letter[143:0];
+						local_sharp[143:0] <= sharp[143:0];
 						x_out <= x;
 						y_out <= y;	
 						writeEn <= 0;
