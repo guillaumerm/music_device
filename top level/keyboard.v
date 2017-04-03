@@ -27,6 +27,7 @@ module convert_keyboard_input(keyboard_code, makeBreak, load_n, playback, note, 
 				  K_4 = 8'h25,
 				  K_SPACE = 8'h29,
 				  K_ENTER = 8'h5A,
+				  K_REST = 8'h1A, //Z
 				  IGNORE = 8'hF0;
 	
 	// Convert key to input
@@ -86,7 +87,13 @@ module convert_keyboard_input(keyboard_code, makeBreak, load_n, playback, note, 
 				
 				//Load notes
 				K_SPACE : load_n = makeBreak ? 0 : 1;
-					
+				
+				K_REST : 
+					begin
+						note = 0; 
+						octave = 0;
+					end
+				
 				IGNORE :
 					begin
 						octave = octave;
@@ -94,10 +101,11 @@ module convert_keyboard_input(keyboard_code, makeBreak, load_n, playback, note, 
 						playback = 1;
 						load_n = 1;
 					end
+					
 				default : 
 					begin
-						octave = 0;
-						note = 0;
+						octave = octave;
+						note = note;
 						playback = 1;
 						load_n = 1;
 					end
