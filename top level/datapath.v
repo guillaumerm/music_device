@@ -70,12 +70,6 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 			end
 	end
 	
-	always@(*)
-	begin
-		if(ld_play)
-			update_current = 1;
-		
-	end
 	
   freq_select fs(.note(note_read[3:0]), 
 				  .octave(note_read[5:4]), 
