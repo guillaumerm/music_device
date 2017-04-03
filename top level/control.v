@@ -57,7 +57,7 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter, nex
 	begin
 		if(!reset)
 		begin
-			note_counter <= 0;
+			note_counter <= 4'b1111;
 			notes_recorded <= 0;
 		end
 		else

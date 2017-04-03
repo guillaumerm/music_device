@@ -30,7 +30,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 				 .wren(enable),
 				 .q(note_read[5:0])
 				);
-	
+				
 	always@(posedge clk)
 	begin
 		if(!reset)
@@ -42,11 +42,15 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 			end
 		else
 			begin
-				if(ld_play)
+				if(ld_play && next_note_en)
 					begin
 						mem_addr <= note_counter;
 						enable <= 0;
 						colour_in <= 3'b110;
+					end
+				else if(ld_play && !next_note_en)
+					begin
+						colour_in <= 3'b100;
 					end
 				else if(ld_note)
 					begin
@@ -64,6 +68,13 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 						in_data <= 0;
 					end
 			end
+	end
+	
+	always@(*)
+	begin
+		if(ld_play)
+			update_current = 1;
+		
 	end
 	
   freq_select fs(.note(note_read[3:0]), 
@@ -90,6 +101,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.writeEn(writeEn),
 					.colour(colour)
 					);
+					
 endmodule
 
 module coord_picker(mem_addr, x_out, y_out);

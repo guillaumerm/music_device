@@ -14,7 +14,6 @@ force {ld_note} 0
 force {ld_play} 0
 force {note_counter[3:0]} 2#0000 
 force {reset} 0
-force {clear} 0
 force {display_note} 1
 run 20ns
 
