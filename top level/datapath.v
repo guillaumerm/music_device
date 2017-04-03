@@ -80,7 +80,8 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.octave(note_read[5:4]), 
 					.clk(clk), 
 					.reset(reset),
-					.ld_note(ld_note||next_note_en),
+					.ld_note(ld_note),
+					.ld_play(next_note_en),
 					.colour_in(colour_in),
 					.x(x), //from coord picker/datapath
 					.y(y), //from coord picker/datapath

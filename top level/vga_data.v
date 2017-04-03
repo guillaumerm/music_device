@@ -1,4 +1,4 @@
-module vga_data(note, octave, clk, reset, ld_note, colour_in, x, y, x_out, y_out, writeEn, colour);
+module vga_data(note, octave, clk, reset, ld_note, ld_play, colour_in, x, y, x_out, y_out, writeEn, colour);
 	input [3:0] note;
 	input [1:0] octave;
 	input clk;
@@ -6,6 +6,7 @@ module vga_data(note, octave, clk, reset, ld_note, colour_in, x, y, x_out, y_out
 	input [6:0] y;
 	input reset;
 	input ld_note;
+	input ld_play;
 	input [2:0] colour_in;
 	output [7:0] x_out;
 	output [6:0] y_out;
@@ -125,6 +126,7 @@ module vga_data(note, octave, clk, reset, ld_note, colour_in, x, y, x_out, y_out
 						.x(x), 
 						.y(y),
 						.ld_note(ld_note),
+						.ld_play(ld_play),
 						.reset(reset),
 						.colour_in(colour_in),
 						.writeEn(writeEn),
@@ -135,7 +137,7 @@ module vga_data(note, octave, clk, reset, ld_note, colour_in, x, y, x_out, y_out
 	
 endmodule
 
-module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, colour, x_out,y_out);
+module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, writeEn, colour, x_out,y_out);
 	input clk;
 	input [143:0] letter;
 	input [143:0] oct;
@@ -144,6 +146,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 	input [6:0] y;
 	input reset;
 	input ld_note;
+	input ld_play;
 	input [2:0] colour_in;
 	output reg writeEn;
 	output reg [2:0] colour;
@@ -184,6 +187,8 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 					begin
 					if(ld_note)
 						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW_WAIT_GO : S_CLEAR;
+					else if(ld_play)
+						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_DRAW_SHARP : S_CLEAR;
 					else
 						next_state = S_DRAW_WAIT;
 					end
@@ -219,7 +224,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 				begin
 				if(!reset)
 					next_state = S_RESET;
-				next_state = ld_note ? S_CLEAR : S_DRAW_WAIT;
+				next_state = ld_note||ld_play ? S_CLEAR : S_DRAW_WAIT;
 				end
 			S_DRAW_WAIT_GO:
 				begin
@@ -437,6 +442,11 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 									else
 									begin
 										writeEn <= 0;
+										local_oct[143:0] <= oct[143:0];
+										local_letter[143:0] <= letter[143:0];
+										local_sharp[143:0] <= sharp[143:0];
+										x_out <= x;
+										y_out <= y;	
 									end
 					end
 				S_DRAW_WAIT:
@@ -444,15 +454,6 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, reset, colour_in, writeEn, c
 						clear_letter <= 2**144 - 1;
 						clear_oct <= 2**144 - 1;
 						clear_sharp <= 2**144 - 1;
-						x_out <= x;
-						y_out <= y;	
-						writeEn <= 0;
-					end
-				S_DRAW_WAIT_GO:
-					begin
-						local_oct[143:0] <= oct[143:0];
-						local_letter[143:0] <= letter[143:0];
-						local_sharp[143:0] <= sharp[143:0];
 						x_out <= x;
 						y_out <= y;	
 						writeEn <= 0;
