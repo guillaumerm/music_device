@@ -11,7 +11,7 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter, nex
 	
 	reg [3:0] notes_recorded;
 	
-	reg first;
+	
 	
 	RateDivider2 rd(.clk(clk),
 						 .next_note_en(next_note_en)
@@ -57,29 +57,17 @@ module control(reset, load_n, playback, clk, ld_play, ld_note, note_counter, nex
 	begin
 		if(!reset)
 		begin
-			note_counter <= 4'b1111;
+			note_counter <= 4'b0000;
 			notes_recorded <= 4'b0000;
-			first <= 1;
 		end
 		else
 			begin
 				if(current_state == LOAD_NOTE && load_n && notes_recorded < 4'b1111)
 					notes_recorded <= notes_recorded + 1;
-				else if(current_state == PLAYBACK && next_note_en)
-					begin
-					if(note_counter < notes_recorded)
-						note_counter <= note_counter + 1;
-					else if(note_counter >= notes_recorded && first)
-						begin
-						note_counter <= 0;
-						first <= 0;
-						end
-					end
+				else if(current_state == PLAYBACK && next_note_en && note_counter < notes_recorded)
+					note_counter <= note_counter + 1;
 				else if(next_note_en && note_counter == notes_recorded)
-				begin
-					note_counter <= 4'b1111;
-					first <= 1;
-				end
+					note_counter <= 0;
 			end
 	end
 	
