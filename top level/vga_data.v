@@ -266,7 +266,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 				begin
 				if(!reset)
 					next_state = S_RESET_COUNT;
-				next_state = ld_note ? S_DRAW_WAIT_GO : S_DRAW_SHARP;
+				next_state = ld_note ? S_DRAW_WAIT_GO : S_DS_COUNT;
 				end
 				
 			//states for redrawing previous note
@@ -276,7 +276,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = clear_letter == 0 && clear_sharp == 0 && clear_oct == 0 ? S_PDS_COUNT : S_PCLEAR;
+						next_state = clear_pletter == 0 && clear_psharp == 0 && clear_poct == 0 ? S_PDS_COUNT : S_PCLEAR;
 					end
 				end
 			S_PCLEAR_COUNT:
@@ -289,7 +289,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_sharp == 0 ? S_PDN_COUNT : S_DRAW_PSHARP;
+						next_state = prev_sharp == 0 ? S_PDN_COUNT : S_DRAW_PSHARP;
 					end
 				end
 			S_PDS_COUNT:
@@ -302,7 +302,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_letter == 0  ? S_PDO_COUNT : S_DRAW_PNOTE;
+						next_state = prev_letter == 0  ? S_PDO_COUNT : S_DRAW_PNOTE;
 					end
 				end
 			S_PDN_COUNT:
@@ -315,7 +315,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					next_state = S_RESET_COUNT;
 				else
 					begin
-						next_state = local_oct == 0 ? S_LOAD_PREV : S_DRAW_POCT;
+						next_state = prev_oct == 0 ? S_LOAD_PREV : S_DRAW_POCT;
 					end
 				end
 			S_LOAD_PREV:
@@ -655,7 +655,7 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 				S_DRAW_POCT:
 					begin
 									colour <= 3'b100;
-									if(local_oct != 0)
+									if(prev_oct != 0)
 										begin
 											writeEn <= prev_oct[143];
 											prev_oct <= prev_oct << 1;
@@ -702,9 +702,9 @@ module draw_note(clk,letter,oct,sharp,x,y, ld_note, ld_play, reset, colour_in, w
 					begin
 						prev_x <= x;
 						prev_y <= y;
-						prev_letter <= local_letter;
-						prev_oct <= local_oct;
-						prev_sharp <= local_sharp;
+						prev_letter <= letter;
+						prev_oct <= oct;
+						prev_sharp <= sharp;
 					end
 				S_DRAW_WAIT:
 					begin
