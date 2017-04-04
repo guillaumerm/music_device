@@ -22,7 +22,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	wire [5:0] note_read;
 	wire [7:0] x;
 	wire [6:0] y;
-	reg enable;
+	reg enable, first;
 
 	memory main(.address(mem_addr),
 				 .clock(clk),
@@ -36,7 +36,8 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 		if(!reset)
 			begin
 				mem_addr <= 4'b0000;
-				enable <= 0;
+				enable <= 1;
+				first <= 1;
 				in_data <= 0;
 				colour_in <= 3'b000;
 			end
@@ -55,11 +56,15 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 							in_data <= {octave_data, note_data};
 							enable <= 1;
 							colour_in <= 3'b100;
+							if(first == 1)
+							begin
+								first <= 0;
+							end
 						end
 					end
 				else
 					begin
-						if(enable == 1)
+						if(enable == 1 && !first)
 							mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
 						enable <= 0;
 						in_data <= 0;
@@ -83,7 +88,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.clk(clk), 
 					.reset(reset),
 					.ld_note(ld_note),
-					.ld_play(ld_play),
+					.ld_play(ld_play && next_note_en),
 					.colour_in(colour_in),
 					.x(x), //from coord picker/datapath
 					.y(y), //from coord picker/datapath
