@@ -1,4 +1,4 @@
-module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, next_note_en,freq_out, x_out, y_out, writeEn, colour);
+module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, display_note, reset, next_note_en, notes_recorded, freq_out, x_out, y_out, writeEn, colour);
 	input [3:0] note_data;
 	input [1:0] octave_data;
 	input ld_note;
@@ -8,6 +8,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	input reset;
 	input display_note;
 	input next_note_en;
+	input [3:0] notes_recorded;
 	output [31:0] freq_out;
 	output [7:0] x_out;
 	output [6:0] y_out;
@@ -22,7 +23,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	wire [5:0] note_read;
 	wire [7:0] x;
 	wire [6:0] y;
-	reg enable, first;
+	reg enable;
 
 	memory main(.address(mem_addr),
 				 .clock(clk),
@@ -35,9 +36,8 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 	begin
 		if(!reset)
 			begin
-				mem_addr <= 4'b0000;
+				mem_addr <= notes_recorded;
 				enable <= 1;
-				first <= 1;
 				in_data <= 0;
 				colour_in <= 3'b000;
 			end
@@ -45,7 +45,10 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 			begin
 				if(ld_play)
 					begin
-						mem_addr <= note_counter;
+						if(note_counter != 0)
+							mem_addr <= note_counter - 1;
+						else
+							mem_addr <= notes_recorded;
 						enable <= 0;
 						colour_in <= 3'b110;
 					end
@@ -53,22 +56,15 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					begin
 					if(enable == 0)
 						begin
+							mem_addr <= mem_addr == notes_recorded ? 0 : mem_addr + 1;
 							in_data <= {octave_data, note_data};
 							enable <= 1;
 							colour_in <= 3'b100;
-							if(first == 1)
-							begin
-								first <= 0;
-							end
 						end
 					end
 				else
-					begin
-						if(enable == 1 && !first)
-							begin
-								mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
-								enable <= 0;
-							end
+					begin	
+						enable <= 0;
 						in_data <= 0;
 					end
 			end

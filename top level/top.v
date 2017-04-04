@@ -85,6 +85,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 	wire [6:0] y;
 	wire writeEn;
 	wire next_note_en;
+	wire [3:0] notes_recorded;
   
   convert_keyboard_input in0(.keyboard_code(keyboard_code), 
 									  .makeBreak(makeBreak), 
@@ -101,7 +102,8 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			 .ld_play(ld_play), 
 			 .ld_note(ld_note), 
 			 .note_counter(note_counter[3:0]),
-			 .next_note_en(next_note_en)
+			 .next_note_en(next_note_en),
+			 .notes_recorded(notes_recorded)
 			 );
 			 
   datapath d0(.note_data(note),
@@ -112,6 +114,7 @@ hex_decoder h5(.hex_digit({2'b00,octave}), .segments(HEX5));
 			  .clk(CLOCK_50),
 			  .reset(KEY[0]),
 			  .next_note_en(next_note_en),
+			  .notes_recorded(notes_recorded),
 			  .freq_out(note_freq[31:0]),
 			  .display_note(SW[0]),
 			  .x_out(x),
