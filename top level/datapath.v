@@ -65,8 +65,10 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 				else
 					begin
 						if(enable == 1 && !first)
-							mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
-						enable <= 0;
+							begin
+								mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
+								enable <= 0;
+							end
 						in_data <= 0;
 					end
 			end
@@ -88,7 +90,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					.clk(clk), 
 					.reset(reset),
 					.ld_note(ld_note),
-					.ld_play(ld_play && next_note_en),
+					.ld_play(next_note_en),
 					.colour_in(colour_in),
 					.x(x), //from coord picker/datapath
 					.y(y), //from coord picker/datapath
