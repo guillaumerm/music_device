@@ -36,7 +36,7 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 		if(!reset)
 			begin
 				mem_addr <= 4'b0000;
-				enable <= 1;
+				enable <= 0;
 				in_data <= 0;
 				colour_in <= 3'b000;
 			end
@@ -61,7 +61,6 @@ module datapath(note_data, octave_data, ld_note, ld_play, note_counter, clk, dis
 					begin
 						if(enable == 1)
 							mem_addr <= mem_addr == 4'b1111 ? 0 : mem_addr + 1;
-						
 						enable <= 0;
 						in_data <= 0;
 					end
